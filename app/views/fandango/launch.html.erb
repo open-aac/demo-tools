@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'aac_shim' %>
+    <%= stylesheet_link_tag    'fandango', media: 'all' %>
+  </head>
+  <body>
+    <div id='loading'>Loading...</div>
+    <div id='buttons'>
+    </div>
+    <script>
+      (function() {
+        var dom = {};
+        ['loading', 'buttons'].forEach(function(id) {
+          dom[id] = document.getElementById(id);
+        });
+        var update = function(buttons, rows, columns) {
+          var container = dom.buttons;
+          container.innerHTML = '';
+          container.className = 'rows_' + rows + ' cols_' + columns;
+          dom.loading.style.display = 'none';
+          container.style.display = 'block';
+          buttons.forEach(function(button) {
+            var dom = document.createElement('div');
+            dom.className = 'button';
+            dom.setAttribute('data-id', button.id);
+            var label = document.createElement('div');
+            label.className = 'label';
+            label.innerText = button.label;
+            dom.appendChild(label);
+            var img_holder = document.createElement('div');
+            img_holder.className = 'img';
+            var img = document.createElement('img');
+            img.src = button.image;
+            img_holder.appendChild(img);
+            dom.appendChild(img_holder);
+            container.appendChild(dom);
+          });
+          position_elements();
+        };
+        var position_elements = function() {
+          var elems = dom.buttons.getElementsByClassName('button');
+          for(var idx = 0; idx < elems.length; idx++) {
+            var button = elems[idx];
+            // add to aac_shim if ready
+          }
+        };
+        dom.buttons.addEventListener('click', function(event) {
+          var elem = event.target;
+          while(elem.id != 'buttons' && !elem.classList.contains('button')) {
+            elem = elem.parentNode;
+          }
+          if(elem.classList.contains('button')) {
+            var id = elem.getAttribute('data-id');
+            console.log('selected', id);
+            if(id == 'speak') {
+              var text = elem.getElementsByClassName('label')[0].innerText;
+              var img = elem.getElementsByTagName('img')[0].src;
+              aac_shim.add_text(text, img);
+            } else if(id == 'root' || id == 'concessions') {
+              load(id);
+            }
+          }
+        });
+        var load = function(id) {
+          if(id == 'root') {
+            update([
+              {label: 'Movies', id: 'movies', image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Clapperboard_629_9612.svg'},
+              {label: 'Theaters', id: 'theaters', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/cinema_1.png'},
+              {label: 'Concessions', id: 'concessions', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/popcorn_1.png'}
+            ], 2, 2);
+          } else if(id == 'concessions') {
+            update([
+              {label: 'Back', id: 'root', image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'},
+              {label: 'I would like', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/to%20like.png'},
+              {label: 'How much', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Price-Tag_403_g.svg'},
+              {label: 'for', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/for.png'},
+              {label: 'Popcorn', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/popcorn_1.png'},
+              {label: 'Butter', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/mulberry/butter.svg'},
+              {label: 'Candybar', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/chocolate%20bar.png'},
+              {label: 'Drink', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/mulberry/drink.svg'},
+              {label: 'Yes', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/yes_2.png'},
+              {label: 'Larger', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/big.png'},
+              {label: 'Smaller', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/smaller_3.png'},
+              {label: 'No', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/former.png'}
+            ], 3, 4);
+          }
+        };
+        load('root');
+
+        // re-initialize shim targets when the window gets resized
+        window.addEventListener('resize', function() {
+          position_elements();
+        });
+      })();
+    </script>
+  </body>
+</html>

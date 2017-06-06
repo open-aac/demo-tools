@@ -1,0 +1,60 @@
+// Place all the styles related to the fandango controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#buttons {
+  *, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+  font-family: Arial;
+  .button {
+    border: 2px solid #888;
+    border-radius: 5px;
+    float: left;
+    padding-top: 5px;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    .img {
+      position: absolute;
+      top: 30px;
+      bottom: 10px;
+      right: 10px;
+      left: 10px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    &:hover, &:focus {
+      border-width: 4px;
+      outline: none;
+      background: #eee;
+    }
+  }
+  &.cols_2 .button {
+    width: calc(50vw - 20px);
+  }
+  &.cols_3 .button {
+    width: calc(33vw - 20px);
+  }
+  &.cols_4 .button {
+    width: calc(25vw - 20px);
+  }
+  &.cols_5 .button {
+    width: calc(20vw - 20px);
+  }
+  &.cols_6 .button {
+    width: calc(16.6vw - 20px);
+  }
+  &.rows_2 .button {
+    height: calc(50vh - 20px);
+  }
+  &.rows_3 .button {
+    height: calc(33vh - 20px);
+  }
+  &.rows_4 .button {
+    height: calc(25vh - 20px);
+  }
+}

@@ -1,0 +1,160 @@
+body {
+  overflow: hidden;
+  font-family: Arial;
+  &.black {
+    background: #000;
+    color: #fff;
+    #back,#next,#speak {
+      color: #fff;
+      border-color: #fff;
+      &:hover {
+        background: #888;
+        color: #000;
+      }
+    }
+  }
+}
+#back, #next {
+  display: none;
+  text-decoration: none;
+  position: fixed;
+  height: 80vh;
+  width: 10vw;
+  bottom: 0;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  
+  &.small {
+    height: 30vh;
+    width: 8vw;
+    .link {
+      top: calc(15vh - 5px - 2vw);
+    }
+  }
+  &.huge {
+    width: 15vw;
+  }
+  
+  .link {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: calc(40vh - 5px - 2vw);
+    font-size: 4vh;
+    
+    img {
+      padding-bottom: 10px;
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+}
+#back:hover, #next:hover, #speak:hover {
+  background: #000;
+  color: #fff;
+}
+#back {
+  left: 0;
+}
+#next {
+  right: 0;
+}
+#title {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  right: 5vw;
+  height: 15vh;
+  font-size: 7.5vh;
+  text-align: center;
+  font-weight: bold;
+}
+#author {
+  position: absolute;
+  top: 20vh;
+  left: 5vw;
+  right: 5vw;
+  height: 5vh;
+  font-size: 4vh;
+  text-align: center;
+}
+#cover {
+  position: absolute;
+  top: 25vh;
+  left: 15vw;
+  right: 15vw;
+  height: 55vh;
+  text-align: center;
+    
+  img {
+    max-width: 70vw;
+    max-height: 55vh;
+  }
+}
+#image {
+  position: absolute;
+  top: 20vh;
+  left: 10vw;
+  right: 10vw;
+  height: 55vh;
+  text-align: center;
+  
+  img {
+    max-width: 70vw;
+    max-height: 55vh;
+  }
+}
+#text {
+  position: absolute;
+  top: 77vh;
+  left: 20vw;
+  right: 20vw;
+  height: 15vh;
+  font-size: 5vh;
+  text-align: center;
+  
+  a {
+    display: block;
+    color: #888;
+    font-size: 14px;
+  }
+}
+#speak {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 30vw;
+  left: 30vw;
+  height: 15vh;
+  border: 1px solid #000;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 5vh;
+  line-height: 15vh;
+  color: #000;
+  text-decoration: none;
+}
+#loading {
+  position: absolute;
+  top: 40vh;
+  left: 0vw;
+  right: 0vw;
+  text-align: center;
+  font-size: 5vh;
+  opacity: 0;
+  animation: appear-after-delay 1s forwards;
+}
+/* Don't flash a loading message unless there's actually a delay */
+@keyframes appear-after-delay {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
