@@ -22,6 +22,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 
 gem 'typhoeus'
+gem 'pg'
 
 
 group :development, :test do
