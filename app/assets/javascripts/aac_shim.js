@@ -154,7 +154,7 @@ var aac_shim;
       return post_message({action: 'add_text', text: text.toString(), image_url: (image_url && image_url.toString())}, callback);
     },
     speak_text: function(text, voice, callback) {
-      voice = (voice =='secondary') ? 'secondary' : 'primary';
+      voice = (voice == 'secondary') ? 'secondary' : 'primary';
       return post_message({action: 'speak_text', text: text.toString(), voice: voice}, callback);
     },
     update_manifest: function(manifest_data, callback) {

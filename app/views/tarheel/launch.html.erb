@@ -122,7 +122,7 @@
                 prompt: 'Speak'
               }, function(res) {
                 if(res.type == 'select') {
-                  speak();
+                  speak(true);
                 }
               });
             }
@@ -171,10 +171,18 @@
         };
         
         // send the text (and image) of the current page up to the AAC container
-        var speak = function() {
+        var speak = function(manual) {
           var page = book.pages[book.page];
           if(page && page.text) {
-            aac_shim.add_text(page.text, page.full_url || (page.url && (tarheel_prefix + page.url)) || null);
+            if(book.settings && book.settings.utterance) {
+              aac_shim.add_text(page.text, page.full_url || (page.url && (tarheel_prefix + page.url)) || null);
+            } else {
+              if(manual) {
+                aac_shim.speak_text(page.text, true);
+              } else {
+                aac_shim.speak_text(page.text);
+              }
+            }
           }
         };
 
@@ -235,7 +243,7 @@
               });
               dom.speak.addEventListener('click', function(event) {
                 event.preventDefault();
-                speak();
+                speak(true);
               });
               advance('back');
             } else if(this.readyState == 4) {
