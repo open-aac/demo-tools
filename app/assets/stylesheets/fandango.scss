@@ -1,6 +1,23 @@
 // Place all the styles related to the fandango controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#loading {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  text-align: center;
+  font-size: 5vh;
+  font-family: Arial;
+  z-index: 2;
+  .container {
+    margin: 0 auto;
+    background: #fff;
+    width: 40vw;
+    padding: 20px 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+}
 #buttons {
   *, *:before, *:after {
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;

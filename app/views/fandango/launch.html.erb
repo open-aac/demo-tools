@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag    'fandango', media: 'all' %>
   </head>
   <body>
-    <div id='loading'>Loading...</div>
+    <div id='loading'><div class='container'>Loading...</div></div>
     <div id='buttons'>
     </div>
     <script>
@@ -14,16 +14,91 @@
         ['loading', 'buttons'].forEach(function(id) {
           dom[id] = document.getElementById(id);
         });
-        var update = function(buttons, rows, columns) {
+
+        // https://s3.amazonaws.com/opensymbols/libraries/noun-project/previous_106_g.svg
+        // https://s3.amazonaws.com/opensymbols/libraries/noun-project/Next_321_g.svg
+        
+        var movie_data = null;
+        var lists = {
+          history: []
+        };
+
+        var update = function(buttons, rows, columns, list_name) {
+          var direction = null;
+          var list_ref = update;
+          if(list_name) {
+            lists.history.push(list_name);
+          }
+          if(buttons == 'last') {
+            list_name = lists.history.pop();
+          }
+          if(buttons == 'next' || buttons == 'previous' || buttons == 'last') {
+            list_name = lists.history[lists.history.length - 1];
+          }
+          if(list_name) {
+            lists[list_name] = lists[list_name] || {};
+            list_ref = lists[list_name]; 
+          }
+          if(buttons == 'next' || buttons == 'previous' || buttons == 'last') {
+            direction = buttons;
+            buttons = list_ref.buttons;
+            rows = list_ref.rows;
+            columns = list_ref.columns;
+          } else {
+            list_ref.start = 0;
+          }
           var container = dom.buttons;
           container.innerHTML = '';
           container.className = 'rows_' + rows + ' cols_' + columns;
           dom.loading.style.display = 'none';
           container.style.display = 'block';
-          buttons.forEach(function(button) {
+          list_ref.buttons = buttons;
+          list_ref.rows = rows;
+          list_ref.columns = columns;
+          list_ref.more = false;
+          list_ref.start = list_ref.start || 0;
+          if(direction == 'next') {
+            if(list_ref.start > 0) {
+              list_ref.start = list_ref.start - 1;
+            }
+            list_ref.start = list_ref.start + (rows * columns) - 1;
+          } else if(direction == 'previous') {
+            list_ref.start = list_ref.start - (rows * columns) + 1;
+            if(list_ref.start >= 1) { list_ref.start = list_ref.start + 1; }
+          }
+
+          var items_to_show = (rows * columns);
+          if(buttons.length - list_ref.start > items_to_show) {
+            items_to_show--;
+            list_ref.more = true;
+          }
+          var items = [];
+          if(list_ref.start > 0) {
+            items_to_show--;
+            items.push({
+              id: 'previous',
+              label: 'Previous',
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/previous_106_g.svg'
+            });
+          }
+          buttons.forEach(function(button, idx) {
+            if(idx >= list_ref.start && idx < (list_ref.start + items_to_show)) {
+              items.push(button);
+            }
+          });
+          if(list_ref.more) {
+            items.push({
+              id: 'next',
+              label: 'Next',
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Next_321_g.svg'
+            });
+          }
+          items.forEach(function(button) {
             var dom = document.createElement('div');
             dom.className = 'button';
             dom.setAttribute('data-id', button.id);
+            dom.setAttribute('data-ref_id', button.ref_id || '');
+            dom.setAttribute('data-text', button.text || '');
             var label = document.createElement('div');
             label.className = 'label';
             label.innerText = button.label;
@@ -38,37 +113,89 @@
           });
           position_elements();
         };
+        
+        var status = function(str) {
+          dom.loading.style.display = 'block';
+          var container = dom.loading.getElementsByClassName('container')[0];
+          var id = (Math.random()) + "_" + (new Date()).getTime();
+          container.innerHTML = str;
+          container.rel = id;
+          setTimeout(function() {
+            if(container.rel == id) {
+              container.innerHTML = "";
+              dom.loading.style.display = 'none';
+            }
+          }, 5000);
+        };
+
         var position_elements = function() {
-          var elems = dom.buttons.getElementsByClassName('button');
-          for(var idx = 0; idx < elems.length; idx++) {
-            var button = elems[idx];
-            // add to aac_shim if ready
-          }
+          aac_shim.clear_targets(function() {
+            var elems = dom.buttons.getElementsByClassName('button');
+            var handle = function(button) {
+              // add to aac_shim if ready
+              var rect = button.getBoundingClientRect();
+              aac_shim.add_target({
+                id: 'button_' + idx,
+                left: rect.left,
+                top: rect.top,
+                width: rect.width,
+                height: rect.height,
+                prompt: button.getElementsByClassName('label')[0].innerText
+              }, function(res) {
+                if(res.type == 'select') {
+                  select(button);
+                }
+              });
+            };
+            for(var idx = 0; idx < elems.length; idx++) {
+              handle(elems[idx]);
+            }
+          });
         };
         dom.buttons.addEventListener('click', function(event) {
           var elem = event.target;
           while(elem.id != 'buttons' && !elem.classList.contains('button')) {
             elem = elem.parentNode;
           }
+          select(elem);
+        });
+        var select = function(elem) {
           if(elem.classList.contains('button')) {
             var id = elem.getAttribute('data-id');
-            console.log('selected', id);
             if(id == 'speak') {
-              var text = elem.getElementsByClassName('label')[0].innerText;
+              var text = elem.getAttribute('data-text') || elem.getElementsByClassName('label')[0].innerText;
               var img = elem.getElementsByTagName('img')[0].src;
               aac_shim.add_text(text, img);
             } else if(id == 'root' || id == 'concessions') {
               load(id);
+            } else if(id == 'movies') {
+              movies(elem.getAttribute('data-ref_id'));
+            } else if(id == 'theaters') {
+              theaters();
+            } else if(id == 'next' || id == 'previous' || id == 'last') {
+              if(id == 'last' && lists.history.length <= 1) {
+                load('root');
+              }
+              if(id == 'last' && elem.getAttribute('data-ref_id') == lists.history[lists.history.length - 1]) {
+//                lists.history.pop();
+              }
+              update(id);
+            } else if(id == 'movie') {
+              movie(elem.getAttribute('data-ref_id'));
+            } else if(id == 'showtimes') {
+              showtimes(elem.getAttribute('data-ref_id'));
             }
           }
-        });
+        };
+
         var load = function(id) {
           if(id == 'root') {
+            lists.history = [];
             update([
               {label: 'Movies', id: 'movies', image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Clapperboard_629_9612.svg'},
               {label: 'Theaters', id: 'theaters', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/cinema_1.png'},
               {label: 'Concessions', id: 'concessions', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/popcorn_1.png'}
-            ], 2, 2);
+            ], 2, 2, 'root');
           } else if(id == 'concessions') {
             update([
               {label: 'Back', id: 'root', image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'},
@@ -83,11 +210,234 @@
               {label: 'Larger', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/big.png'},
               {label: 'Smaller', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/smaller_3.png'},
               {label: 'No', id: 'speak', image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/former.png'}
-            ], 3, 4);
+            ], 3, 4, 'concessions');
           }
         };
-        load('root');
 
+        aac_shim.status(function(res) {
+          if(res.error) {
+            status('No AAC Container Found, Loading Default Data');
+            setTimeout(function() {
+              load('root');
+            }, 1000);
+            return
+          }
+          if(res.code) {
+            lists.zip = res.code;
+          }
+          load('root');
+        });
+        
+        var has_showtimes = function(theater_id, movie_id) {
+          var now = new Date();
+          var tomorrow = new Date();
+          tomorrow.setDate(tomorrow.getDate() + 1);
+          var list = (movie_data.showtimes[theater_id] || {})[movie_id] || [];
+          for(var idx = 0; idx < list.length; idx++) {
+            var date = new Date(Date.parse(list[idx].showtime));
+            if(date >= now) {
+              if(date.getDate() == now.getDate() || date.getDate() == tomorrow.getDate()) {
+                return true;
+              }
+            }
+          }
+          return false;
+        };
+        
+        var movies = function(theater_id) {
+          if(!movie_data) { return load_movies(movies); }
+          var res = movie_data.movies;
+          if(res.length == 0) {
+            return status("No Movies Found");
+          }
+          var list = [{
+            label: 'Back',
+            id: 'last',
+            image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'
+          }];
+          var list_id = 'movies' + (theater_id ? (":" + theater_id) : "");
+          for(var idx = 0; idx < res.length; idx++) {
+            if(theater_id && has_showtimes(theater_id, res[idx].id)) {
+              list.push({
+                label: res[idx].title,
+                id: 'showtimes',
+                ref_id: theater_id + ":" + res[idx].id,
+                image: res[idx].image
+              });
+            } else if(!theater_id) {
+              list.push({
+                label: res[idx].title,
+                id: 'movie',
+                ref_id: res[idx].id,
+                image: res[idx].image
+              });
+            }
+          }
+          update(list, 3, 4, list_id);
+        };
+        
+        var movie = function(id) {
+          var movie = null;
+          for(var idx = 0; idx < movie_data.movies.length; idx++) {
+            if(movie_data.movies[idx].id == id) {
+              movie = movie_data.movies[idx];
+            }
+          }
+          var list = [{
+            label: 'Back',
+            id: 'last',
+            image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'
+          }];
+          if(movie) {
+            list.push({
+              label: movie.title,
+              id: 'speak',
+              image: movie.image
+            });
+            list.push({
+              label: 'I want to watch it',
+              text: "I want to watch, " + movie.title,
+              id: 'speak',
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/to%20see_4.png'
+            });
+            list.push({
+              label: 'What do you think',
+              text: "What do you think about, " + movie.title,
+              id: 'speak',
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/question.png'
+            });
+            list.push({
+              label: 'Description',
+              id: 'speak',
+              text: movie.description,
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/to%20explain.png'
+            });
+            list.push({
+              label: 'Starring',
+              id: 'speak',
+              text: "Starring: " + movie.cast.join(', '),
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/arasaac/famous_1.png'
+            });
+            list.push({
+              label: "Rated " + movie.rating,
+              text: movie.title + " is rated " + movie.rating,
+              id: 'speak',
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/premium_119_g.svg'
+            });
+            list.push({
+              label: 'Showtimes',
+              id: 'showtimes',
+              ref_id: ":" + movie.id,
+              image: 'https://s3.amazonaws.com/opensymbols/libraries/mulberry/clock.svg'
+            });
+          }
+          update(list, 2, 4, 'movie:' + id);
+        };
+        
+        var showtimes = function(id) {
+          var list = [{
+            label: 'Back',
+            id: 'last',
+            ref_id: 'showtimes',
+            image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'
+          }];
+          var parts = id.split(/:/);
+          if(parts[0]) {
+            var movie_name = null;
+            for(var idx = 0; idx < movie_data.movies.length; idx++) {
+              if(movie_data.movies[idx].id == parts[1]) {
+                movie_name = movie_data.movies[idx].title;
+              }
+            }
+            var times = movie_data.showtimes[parts[0]][parts[1]];
+            var now = new Date();
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            times.forEach(function(showtime) {
+              var date = new Date(Date.parse(showtime.showtime));
+              if(date > now) {
+                var ampm = 'am';
+                var hr = date.getHours();
+                var mn = date.getMinutes();
+                if(hr > 12) {
+                  ampm = 'pm';
+                  hr = hr - 12;
+                }
+                if(mn < 10) { mn = "0" + mn; }
+                var str = hr + ":" + mn + " " + ampm;
+                
+                var img = 'https://s3.amazonaws.com/opensymbols/libraries/mulberry/clock.svg';
+                if(date.getDate() == now.getDate()) {
+                  str = "at " + str;
+                } else if(date.getDate() == tomorrow.getDate()) {
+                  str = "tomorrow at " + str;
+                  img = 'https://s3.amazonaws.com/opensymbols/libraries/mulberry/future.svg';
+                } else {
+                  str = null;
+                }
+                if(str) {
+                  list.push({
+                    label: str,
+                    id: 'speak',
+                    text: (movie_name || "movie") + " showing " + str,
+                    image: img
+                  });
+                }
+              }
+            });
+            update(list, 3, 4, 'showtimes');
+          } else {
+            theaters(parts[1]);
+          }
+        };
+        
+        var theaters = function(movie_id) {
+          if(!movie_data) { return load_movies(theaters); }
+          var res = movie_data.theaters;
+          if(res.length == 0) {
+            return status("No Theaters Found");
+          }
+          var list = [];
+          var list_id = (movie_id ? ("movie:" + movie_id + ":") : "") + 'theaters';
+          list.push({
+            label: 'Back',
+            id: 'last',
+            ref_id: list_id || '',
+            image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Arrow-24af1e87f3.svg'
+          });
+          for(var idx = 0; idx < res.length; idx++) {
+            var ref_id = res[idx].id + (movie_id ? (":" + movie_id) : "");
+            if(!movie_id || has_showtimes(res[idx].id, movie_id)) {
+              list.push({
+                label: res[idx].name,
+                id: movie_id ? 'showtimes' : 'movies',
+                ref_id: ref_id || '',
+                image: 'https://s3.amazonaws.com/opensymbols/libraries/noun-project/Movie-74e1c61a06.svg'
+              });
+            }
+          }
+          update(list, 2, 4, list_id);
+        };
+        
+        var load_movies = function(callback) {
+          status('Loading Local Movie Data...');
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+              res = JSON.parse(this.responseText);
+              movie_data = res;
+              callback();
+            } else if(this.readyState == 4) {
+              status('Movie Data Failed to Load');
+              // TODO: error handling
+            }
+          };
+          var path = "/fandango/movies";
+          if(lists.zip) { path = path + "?zip=" + lists.zip; }
+          xhr.open('GET', path, true);
+          xhr.send();
+        };
+        
         // re-initialize shim targets when the window gets resized
         window.addEventListener('resize', function() {
           position_elements();

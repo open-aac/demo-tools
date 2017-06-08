@@ -1,0 +1,2 @@
+class CachedRequest < ApplicationRecord
+end

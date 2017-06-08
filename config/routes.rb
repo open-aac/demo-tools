@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'tarheel/book' => 'tarheel#book'
   
   get 'fandango/launch' => 'fandango#launch'
-  post 'fandango/movies' => 'fandango#movies'
-  post 'fandango/theaters' => 'fandango#theaters'
-  post 'fandango/showtimes' => 'fandango#showtimes'
+  get 'fandango/movies' => 'fandango#movies'
+  get 'fandango/theaters' => 'fandango#theaters'
+  get 'fandango/showtimes' => 'fandango#showtimes'
 end
