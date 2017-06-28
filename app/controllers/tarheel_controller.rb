@@ -8,7 +8,7 @@ class TarheelController < ApplicationController
   end
   
   def book
-    url = "http://tarheelreader.org/book-as-json/?slug=#{CGI.escape(params['id'])}"
+    url = "https://tarheelreader.org/book-as-json/?slug=#{CGI.escape(params['id'])}"
     tarheel_prefix = "https://d1afj2lqudmea0.cloudfront.net"
     if params['id'].match(/^http/)
       url = params['id']

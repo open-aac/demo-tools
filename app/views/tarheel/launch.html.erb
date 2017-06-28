@@ -145,18 +145,18 @@
           }
           clear();
           if(book.page <= 0) {
-            pic('cover', book.pages[1].full_url || (tarheel_prefix + book.pages[1].url));
+            pic('cover', book.pages[0].image_url || book.pages[1].image_url || (tarheel_prefix + book.pages[1].url));
             text('title', book.pages[book.page].text);
             text('author', book.author);
           } else if(book.page >= book.pages.length) {
             text('text', 'All finished!');
             var a = document.createElement('a');
-            a.href = book.credits_url || ('http://tarheelreader.org/photo-credits/?id=' + book.ID);
+            a.href = book.attribution_url || ('https://tarheelreader.org/photo-credits/?id=' + book.ID);
             a.innerText = 'attribution: ' + a.href;
             a.target = '_blank';
             dom.text.appendChild(a);
           } else {
-            pic('image', book.pages[book.page].full_url || (tarheel_prefix + book.pages[book.page].url));
+            pic('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
             text('text', book.pages[book.page].text);
             if(book.settings && book.settings.speech) {
               speak();
@@ -248,13 +248,13 @@
               advance('back');
             } else if(this.readyState == 4) {
               if(!navigator.onLine) {
-                err("Tarheel Books Can't Load When Offline");
+                err("Books Can't Load When Offline");
               } else {
                 err("Failed to Load Book, please check settings");
               }
             }
           };
-          xhr.open('GET', "/tarheel/book?id=" + settings.id, true);
+          xhr.open('GET', "/tarheel/book?id=" + encodeURIComponent(settings.id), true);
           xhr.send();
         });
         
