@@ -1,0 +1,31 @@
+{
+  "book_url": "http://github.com/whitmer",
+  "author": "Brian",
+  "attribution_url": "http://github.com/whitmer",
+  "pages": [
+    {
+      "id": "title_page",
+      "text": "Test Book",
+      "image_url": "https://s3.amazonaws.com/opensymbols/libraries/noun-project/Test-Tube_89_g.svg",
+      "image_content_type": "",
+      "image_attribution_url": "",
+      "image_attribution_author": ""
+    },
+    {
+      "id": "page_1",
+      "text": "I like cats",
+      "image_url": "https://s3.amazonaws.com/opensymbols/libraries/mulberry/cat.svg",
+      "image_content_type": "",
+      "image_attribution_url": "",
+      "image_attribution_author": ""
+    },
+    {
+      "id": "page_2",
+      "text": "Actually I really prefer dogs",
+      "image_url": "https://s3.amazonaws.com/opensymbols/libraries/arasaac/dog.png",
+      "image_content_type": "",
+      "image_attribution_url": "",
+      "image_attribution_author": ""
+    }
+  ]
+}
