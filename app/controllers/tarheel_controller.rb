@@ -14,6 +14,9 @@ class TarheelController < ApplicationController
       url = params['id']
     end
     res = Typhoeus.get(url)
+    if res.headers['Location']
+      res = Typhoeus.get(res.headers['Location'])
+    end
     results = JSON.parse(res.body)
     render json: results.to_json
   end

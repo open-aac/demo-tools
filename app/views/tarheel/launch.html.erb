@@ -24,13 +24,14 @@
     <div id='author'></div>
     <div id='cover'></div>
     <div id='image'></div>
+    <div id='image2'></div>
     <div id='text'></div>
     <script>
       (function() {
         var url = location.href;
         var dom = {};
         // load DOM elements for easy access
-        ['loading', 'back', 'next', 'speak', 'title', 'author', 'cover', 'image', 'text'].forEach(function(key) {
+        ['loading', 'back', 'next', 'speak', 'title', 'author', 'cover', 'image', 'image2', 'text'].forEach(function(key) {
           dom[key] = document.getElementById(key);
         });
         var book = null;
@@ -41,13 +42,72 @@
         var err = function(str) { dom.loading.innerText = str; };
         // set the image url for one of the img tags
         var pic = function(id, url) {
-          var img = document.createElement('img');
-          img.src = url;
-          dom[id].appendChild(img);
+          if(url) {
+            var img = document.createElement('img');
+            img.src = url;
+            dom[id].appendChild(img);
+            
+          }
+          if(id == 'image2') {
+            if(url) {
+              dom.image.classList.add('double');
+            } else {
+              dom.image.classList.remove('double');
+            }
+          }
+        }
+        var measure_text = function(str, size) {
+          // re-use canvas object for better performance
+          var canvas = measure_text.canvas || (measure_text.canvas = document.createElement("canvas"));
+          var context = canvas.getContext("2d");
+          context.font = size + "px Arial";
+          var metrics = context.measureText(str);
+          return metrics;
         }
         // set the text for one of the div tags
         var text = function(id, str) {
           dom[id].innerText = str;
+          if(id == 'text') {
+            if(str == 'All finished!') {
+              dom.text.style.font = '10vh Arial';
+              return;
+            }
+            var too_big = true;
+            var size = 100;
+            var parts = [str];
+            var available_width = window.innerWidth * 0.7;
+            var available_height = window.innerHeight * 0.23;
+            while(too_big && size > 0 && str != "All finished!") {
+              var measures = parts.map(function(p) { return measure_text(p, size); });
+              var width = Math.max.apply(null, measures.map(function(m) { return m.width; }));
+              var height = parts.length * (size + 10);
+              console.log(width, 'vs', available_width, height, 'vs', available_height);
+              if(width < available_width && height < available_height) {
+                too_big = false;
+              } else {
+                size = size - 2;
+                console.log(size, parts[0], parts);
+                if(width >= available_width && size < 50 && parts[0].match(/\s/) && parts.length < 3) {
+                  size = 100;
+                  var split = parts.length + 1;
+                  console.log("splitting into " + split + " parts");
+                  var new_parts = [];
+                  var memo = "";
+                  for(var idx = 0; idx < str.length; idx++) {
+                    if(str[idx] == ' ' && memo.length > (str.length / split)) {
+                      new_parts.push(memo);
+                      memo = '';
+                    } else {
+                      memo = memo + str[idx];
+                    }
+                  }
+                  new_parts.push(memo);
+                  parts = new_parts;
+                }
+              }
+            }
+            dom.text.style.font = size + "px Arial"; 
+          }
         }
         // clear any existing content from the page
         var clear = function() {
@@ -157,6 +217,7 @@
             dom.text.appendChild(a);
           } else {
             pic('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
+            pic('image2', book.pages[book.page].image2_url);
             text('text', book.pages[book.page].text);
             if(book.settings && book.settings.speech) {
               speak();
