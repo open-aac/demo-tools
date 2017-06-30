@@ -276,7 +276,7 @@
           var settings = null;
           try {
             // try to parse launch code as a parameter set
-            settings = JSON.parse(atob(res.code));
+            settings = JSON.parse(atob(decodeURIComponent(res.code)));
           } catch(e) {
             // otherwise fall back to launch code just being a book's id
             settings = {
