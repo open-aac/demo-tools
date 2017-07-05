@@ -133,7 +133,7 @@ body {
   top: 77vh;
   left: 15vw;
   right: 15vw;
-  height: 15vh;
+  height: 23vh;
   font-size: 5vh;
   text-align: center;
   
@@ -157,6 +157,17 @@ body {
   line-height: 15vh;
   color: #000;
   text-decoration: none;
+}
+body.text_above {
+  #image, #image2 {
+    top: 25vh;
+  }
+  #text {
+    top: 2.5vh;
+  }
+  #speak {
+    top: 84vh;
+  }
 }
 #loading {
   position: absolute;
