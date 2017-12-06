@@ -34,7 +34,6 @@ var aac_shim;
   post_message.callbacks = post_message.callbacks || {};
   
   var clear_callbacks = function(ids) {
-    console.log("clear", ids);
     for(var idx = 0; idx < ids.length; idx++) {
       var id = ids[idx];
       if(id && post_message.callbacks[id]) {

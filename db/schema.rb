@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607222230) do
+ActiveRecord::Schema.define(version: 20171206212619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20170607222230) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["query_key"], name: "index_cached_requests_on_query_key", unique: true, using: :btree
+  end
+
+  create_table "user_states", force: :cascade do |t|
+    t.string   "user_code"
+    t.text     "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_code"], name: "index_user_states_on_user_code", using: :btree
   end
 
 end

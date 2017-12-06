@@ -62,11 +62,25 @@ body {
 #next {
   right: 0;
 }
+#settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10vw;
+  height: 10vh;
+  padding: 10px;
+  img {
+    width: calc(10vw - 10px);
+    height: calc(10vh - 10px);
+    object-fit: contain;
+    object-position: center;
+  }
+}
 #title {
   position: absolute;
   top: 5vh;
-  left: 5vw;
-  right: 5vw;
+  left: 10vw;
+  right: 10vw;
   height: 15vh;
   font-size: 7.5vh;
   text-align: center;
@@ -189,5 +203,59 @@ body.text_above {
   }
   100% {
     opacity: 1;
+  }
+}
+.option {
+  text-decoration: none;
+  color: #444;
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  &.active {
+    background: #444;
+    color: #eee;
+  }
+  &.up {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  &.down {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+  }
+}
+#settings_box {
+  color: #000;
+  position: absolute;
+  z-index: 2;
+  top: 10vh;
+  left: 10vw;
+  right: 10vw;
+  background: #fff;
+  border: 3px solid #888;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #000;
+  .settings_box_scroll {
+    overflow: auto;
+    height: 80vh;
+  }
+  .settings_box_inner {
+    padding: 20px;
+  }
+  table td {
+    font-size: 20px;
+    height: 50px;
+    &.label {
+      padding-right: 10px;
+    }
   }
 }
