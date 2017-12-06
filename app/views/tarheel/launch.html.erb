@@ -285,7 +285,7 @@
           if(book.page <= 0) {
             pic('cover', book.pages[0].image_url || book.pages[1].image_url || (tarheel_prefix + book.pages[1].url));
             text('title', book.pages[book.page].text);
-            text('author', book.author);
+            text('author', "by " + book.author);
           } else if(book.page >= book.pages.length) {
             text('text', 'All finished!');
             var a = document.createElement('a');
