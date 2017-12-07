@@ -147,7 +147,29 @@
   
   var sentence = [];
   var update_sentence = function() {
+    var sentence_dom = document.getElementById('sentence');
+    var placeholder_dom = document.getElementById('placeholder');
     // add to the DOM
+    if(sentence.length > 0) {
+      if(placeholder_dom) { placeholder_dom.style.display = 'none'; }
+      if(sentence_dom) { sentence_dom.style.display = 'block'; }
+      sentence_dom.innerHTML = '';
+      for(var idx = 0; idx < sentence.length; idx++) {
+        var utterance = sentence[idx];
+        var dom = document.createElement('div');
+        dom.classList.add('utterance');
+        var img = document.createElement('img');
+        img.src = utterance.image;
+        dom.appendChild(img);
+        var text = document.createElement('div');
+        text.innerText = utterance.text;
+        dom.appendChild(text);
+        sentence_dom.appendChild(dom);
+      }
+    } else {
+      if(placeholder_dom) { placeholder_dom.style.display = 'block'; }
+      if(sentence_dom) { sentence_dom.style.display = 'none'; }
+    }
   };
 
   var scanning = null;
@@ -237,6 +259,20 @@
     } else if(event.target.classList.contains('clear')) {
       sentence = [];
       update_sentence();
+    } else {
+      var elem = event.target;
+      while(elem && elem.id != 'sentence_box') {
+        elem = elem.parentNode;
+      }
+      if(elem && elem.id == 'sentence_box') {
+        var text = sentence.map(function(u) { return u.text; }).join(' ');
+        if(window.speechSynthesis) {
+          var utterance = new window.SpeechSynthesisUtterance();
+          utterance.text = text;
+          window.speechSynthesis.cancel();
+          window.speechSynthesis.speak(utterance);
+        }
+      }
     }
   });
   document.getElementById('load_url').addEventListener('click', function(event) {

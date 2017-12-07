@@ -40,6 +40,21 @@
         border: 2px solid #888;
         border-radius: 5px;
       }
+      #sentence .utterance {
+        width: 80px;
+        float: left;
+        text-align: center;
+        font-size: 16px;
+        font-family: Arial;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      #sentence .utterance img {
+        width: 100%;
+        height: calc(15vh - 30px - 15px);
+        object-fit: contain;
+        object-position: center;
+      }
     </style>
   </head>
   <body style='overflow: hidden;'>
@@ -58,7 +73,7 @@
 
       </div>
       <div style="float: left; width: calc(100% - 275px - 122px);">
-        <div style='margin: 5px; height: calc(15vh - 30px); border: 3px solid #ccc; border-radius: 10px; padding: 10px;'>
+        <div id='sentence_box' style='margin: 5px; height: calc(15vh - 30px); border: 3px solid #ccc; border-radius: 10px; padding: 5px;'>
           <div id='placeholder' style='color: #666; font-size: 14px;'>
             This demo shows how AAC Shim can work with any compatible AAC container. Shimmed apps run
             in an iframe inside of the AAC application. Shimmed apps can receive messages for user
