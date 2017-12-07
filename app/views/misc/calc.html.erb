@@ -1,0 +1,225 @@
+<html>
+  <head>
+    <%= javascript_include_tag 'aac_shim' %>
+    <%= stylesheet_link_tag    'misc', media: 'all' %>
+  </head>
+  <body style='background: #eee;'>
+    <div id='calc'>
+      <table>
+        <tr>
+          <td id='total' colspan='3' style='position: relative;' data-prompt='speak'>
+            <div id='status' style='position: absolute; top: 5px; left: 5px; font-size: 14px; color: #aaa;'>
+              hit this box to speak
+            </div>
+            <div id='tally' style='position: absolute; bottom: 5px; right: 5px; font-size: 14px; color: #aaa;'>
+              TOTAL
+            </div>
+            <div id='calculation' style='white-space: nowrap; width: 100%; position: absolute; top: 20px;'>
+            </div>
+          </td>
+          <td class='key right' rel='clear' data-prompt='clear' style='width: 20%;'>clear</td>
+        </tr>
+        <tr>
+          <td class='key' rel='7' data-prompt='7'>7</td>
+          <td class='key' rel='8' data-prompt='8'>8</td>
+          <td class='key' rel='9' data-prompt='9'>9</td>
+          <td class='key right' rel='/' data-prompt='divide'>&#247;</td>
+        </tr>
+        <tr>
+          <td class='key' rel='4' data-prompt='4'>4</td>
+          <td class='key' rel='5' data-prompt='5'>5</td>
+          <td class='key' rel='6' data-prompt='6'>6</td>
+          <td class='key right' rel='*' data-prompt='multiply'>&times;</td>
+        </tr>
+        <tr>
+          <td class='key' rel='1' data-prompt='1'>1</td>
+          <td class='key' rel='2' data-prompt='2'>2</td>
+          <td class='key' rel='3' data-prompt='3'>3</td>
+          <td class='key right' rel='-' data-prompt='subtract'>-</td>
+        </tr>
+        <tr>
+          <td class='key' rel='.' data-prompt='decimal'>.</td>
+          <td class='key' rel='0' data-prompt='0'>0</td>
+          <td class='key' rel='=' data-prompt='equals'>=</td>
+          <td class='key right' rel='+' data-prompt='add'>+</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      (function() {
+        var stack = [];
+        var totaling = false;
+        var hash = {
+          '+': '+',
+          '-': '-',
+          '*': '&times;',
+          '/': '&#247;'
+        };
+        var update = function() {
+          var current_token = null;
+          var current_token_type = null;
+          var tokens = [];
+          for(var idx = 0; idx < stack.length; idx++) {
+            var key = stack[idx];
+            if(key.match(/\d|\./)) {
+              if(current_token_type && current_token_type != 'num') {
+                tokens.push({type: current_token_type, token: current_token, str: hash[current_token]});
+                current_token = null;
+              }
+              if(key == '.' && !current_token) {
+                current_token = '0';
+              }
+              current_token_type = 'num';
+              if(key != '.' || !(current_token || '').match(/\./)) {
+                current_token = (current_token || '') + key;
+              }
+            } else if(key.match(/\+|\-|\/|\*/)) {
+              if(current_token_type == 'mod') {
+                tokens.pop();
+                current_token_type = 'mod';
+                current_token = key;
+              } else if(current_token_type == 'num') {
+                tokens.push({type: current_token_type, token: current_token});
+                current_token_type = 'mod';
+                current_token = key;
+              }
+            }
+          }
+          if(current_token_type) {
+            tokens.push({type: current_token_type, token: current_token, str: hash[current_token]});
+          }
+          var calc = [].concat(tokens);
+          var token_stack = [];
+          while(calc.length > 0) {
+            var token = calc.shift();
+            if(token.type == 'mod' && (token.token == '*' || token.token == '/')) {
+              var pre = token_stack.pop();
+              var post = calc.shift();
+              if(pre && pre.type == 'num') {
+                var a = parseFloat(pre.token);
+                if(post && post.type == 'num') {
+                  var b = parseFloat(post.token);
+                  if(token.token == '*') {
+                    token_stack.push({type: 'num', token: (Math.round(a * b * 10000) / 10000).toString()});
+                  } else {
+                    token_stack.push({type: 'num', token: (Math.round(a / b * 10000) / 10000).toString()});
+                  }
+                } else {
+                  token_stack.push({type: 'num', token: a.toString()});
+                }
+              }
+            } else {
+              token_stack.push(token);
+            }
+          }
+          calc = token_stack;
+          token_stack = []
+          while(calc.length > 0) {
+            var token = calc.shift();
+            if(token.type == 'mod' && (token.token == '+' || token.token == '-')) {
+              var pre = token_stack.pop();
+              var post = calc.shift();
+              if(pre && pre.type == 'num') {
+                var a = parseFloat(pre.token);
+                if(post && post.type == 'num') {
+                  var b = parseFloat(post.token);
+                  if(token.token == '+') {
+                    token_stack.push({type: 'num', token: (Math.round((a + b) * 10000) / 10000).toString()});
+                  } else {
+                    token_stack.push({type: 'num', token: (Math.round((a - b) * 10000) / 10000).toString()});
+                  }
+                } else {
+                  token_stack.push({type: 'num', token: a.toString()});
+                }
+              }
+            } else {
+              token_stack.push(token);
+            }
+          }
+          if(totaling) {
+            totaling = false;
+            tokens = token_stack;
+            stack = token_stack.map(function(t) { return t.str || t.token; });
+          }
+          document.getElementById('calculation').innerHTML = tokens.map(function(t) { return t.str || t.token; }).join(' ');
+          document.getElementById('tally').innerText = token_stack.map(function(t) { return t.token; }).join(' ');
+        };
+        update();
+        var redraw = function() {
+          aac_shim.clear_targets(function() {
+            var elems = document.getElementsByTagName('TD');
+            var add_elem = function(elem) {
+              var rect = elem.getBoundingClientRect();
+
+              aac_shim.add_target({
+                id: elem.getAttribute('rel'),
+                left: rect.left,
+                top: rect.top,
+                width: rect.width,
+                height: rect.height,
+                prompt: (elem.getAttribute('data-prompt') || 'ahem')
+              }, function(res) {
+                if(res.type == 'select') {
+                  if(elem.id == 'total') {
+                    speak();
+                  } else {
+                    handle_button(elem.getAttribute('rel'));
+                  }
+                }
+              });
+            };
+            for(var idx = 0; idx < elems.length; idx++) {
+              var elem = elems[idx];
+              add_elem(elem);
+            }
+          });
+        };
+
+        aac_shim.status(function(res) {
+          if(res.error) {
+            document.getElementById('status').innerText = res.error;
+            return;
+          }
+          if(!res.status || res.status != 'ready') {
+            document.getElementById('status').innerText = 'App Not Ready';
+            return err("App Not Ready");
+          }
+          redraw();
+        });
+        var speak = function() {
+          var str = document.getElementById('calculation').innerText;
+          if(str && str.length > 0) {
+            aac_shim.add_text(str, null);
+          }
+        };
+        window.addEventListener('resize', function() {
+          redraw();
+        });
+        var handle_button = function(key) {
+          if(key == 'clear') {
+            stack = [];
+          } else if(key == '=') {
+            totaling = true;
+          } else {
+            stack.push(key);
+          }
+          update();
+        };
+        document.getElementById('calc').addEventListener('click', function(event) {
+          event.preventDefault();
+          if(event.target.classList.contains('key')) {
+            handle_button(event.target.getAttribute('rel'));
+          } else {
+            var elem = event.target;
+            while(elem && elem.id != 'total') {
+              elem = elem.parentNode;
+            }
+            if(elem && elem.id == 'total') {
+              speak();
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

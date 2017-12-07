@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <style>
+      h1 {
+        font-family: Arial;
+      }
+      h1 a {
+        color: #444;
+      }
+      .target {
+        border: 2px solid #00f;
+        border-radius: 5px;
+        box-shadow: 2px 0 10px #888, -2px 0 10px #888;
+      }
+      .target:hover, .target.highlighted {
+        background: rgba(0, 0, 255, 0.3);
+      }
+      .event_type, .demo_type {
+        text-decoration: none;
+        color: #444;
+        border: 1px solid #aaa;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+      .event_type.selected, .demo_type.selected {
+        background: #888;
+        color: #eee;
+        font-weight: bold;
+      }
+      input {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid #888;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px;
+        background: #fafafa;
+        border: 2px solid #888;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body style='overflow: hidden;'>
+    <div style='height: 15vh; overflow: hidden;'>
+      <div style="float: left; width: 275px;">
+        <h1><a href="/">AAC Shim</a> Demo</h1>
+        <div id='settings' style='display: none;'>
+          <input type="text" id="url" value="./demo_frame.html" placeholder="launch URL" style="width: 350px;"/>
+          <button id="load_url" style='width: 100px;'>load</button><br/>
+          <input type="text" id="codes" style="width: 455px; margin-top: 5px;" placeholder="parameter JSON" />
+        </div>
+        <div style='margin-top: -10px;' id='demos'>
+          <a href="#" rel="book" class='demo_type selected'>Book</a>
+          <a href="#" rel="calc" class='demo_type'>Calculator</a>
+        </div>
+
+      </div>
+      <div style="float: left; width: calc(100% - 275px - 122px);">
+        <div style='margin: 5px; height: calc(15vh - 30px); border: 3px solid #ccc; border-radius: 10px; padding: 10px;'>
+          <div id='placeholder' style='color: #666; font-size: 14px;'>
+            This demo shows how AAC Shim can work with any compatible AAC container. Shimmed apps run
+            in an iframe inside of the AAC application. Shimmed apps can receive messages for user
+            events like hovering or clicking (regardless of whether the user uses a mouse, touch, eye gaze 
+            or a scanning switch), and can pass messages back to have the AAC system generate speech
+            for the user. Try out the demos to the left to see how this works, targets are highlighted
+            in blue. Speech is collected in
+            this box, which can be clicked to speak the full sequence.
+          </div>
+          <div id='sentence'>
+          </div>
+        </div>
+      </div>
+      <div style='float: left; width: 122px;'>
+        <a class='clear' href='#' style='height: calc(15vh - 45px); border: 1px solid #888; border-radius: 5px; text-decoration: none; color: #444; text-align: center; font-size: 20px; vertical-align: middle; line-height: 50px; display: block; margin-bottom: 10px; margin-top: 5px;'>
+          Clear
+        </a>
+        <div>
+          <a href="#" rel="0" class='event_type selected'>Touch</a>
+          <a href="#" rel="3" class='event_type'>Scan</a>
+        </div>
+        <label style='display: none;'>
+          <input type="checkbox" id="scanning" class='auto'>
+          Enable Scanning
+        </label>
+      </div>
+      <div style="clear: left;"></div>
+    </div>
+    <div style='height: calc(85vh - 20px);'>
+      <div style="position: relative;">
+        <iframe id="frame" src="./demo_frame.html" frameborder=0 style="display: block; width: 80%; height: calc(85vh - 30px); border: 3px solid #ccc; margin: 10px auto;"></iframe>
+        <div id="overlay" style="position: absolute; top: 0; left: 10%; width: 80%; height: calc(85vh - 30px);"></div>
+      </div>
+    </div>
+    <div style='display: none;'>
+      <div style='float: left; width: 50%;'>
+        <h4>Last Message Passed</h4>
+        <div id='last_sent_message' style='white-space: pre;'></div>
+      </div>
+      <div style='float: left; width: 50%;'>
+        <h4>Last Message Received</h4>
+        <div id='last_received_message' style='white-space: pre;'></div>
+      </div>
+    </div>    
+    <script src='./shim_container.js'>
+    </script>
+  </body>
+</html>

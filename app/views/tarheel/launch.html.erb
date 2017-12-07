@@ -210,7 +210,7 @@
           // it's important to wait for the callback to prevent race conditions (apparently)
           aac_shim.clear_targets(function() {
             var rect = dom.back.getBoundingClientRect();
-            if(book.page >= 0) {
+            if(book.page > 0) {
               aac_shim.add_target({
                 id: 'back',
                 left: rect.left,

@@ -11,3 +11,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( aac_shim.js )
 Rails.application.config.assets.precompile += %w( tarheel.css )
 Rails.application.config.assets.precompile += %w( fandango.css )
+Rails.application.config.assets.precompile += %w( misc.css )

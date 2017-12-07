@@ -1,5 +1,8 @@
 require 'json'
 class StatesController < ApplicationController
+  def index
+  end
+  
   def get
   end
   

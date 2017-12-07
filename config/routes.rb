@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'states#index'
   get 'tarheel/launch' => 'tarheel#launch'
   get 'tarheel/book' => 'tarheel#book'
   
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   
   get 'states/:code' => 'states#show'
   post 'states/:code' => 'states#update'
+  
+  get 'calc/launch' => 'misc#calc'
 end
