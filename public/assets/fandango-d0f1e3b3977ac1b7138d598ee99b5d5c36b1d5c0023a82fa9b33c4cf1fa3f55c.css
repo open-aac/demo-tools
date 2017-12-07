@@ -1,0 +1,93 @@
+/* line 4, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#loading {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  text-align: center;
+  font-size: 5vh;
+  font-family: Arial;
+  z-index: 2;
+}
+/* line 12, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#loading .container {
+  margin: 0 auto;
+  background: #fff;
+  width: 40vw;
+  padding: 20px 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* line 21, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons {
+  font-family: Arial;
+}
+/* line 22, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons *, #buttons *:before, #buttons *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 26, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons .button {
+  border: 2px solid #888;
+  border-radius: 5px;
+  float: left;
+  padding-top: 5px;
+  font-size: 20px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+/* line 36, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons .button .img {
+  position: absolute;
+  top: 30px;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+}
+/* line 42, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons .button .img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* line 47, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons .button:hover, #buttons .button:focus {
+  border-width: 4px;
+  outline: none;
+  background: #eee;
+}
+/* line 53, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.cols_2 .button {
+  width: calc(50vw - 20px);
+}
+/* line 56, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.cols_3 .button {
+  width: calc(33vw - 20px);
+}
+/* line 59, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.cols_4 .button {
+  width: calc(25vw - 20px);
+}
+/* line 62, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.cols_5 .button {
+  width: calc(20vw - 20px);
+}
+/* line 65, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.cols_6 .button {
+  width: calc(16.6vw - 20px);
+}
+/* line 68, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.rows_2 .button {
+  height: calc(50vh - 20px);
+}
+/* line 71, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.rows_3 .button {
+  height: calc(33vh - 20px);
+}
+/* line 74, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/fandango.scss */
+#buttons.rows_4 .button {
+  height: calc(25vh - 20px);
+}

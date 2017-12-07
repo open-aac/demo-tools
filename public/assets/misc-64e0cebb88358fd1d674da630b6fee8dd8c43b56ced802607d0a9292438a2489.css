@@ -1,0 +1,43 @@
+/* line 1, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc {
+  background: #fff;
+  max-width: 100vh;
+  margin: 0 auto;
+  box-shadow: 5px 0 10px #888, -5px 0 10px #888;
+}
+/* line 6, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc table {
+  width: 100%;
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+/* line 11, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc td {
+  height: calc(20vh - 15px);
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 17, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc td#total {
+  border: 3px solid #ddd;
+  padding: 10px;
+  font-size: 30px;
+  font-size: calc((20vh - 40px) / 1.5);
+}
+/* line 23, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc td.key {
+  border: 3px solid #ea8b8b;
+  background: #f9e2e2;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 40px;
+  font-size: calc(20vh / 3);
+  color: #444;
+}
+/* line 32, /Users/whitmer/Workspace/aac_tools/app/assets/stylesheets/misc.scss */
+#calc td.right {
+  background: #bad4ea;
+  border-color: #428bca;
+}
