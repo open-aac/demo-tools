@@ -317,7 +317,9 @@
   if(document.getElementById('demos')) {
     reset();
     var current_demo = localStorage.last_demo;
-    document.getElementById('demos').setAttribute('rel', current_demo);
+    if(current_demo) {
+      document.getElementById('demos').setAttribute('rel', current_demo);
+    }
     load_demo();
   } else if(localStorage.last_tested_url) {
     reset();
