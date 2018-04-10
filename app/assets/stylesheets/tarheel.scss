@@ -260,3 +260,13 @@ body.text_above {
     }
   }
 }
+
+.highlighted_word {
+     -moz-text-fill-color: #888;
+  -webkit-text-fill-color: #888;
+     -moz-text-stroke-color: #000;
+  -webkit-text-stroke-color: #000;
+     -moz-text-stroke-width: 3px;  
+  -webkit-text-stroke-width: 3px;  
+  paint-order: stroke fill;
+}

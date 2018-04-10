@@ -500,10 +500,20 @@
               } else if(elem && elem.id == 'settings_box') {  
                 settings_event(original_element);
               } else if(elem && elem.classList.contains('highlighted_word')) {
-                alert('word hit!');
+                trigger_word(original_element);
               }
             }
           });
+          
+          document.body.addEventListener('click', function(event) {
+            if(event.target.classList.contains('highlighted_word')) {
+              trigger_word(event.target);
+            }
+          });
+          
+          var trigger_word = function(elem) {
+            alert('word!');
+          };
           
           var settings_event = function(elem) {
             console.log("hit elem", elem);
