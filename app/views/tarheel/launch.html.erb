@@ -222,7 +222,7 @@
           // highlighting keywords within keywords.
           keywords.sort(function(a, b) { return b.length - a.length; });;
           Array.from(elem.childNodes).forEach(function(child) {
-            const keywordRegex = RegExp(keywords.join('|'), flags);
+            const keywordRegex = RegExp("\\b" + keywords.join('\\b|\\b') + "\\b", flags);
             if (child.nodeType !== 3) { // not a text node
               // highlight(child, keywords, caseSensitive, cls);
             } else if (keywordRegex.test(child.textContent)) {
