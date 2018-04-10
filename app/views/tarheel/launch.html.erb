@@ -293,11 +293,11 @@
             a.innerText = 'attribution: ' + a.href;
             a.target = '_blank';
             dom.text.appendChild(a);
-          } else if(direction == 'back' || direction == 'next') {
+          } else if(direction == 'back' || direction == 'next' || direction == 'none') {
             pic('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
             pic('image2', book.pages[book.page].image2_url);
             text('text', book.pages[book.page].text);
-            if(book.settings && book.settings.speech) {
+            if(book.settings && book.settings.speech && direction != 'none') {
               speak();
             }
           }
