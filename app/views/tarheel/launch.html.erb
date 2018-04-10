@@ -479,28 +479,30 @@
           
           // Settings handling, this is more advanced code than you'll need for a basic shim
           aac_shim.listen(function(event) {
-            var x = Math.round(event.x_percent * window.innerWidth);
-            var y = Math.round(event.y_percent * window.innerHeight);
-            var elem = document.elementFromPoint(x, y);
-            var original_element = elem;
-            while(elem && !elem.id && elem.tagName != 'BODY') {
-              elem = elem.parentNode;
-            }
-            if(event.aac_type == 'select' || event.type == 'gazedwell' || event.type == 'mouseup' || event.type == 'click' || event.type == 'touchend' || event.type == 'scanselect') {
-              if(elem && elem.id == 'settings') {
-                book_settings();
-              } else if(elem && elem.id == 'close_settings') {
-                book_settings(false);
-              } else if(elem && elem.id == 'save_settings') {
-                book_settings('save');
-              } else if(elem && elem.id == 'scroll_up') {
-                book_settings('up');
-              } else if(elem && elem.id == 'scroll_down') {
-                book_settings('down');
-              } else if(elem && elem.id == 'settings_box') {  
-                settings_event(original_element);
-              } else if(elem && elem.classList.contains('highlighted_word')) {
-                trigger_word(original_element);
+            if(event.x_percent !== undefined) {
+              var x = Math.round(event.x_percent * window.innerWidth);
+              var y = Math.round(event.y_percent * window.innerHeight);
+              var elem = document.elementFromPoint(x, y);
+              var original_element = elem;
+              while(elem && !elem.id && elem.tagName != 'BODY') {
+                elem = elem.parentNode;
+              }
+              if(event.aac_type == 'select' || event.type == 'gazedwell' || event.type == 'mouseup' || event.type == 'click' || event.type == 'touchend' || event.type == 'scanselect') {
+                if(elem && elem.id == 'settings') {
+                  book_settings();
+                } else if(elem && elem.id == 'close_settings') {
+                  book_settings(false);
+                } else if(elem && elem.id == 'save_settings') {
+                  book_settings('save');
+                } else if(elem && elem.id == 'scroll_up') {
+                  book_settings('up');
+                } else if(elem && elem.id == 'scroll_down') {
+                  book_settings('down');
+                } else if(elem && elem.id == 'settings_box') {  
+                  settings_event(original_element);
+                } else if(elem && elem.classList.contains('highlighted_word')) {
+                  trigger_word(original_element);
+                }
               }
             }
           });
@@ -512,7 +514,11 @@
           });
           
           var trigger_word = function(elem) {
-            alert('word!');
+            aac_shim.speak_text(elem.innerText, 'primary');
+            elem.classList.add('speaking');
+            setTimeout(function() {
+              elem.classList.remove('speaking');
+            }, 3000);
           };
           
           var settings_event = function(elem) {

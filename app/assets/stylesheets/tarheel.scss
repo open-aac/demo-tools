@@ -269,4 +269,8 @@ body.text_above {
      -moz-text-stroke-width: 3px;  
   -webkit-text-stroke-width: 3px;  
   paint-order: stroke fill;
+  cursor: pointer;
+  &.speaking {
+    text-shadow: 3px 3px 10px #74a6f7, -3px -3px 10px #74a6f7, -3px 3px 10px #74a6f7, 3px -3px 10px #74a6f7;
+  }
 }
