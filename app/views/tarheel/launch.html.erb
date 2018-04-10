@@ -74,6 +74,13 @@
             <a class='option' href='#' data-key='utterance' data-value='false'>Don't Add to Sentence</a>
           </td>
         </tr>
+        <tr>
+          <td class='label'>Highlight Words</td>
+          <td>
+            <a class='option' href='#' data-key='highlight' data-value='true'>Highlight Target Words</a>
+            <a class='option' href='#' data-key='highlight' data-value='false'>Don't Highlight Target Words</a>
+          </td>
+        </tr>
       </table>
       <div style='font-size: 25px; margin-top: 20px;'>
         <a href='#' class='option' id='close_settings'>Close</a>
@@ -165,7 +172,7 @@
                 }
               }
             }
-            if(highlights && highlights.length > 0) {
+            if(highlights && highlights.length > 0 && book.settings.highlight) {
               highlight(dom[id], highlights);
             }
             dom.text.style.font = size + "px Arial"; 
@@ -443,6 +450,7 @@
               book.settings.links = book.settings.links || 'normal';
               book.settings.position = book.settings.position || 'text_below';
               book.settings.background = book.settings.background || 'white';
+              book.settings.highlight = book.settings.highlight || 'true';
               // these event listeners are here for fallback demo purposes, but
               // are not actually used when launched via AAC
               dom.back.addEventListener('click', function(event) {
@@ -515,6 +523,9 @@
           
           var trigger_word = function(elem) {
             aac_shim.speak_text(elem.innerText, 'primary');
+            Array.from(document.getElementsByClassName('highlighted_word')).forEach(function(elem) {
+              elem.classList.remove('speaking');
+            });
             elem.classList.add('speaking');
             setTimeout(function() {
               elem.classList.remove('speaking');
