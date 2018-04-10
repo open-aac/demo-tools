@@ -123,7 +123,7 @@
           return metrics;
         }
         // set the text for one of the div tags
-        var text = function(id, str) {
+        var text = function(id, str, highlights) {
           dom[id].innerText = str;
           if(id == 'text') {
             if(str == 'All finished!') {
@@ -165,6 +165,9 @@
                 }
               }
             }
+            if(highlights && highlights.length > 0) {
+              highlight(dom[id], highlights);
+            }
             dom.text.style.font = size + "px Arial"; 
           }
         }
@@ -203,6 +206,35 @@
           } else {
             document.body.classList.remove('black');
           }
+        }
+        
+        function highlight(elem, keywords) {
+          const flags = 'gi';
+          const cls = 'highlighted_word';
+          // Sort longer matches first to avoid
+          // highlighting keywords within keywords.
+          keywords.sort(function(a, b) { return b.length - a.length; });;
+          Array.from(elem.childNodes).forEach(function(child) {
+            const keywordRegex = RegExp(keywords.join('|'), flags);
+            if (child.nodeType !== 3) { // not a text node
+              // highlight(child, keywords, caseSensitive, cls);
+            } else if (keywordRegex.test(child.textContent)) {
+              const frag = document.createDocumentFragment();
+              let lastIdx = 0;
+              child.textContent.replace(keywordRegex, (match, idx) => {
+                const part = document.createTextNode(child.textContent.slice(lastIdx, idx));
+                const highlighted = document.createElement('span');
+                highlighted.textContent = match;
+                highlighted.classList.add(cls);
+                frag.appendChild(part);
+                frag.appendChild(highlighted);
+                lastIdx = idx + match.length;
+              });
+              const end = document.createTextNode(child.textContent.slice(lastIdx));
+              frag.appendChild(end);
+              child.parentNode.replaceChild(frag, child);
+            }
+          });
         }
         
         // re-initialize the shim targets
@@ -296,7 +328,7 @@
           } else if(direction == 'back' || direction == 'next' || direction == 'none') {
             pic('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
             pic('image2', book.pages[book.page].image2_url);
-            text('text', book.pages[book.page].text);
+            text('text', book.pages[book.page].text, book.pages[book.page].related_words);
             if(book.settings && book.settings.speech && direction != 'none') {
               speak();
             }
@@ -463,10 +495,12 @@
                 book_settings('save');
               } else if(elem && elem.id == 'scroll_up') {
                 book_settings('up');
-              } else if(elem&& elem.id == 'scroll_down') {
+              } else if(elem && elem.id == 'scroll_down') {
                 book_settings('down');
               } else if(elem && elem.id == 'settings_box') {  
                 settings_event(original_element);
+              } else if(elem && elem.classList.contains('highlighted_word')) {
+                alert('word hit!');
               }
             }
           });
