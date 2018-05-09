@@ -390,7 +390,7 @@
         // start up the shim, wait for a ready response from the AAC container
         aac_shim.status(function(res) {
           if(res.error) {
-            if(res.error == "No AAC Container Found") {
+            if(res.error == "No AAC Container Found" || res.error == 'message came from unknown source') {
               var hash = location.href.split(/#/)[1];
               if(hash) {
                 res = {
