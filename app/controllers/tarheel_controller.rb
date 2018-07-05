@@ -9,15 +9,14 @@ class TarheelController < ApplicationController
   
   def book
     id = params['id']
-    slug = ((id || '').match(/https?:\/\/tarheelreader\.org\/\d+\/\d+\/\d+\/([^\/]+)\/?/) || [])[1]
+    slug = AccessibleBooks.tarheel_id(id)
     
     id = slug if slug
     url = "https://tarheelreader.org/book-as-json/?slug=#{CGI.escape(id)}"
     if id.match(/^http/)
       url = params['id']
     end
-    res = Typhoeus.get(url, followlocation: true)
-    results = JSON.parse(res.body)
+    results = AccessibleBooks.find_json(url)
     if params['user_state_code']
       state = UserState.find_by(:user_code => params['user_state_code'])
       results['user_state'] = JSON.parse(state.state) rescue nil

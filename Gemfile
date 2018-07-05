@@ -23,6 +23,7 @@ gem 'jquery-rails'
 
 gem 'typhoeus'
 gem 'pg'
+gem 'accessible-books'
 
 
 group :development, :test do
