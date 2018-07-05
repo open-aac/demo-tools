@@ -16,10 +16,7 @@ class TarheelController < ApplicationController
     if id.match(/^http/)
       url = params['id']
     end
-    res = Typhoeus.get(url)
-    if res.headers['Location']
-      res = Typhoeus.get(res.headers['Location'])
-    end
+    res = Typhoeus.get(url, followlocation: true)
     results = JSON.parse(res.body)
     if params['user_state_code']
       state = UserState.find_by(:user_code => params['user_state_code'])
