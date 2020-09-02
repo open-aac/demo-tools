@@ -44,6 +44,7 @@
             <a class='option' href='#' data-key='links' data-value='small'>Small</a>
             <a class='option' href='#' data-key='links' data-value='normal'>Normal</a>
             <a class='option' href='#' data-key='links' data-value='huge'>Huge</a>
+            <a class='option' href='#' data-key='links' data-value='small-back'>Small-Back</a>
           </td>
         </tr>
         <tr>
@@ -81,6 +82,16 @@
             <a class='option' href='#' data-key='highlight' data-value='false'>Don't Highlight Target Words</a>
           </td>
         </tr>
+        <tr>
+          <td class='label'>Auto Advance</td>
+          <td>
+            after
+            <a class='option' href='#' data-key='auto_advance' data-value='minus'> - </a>
+            <input id='auto_advance' placeholder="#" style="width: 50px;height: 40px;text-align: center;vertical-align: middle;margin: 0 0 0 5px;" />
+            <a class='option' href='#' data-key='auto_advance' data-value='plus' style='margin-right: 5px;'> + </a>
+            seconds
+          </td>
+        </tr>
       </table>
       <div style='font-size: 25px; margin-top: 20px;'>
         <a href='#' class='option' id='close_settings'>Close</a>
@@ -88,6 +99,8 @@
       </div></div>
     </div>
     <script>
+      var reader = {};
+      var book = null;
       (function() {
         var authenticity_token = "<%= form_authenticity_token %>";
         var url = location.href;
@@ -96,17 +109,16 @@
         var sound = new Audio();
         sound.src = sound_uri;
         // load DOM elements for easy access
-        ['loading', 'settings', 'settings_box', 'back', 'next', 'speak', 'title', 'author', 'cover', 'image', 'image2', 'text'].forEach(function(key) {
+        ['loading', 'settings', 'settings_box', 'back', 'next', 'speak', 'title', 'author', 'cover', 'image', 'image2', 'text', 'auto_advance'].forEach(function(key) {
           dom[key] = document.getElementById(key);
         });
-        var book = null;
         
         // helper functions
         
         // error message if there was any trouble loading
-        var err = function(str) { dom.loading.innerText = str; };
+        reader.error = function(str) { dom.loading.innerText = str; };
         // set the image url for one of the img tags
-        var pic = function(id, url) {
+        reader.add_image = function(id, url) {
           if(url) {
             var img = document.createElement('img');
             img.src = url;
@@ -121,16 +133,16 @@
             }
           }
         }
-        var measure_text = function(str, size) {
+        reader.measure_text = function(str, size) {
           // re-use canvas object for better performance
-          var canvas = measure_text.canvas || (measure_text.canvas = document.createElement("canvas"));
+          var canvas = reader.measure_text.canvas || (reader.measure_text.canvas = document.createElement("canvas"));
           var context = canvas.getContext("2d");
           context.font = size + "px Arial";
           var metrics = context.measureText(str);
           return metrics;
         }
         // set the text for one of the div tags
-        var text = function(id, str, highlights) {
+        reader.set_text = function(id, str, highlights) {
           dom[id].innerText = str;
           if(id == 'text') {
             if(str == 'All finished!') {
@@ -144,7 +156,7 @@
             var available_height = bounds.height;
             var size = available_height;
             while(too_big && size > 0 && str != "All finished!") {
-              var measures = parts.map(function(p) { return measure_text(p, size); });
+              var measures = parts.map(function(p) { return reader.measure_text(p, size); });
               var width = Math.max.apply(null, measures.map(function(m) { return m.width; }));
               var height = parts.length * (size * 1.18);
 //               console.log(Math.round(width) + "x" + Math.round(height), 'within', Math.round(available_width)+"x"+Math.round(available_height));
@@ -173,13 +185,13 @@
               }
             }
             if(highlights && highlights.length > 0 && book.settings.highlight) {
-              highlight(dom[id], highlights);
+              reader.highlight(dom[id], highlights);
             }
             dom.text.style.font = size + "px Arial"; 
           }
         }
         // clear any existing content from the page
-        var clear = function() {
+        reader.clear_page = function() {
           for(var key in dom) {
             if(key != 'back' && key != 'next' && key != 'speak' && key != 'settings' && key != 'settings_box') {
               dom[key].innerHTML = "";
@@ -197,12 +209,25 @@
             dom.next.classList.add('huge');
             dom.back.classList.remove('small');
             dom.next.classList.remove('small');
+          } else if(book && book.settings && book.settings.links == 'small-back') {
+            dom.back.classList.add('small');
+            dom.next.classList.add('huge');
+            dom.back.classList.remove('huge');
+            dom.next.classList.remove('small');
           } else {
             dom.back.classList.remove('small');
             dom.next.classList.remove('small');
             dom.back.classList.remove('huge');
             dom.next.classList.remove('huge');
           }
+          // When you have already back-navigated from
+          // a page once, shrink the back button on 
+          // subsequent loads of that page
+          if(book && book.page && book.pages[book.page] && book.pages[book.page].back_navigated) {
+            dom.back.classList.add('small');
+            dom.back.classList.remove('huge');
+          }
+
           if(book && book.settings && book.settings.position == 'text_above') {
             document.body.classList.add('text_above');
           } else {
@@ -215,7 +240,7 @@
           }
         }
         
-        function highlight(elem, keywords) {
+        reader.highlight = function(elem, keywords) {
           const flags = 'gi';
           const cls = 'highlighted_word';
           // Sort longer matches first to avoid
@@ -224,7 +249,7 @@
           Array.from(elem.childNodes).forEach(function(child) {
             const keywordRegex = RegExp("\\b" + keywords.join('\\b|\\b') + "\\b", flags);
             if (child.nodeType !== 3) { // not a text node
-              // highlight(child, keywords, caseSensitive, cls);
+              // reader.highlight(child, keywords, caseSensitive, cls);
             } else if (keywordRegex.test(child.textContent)) {
               const frag = document.createDocumentFragment();
               let lastIdx = 0;
@@ -245,10 +270,15 @@
         }
         
         // re-initialize the shim targets
-        var update = function() {
-          // it's important to wait for the callback to prevent race conditions (apparently)
+        reader.update_targets = function() {
+          // it is important to wait for the callback to prevent race conditions (apparently)
           aac_shim.clear_targets(function() {
             var rect = dom.back.getBoundingClientRect();
+            if(dom.settings_box.style.display == 'block') {
+              // Show no targets when editing settings,
+              // since they overlap the settings modal
+              return;
+            }
             if(book.page > 0) {
               aac_shim.add_target({
                 id: 'back',
@@ -259,7 +289,7 @@
                 prompt: 'Back'
               }, function(res) {
                 if(res.type == 'select') {
-                  advance('back');
+                  reader.advance_page('back');
                 }
               });
             }
@@ -274,7 +304,7 @@
                 prompt: 'Next'
               }, function(res) {
                 if(res.type == 'select') {
-                  advance('next');
+                  reader.advance_page('next');
                 }
               });
             }
@@ -289,30 +319,22 @@
                 prompt: 'Speak'
               }, function(res) {
                 if(res.type == 'select') {
-                  speak(true);
+                  reader.speak_page(true);
                 }
               });
             }
           });
         };
         
-        var book_settings = function(opt) {
-          if(opt == false) {
-            dom.settings_box.style.display = 'none';
-          } else if(opt == 'save') {
-          } else {
-            dom.settings_box.style.display = 'block';
-          }
-        };
         // re-initialize shim targets when the window gets resized
         window.addEventListener('resize', function() {
-          advance('none');
+          reader.advance_page('none');
         });
 
         var tarheel_prefix = "https://tarheelreader.org";
         // move forward or backward within the current book, triggered by user events
         // if auto-speech is set, trigger a speak event as well
-        var advance = function(direction) {
+        reader.advance_page = function(direction) {
           book.page = book.page || 0;
           var prior_page = book.page;
           if(direction == 'back') {
@@ -320,27 +342,49 @@
           } else if(direction == 'next') {
             book.page = Math.min(book.pages.length, book.page + 1);
           }
-          clear();
+          reader.clear_page();
           if(book.page <= 0) {
-            pic('cover', book.pages[0].image_url || book.pages[1].image_url || (tarheel_prefix + book.pages[1].url));
-            text('title', book.pages[book.page].text);
-            text('author', "by " + book.author);
+            reader.add_image('cover', book.pages[0].image_url || book.pages[1].image_url || (tarheel_prefix + book.pages[1].url));
+            reader.set_text('title', book.pages[book.page].text);
+            reader.set_text('author', "by " + book.author);
           } else if(book.page >= book.pages.length) {
-            text('text', 'All finished!');
+            reader.set_text('text', 'All finished!');
             var a = document.createElement('a');
             a.href = book.attribution_url || ('https://tarheelreader.org/photo-credits/?id=' + book.ID);
             a.innerText = 'attribution: ' + a.href;
             a.target = '_blank';
             dom.text.appendChild(a);
           } else if(direction == 'back' || direction == 'next' || direction == 'none') {
-            pic('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
-            pic('image2', book.pages[book.page].image2_url);
-            text('text', book.pages[book.page].text, book.pages[book.page].related_words);
+            reader.add_image('image', book.pages[book.page].image_url || (tarheel_prefix + book.pages[book.page].url));
+            reader.add_image('image2', book.pages[book.page].image2_url);
+            reader.set_text('text', book.pages[book.page].text, book.pages[book.page].related_words);
             if(book.settings && book.settings.speech && direction != 'none') {
-              speak();
+              reader.speak_page();
             }
           }
+          // Block for handling page changes, as opposed
+          // to potential page updates
           if(book.page != prior_page && (direction == 'back' || direction == 'next')) {
+            // Track back button use, so we can minimize the
+            // 'back' link on this page in the future
+            if(direction == 'back' && book.pages[prior_page]) {
+              book.pages[prior_page].back_navigated = true;
+            }
+            if(book.advance_timeout) {
+              clearTimeout(book.advance_timeout);
+            }
+            // If auto-advance is enabled, set a timer
+            // for how long to stay on this page before
+            // advancing
+            if(book.settings && book.settings.auto_advance && direction == 'next') {
+              var num = parseInt(book.settings.auto_advance, 10);
+              if(num) {
+                book.advance_timeout = setTimeout(function() {
+                  reader.advance_page('next');
+                }, num * 1000);
+              }
+            }
+            // Play a page-turning sound if not auto-speaking
             if(!book.settings || !book.settings.speech) {
               sound.pause();
               sound.currentTime = 0;
@@ -368,17 +412,17 @@
           } else {
             dom.speak.style.display = 'none';
           }
-          update();
+          reader.update_targets();
         };
         
         // send the text (and image) of the current page up to the AAC container
-        var speak = function(manual) {
+        reader.speak_page = function(manually_activated) {
           var page = book.pages[book.page];
           if(page && page.text) {
             if(book.settings && book.settings.utterance) {
               aac_shim.add_text(page.text, page.full_url || (page.url && (tarheel_prefix + page.url)) || null);
             } else {
-              if(manual) {
+              if(manually_activated) {
                 aac_shim.speak_text(page.text, 'primary');
               } else {
                 aac_shim.speak_text(page.text, 'secondary');
@@ -399,18 +443,18 @@
                   demo: true
                 }
               } else {
-                return err(res.error);
+                return reader.error(res.error);
               }
             } else {
-              return err(res.error);
+              return reader.error(res.error);
             }
           }
           console.log("status", res);
           if(!res.status || res.status != 'ready') {
-            return err("App Not Ready");
+            return reader.error("App Not Ready");
           }
           if(!res.code) {
-            return err("No Code Returned");
+            return reader.error("No Code Returned");
           }
           var user_state_code = null;
           if(res.user_token) {
@@ -425,7 +469,7 @@
               settings.user_state_code = 'Tarheel::' + (settings.system_token || 'GenericAAC') + "::" + settings.user_token;
             }
           } catch(e) {
-            // otherwise fall back to launch code just being a book's id
+            // otherwise fall back to launch code just being a book id
             settings = {
               id: res.code,
               demo: res.demo
@@ -442,28 +486,28 @@
               console.log(res);
               book = res;
               book.settings = settings;
+              book.settings.links = book.settings.links || 'normal';
+              book.settings.position = book.settings.position || 'text_below';
+              book.settings.background = book.settings.background || 'white';
+              book.settings.highlight = book.settings.highlight || 'true';
               if(res.user_state) {
                 for(var key in res.user_state) {
                   book.settings[key] = res.user_state[key];
                 }
               }
-              book.settings.links = book.settings.links || 'normal';
-              book.settings.position = book.settings.position || 'text_below';
-              book.settings.background = book.settings.background || 'white';
-              book.settings.highlight = book.settings.highlight || 'true';
               // these event listeners are here for fallback demo purposes, but
               // are not actually used when launched via AAC
               dom.back.addEventListener('click', function(event) {
                 event.preventDefault();
-                advance('back');
+                reader.advance_page('back');
               });
               dom.next.addEventListener('click', function(event) {
                 event.preventDefault();
-                advance('next');
+                reader.advance_page('next');
               });
               dom.speak.addEventListener('click', function(event) {
                 event.preventDefault();
-                speak(true);
+                reader.speak_page(true);
               });
               dom.settings.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -473,19 +517,23 @@
                 event.preventDefault();
                 settings_event(event.target);
               });
-              advance('back');
+              dom.auto_advance.addEventListener('input', function(event) {
+                event.preventDefault();
+                settings_event(event.target);
+              });
+              reader.advance_page('back');
             } else if(this.readyState == 4) {
               if(!navigator.onLine) {
-                err("Books Can't Load When Offline");
+                reader.error("Books Can't Load When Offline");
               } else {
-                err("Failed to Load Book, please check settings");
+                reader.error("Failed to Load Book, please check settings");
               }
             }
           };
           xhr.open('GET', "/tarheel/book?id=" + encodeURIComponent(settings.id) + "&user_state_code=" + (settings.user_state_code || ''), true);
           xhr.send();
           
-          // Settings handling, this is more advanced code than you'll need for a basic shim
+          // Settings handling, this is more advanced code than you will need for a basic shim
           aac_shim.listen(function(event) {
             if(event.x_percent !== undefined) {
               var x = Math.round(event.x_percent * window.innerWidth);
@@ -542,6 +590,21 @@
               book_settings('up');
             } else if(elem.id == 'scroll_down') {
               book_settings('down');
+            } else if(elem.id == 'auto_advance') {
+              var val = parseInt(elem.value);
+              if(val && val > 0) {
+                book.settings.auto_advance = val;
+              } else {
+                book.settings.auto_advance = null;
+              }
+            } else if(elem.getAttribute('data-key') == 'auto_advance') {
+              var shift = (elem.getAttribute('data-value') == 'plus') ? 1 : -1;
+              var val = (parseInt(dom.auto_advance.value, 10) || 0) + shift;
+              if(val && val > 0) {
+                dom.auto_advance.value = val;
+              } else {
+                dom.auto_advance.value = '';
+              }
             } else {
               if(elem.getAttribute('data-key') && elem.getAttribute('data-value')) {
                 var val = elem.getAttribute('data-value');
@@ -552,8 +615,7 @@
             }
             book_settings('update');
           };
-        });
-        
+        });        
         var book_settings = function(opt) {
           if(opt == false) {
             dom.settings_box.style.display = 'none';
@@ -566,10 +628,11 @@
               };
               xhr.open('POST', "/states/" + book.settings.user_state_code);
               xhr.setRequestHeader("Content-Type", "application/json");
+              xhr.setRequestHeader('X-CSRF-Token', authenticity_token);
               book.settings.authenticity_token = authenticity_token;
               xhr.send(JSON.stringify(book.settings));
             }
-            advance('none');
+            reader.advance_page('none');
           } else if(opt == 'update') {
           } else {
             dom.settings_box.style.display = 'block';
@@ -594,12 +657,14 @@
           var list = document.getElementsByClassName('option');
           for(var idx = 0; idx < list.length; idx++) {
             var elem = list[idx];
-            var key = elem.getAttribute('data-key');
-            if(elem.id != 'save_settings') {
-              elem.classList.remove('active');
-            }
-            if(key && ((book.settings[key] || false).toString() == elem.getAttribute('data-value'))) {
-              elem.classList.add('active');
+            if(elem.getAttribute('data-key') != 'auto_advance') {
+              var key = elem.getAttribute('data-key');
+              if(elem.id != 'save_settings') {
+                elem.classList.remove('active');
+              }
+              if(key && ((book.settings[key] || false).toString() == elem.getAttribute('data-value'))) {
+                elem.classList.add('active');
+              }                
             }
           }
         };
