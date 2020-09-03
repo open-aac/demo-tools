@@ -602,8 +602,10 @@
               var val = (parseInt(dom.auto_advance.value, 10) || 0) + shift;
               if(val && val > 0) {
                 dom.auto_advance.value = val;
-              } else {
+                book.settings.auto_advance = val;
+                } else {
                 dom.auto_advance.value = '';
+                book.settings.auto_advance = null;
               }
             } else {
               if(elem.getAttribute('data-key') && elem.getAttribute('data-value')) {
