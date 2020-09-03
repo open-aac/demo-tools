@@ -62,6 +62,23 @@ body {
 #next {
   right: 0;
 }
+#timer_bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10vw;
+  height: 10vh;
+  padding: 10px;
+  display: none;
+  .link {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    height: 100%;
+    width: 5px;
+    background: #ddd;
+  }
+}
 #settings {
   position: absolute;
   top: 0;
