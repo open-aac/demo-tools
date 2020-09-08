@@ -9,18 +9,18 @@ class TarheelController < ApplicationController
   
   def book
     id = params['id']
-    slug = AccessibleBooks.tarheel_id(id)
+    # slug = AccessibleBooks.tarheel_id(id)
     
-    id = slug if slug
-    url = "https://tarheelreader.org/book-as-json/?slug=#{CGI.escape(id)}"
-    if id.match(/^http/)
-      url = params['id']
+    # id = slug if slug
+    # url = "https://tarheelreader.org/book-as-json/?slug=#{CGI.escape(id)}"
+    if !id.match(/^http/)
+      id = "https://tarheelreader.org/1234/11/12/#{id}/0"
     end
-    results = AccessibleBooks.find_json(url)
-    if params['user_state_code']
+    results = AccessibleBooks.find_json(id)
+    if params['user_state_code'] && results
       state = UserState.find_by(:user_code => params['user_state_code'])
       results['user_state'] = JSON.parse(state.state) rescue nil
     end
     render json: results.to_json
-  end
+  end 
 end
