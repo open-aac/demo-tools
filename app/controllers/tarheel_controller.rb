@@ -8,6 +8,7 @@ class TarheelController < ApplicationController
   end
   
   def book
+    cross_origin
     id = params['id']
     # slug = AccessibleBooks.tarheel_id(id)
     
@@ -20,6 +21,9 @@ class TarheelController < ApplicationController
     if params['user_state_code'] && results
       state = UserState.find_by(:user_code => params['user_state_code'])
       results['user_state'] = JSON.parse(state.state) rescue nil
+    end
+    if results['image_url'] && results['image_url'].match(/tarheelreader/)
+      results['pages'][0]['image_url'] = results['image_url']
     end
     render json: results.to_json
   end 
