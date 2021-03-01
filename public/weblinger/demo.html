@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
     <script src='weblinger.js'></script>
     <!-- script src='lib/jeelizWeboji/jeelizFaceTransfer.js'></script>
     <script src='lib/jeelizWeboji/jeelizFaceTransferNNC.json.js'></script -->
@@ -79,7 +80,7 @@
         <button id="stop">Stop</button>
         <button id="calibrate">Re-Calibrate</button>
         <span id="expression">
-          😐
+          &#x1F610;
         </span>
       </span>
       <span id='inactive'>
@@ -193,26 +194,26 @@
               } else if(e.type == 'expression') {
                 var confirmed_action = e.expression;
                 var lookups = {
-                  'mouth-open': "😮",
-                  'smile': "☺️",
-                  'wink': "😉",
-                  'kiss': "😘",
-                  'eyebrows': "🤨",
-                  'smirk': "😏",
-                  'blink': "😝"
+                  'mouth-open': "&#x1F62E;",
+                  'smile': "&#x1F642;",
+                  'wink': "&#x1F609;",
+                  'kiss': "&#x1F618;",
+                  'eyebrows': "&#x1F928;",
+                  'smirk': "&#x1F60F;",
+                  'blink': "&#x1F61D;"
                 };
 
                 var expr = document.querySelector('#expression');
                 var ref_id = Math.random() + "." + (new Date()).getTime();
                 expr.ref_id = ref_id;
-                expr.innerText = lookups[confirmed_action] || "😐";
+                expr.innerHTML = lookups[confirmed_action] || "&#x1F610;";
                 expr.classList.add('highlight');
                 setTimeout(function() {
                   if(ref_id == expr.ref_id) {
                     expr.classList.remove('highlight');
                     setTimeout(function() {
                       if(ref_id == expr.ref_id) {
-                        expr.innerText = "😐";
+                        expr.innerHTML = "&#x1F610;";
                       }  
                     }, 1500);
                   }
