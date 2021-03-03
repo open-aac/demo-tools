@@ -597,8 +597,10 @@ var weblinger = {};
         video.srcObject = stream;
         video.style.width = '300px';
         video.setAttribute('playsinline', true);
+        video.style.position = 'absolute';
+        video.style.left = '-1000px';
+        document.body.appendChild(video);
         weblinger._assert_video.content.video = video;
-        // document.body.appendChild(video);   
         var canvas = weblinger._assert_video.canvas;
         if(!canvas) {
           canvas = document.createElement('canvas');
