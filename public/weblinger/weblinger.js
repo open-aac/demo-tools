@@ -7,6 +7,8 @@ var weblinger = {};
   var spinner_uri = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin:auto;background:%23fff;display:block;' width='200px' height='200px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' r='32' stroke-width='8' stroke='%2399e7ff' stroke-dasharray='50.26548245743669 50.26548245743669' fill='none' stroke-linecap='round' transform='rotate(346.857 50.0001 50.0001)'%3E%3CanimateTransform attributeName='transform' type='rotate' dur='1.2987012987012987s' repeatCount='indefinite' keyTimes='0;1' values='0 50 50;360 50 50'%3E%3C/animateTransform%3E%3C/circle%3E%3Ccircle cx='50' cy='50' r='23' stroke-width='8' stroke='%23ff5151' stroke-dasharray='36.12831551628262 36.12831551628262' stroke-dashoffset='36.12831551628262' fill='none' stroke-linecap='round' transform='rotate(-346.857 50.0001 50.0001)'%3E%3CanimateTransform attributeName='transform' type='rotate' dur='1.2987012987012987s' repeatCount='indefinite' keyTimes='0;1' values='0 50 50;-360 50 50'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E";
   var gaze_history = [];
   var tilt_history = [];
+  var stable_tilt_history = [];
+  var mid_tilt_history = [];
   var expr_history = [];
   var log = function() {
     if(weblinger.debug) {
@@ -180,6 +182,8 @@ var weblinger = {};
       }
       cursor.style.position = 'fixed';
       cursor.style.zIndex = 999999;
+      cursor.style.pointerEvents = 'none';
+      cursor.style.transition = "left 0.1s, top 0.1s";
       cursor.style.left = '-1000px';
       document.body.appendChild(cursor);
       weblinger._cursor_element = cursor;
@@ -291,15 +295,15 @@ var weblinger = {};
     // window.webgazer.clickListener(e);
   });
   weblinger._notify_linger = function(clientX, clientY, source) {
-    weblinger._last_linger = {x: clientX, y: clientY, source: source};
+    weblinger._last_linger = {x: clientX, y: clientY, source: source, timestamp: (new Date()).getTime()};
     if(weblinger.state.calibrating || !weblinger._state.active) { return; }
     // move the cursor here
     var cursor_width = 15;
     // TODO: if the cursor sticks below/above the fold
     // and scroll is enabled, start scrolling slowly
-    weblinger._cursor_element.style.left = Math.min(window.innerWidth - cursor_width, Math.max(0 - cursor_width + 5, clientX - (weblinger._config.cursor_offset_x || 0)));
-    weblinger._cursor_element.style.top = Math.min(window.innerHeight - cursor_width, Math.max(0 - cursor_width + 5, clientY - (weblinger._config.cursor_offset_y || 0)));
     var targets = find_dwell_target(clientX, clientY);
+    weblinger._cursor_element.style.left = Math.round(Math.min(window.innerWidth - cursor_width, Math.max(0 - cursor_width + 5, clientX - (weblinger._config.cursor_offset_x || 0)))) + "px";
+    weblinger._cursor_element.style.top = Math.round(Math.min(window.innerHeight - cursor_width, Math.max(0 - cursor_width + 5, clientY - (weblinger._config.cursor_offset_y || 0)))) + "px";
     var target = targets.target;
     var raw_elem = targets.element || document.body;
 
@@ -350,6 +354,7 @@ var weblinger = {};
                 div.style.position = 'relative';
                 div.style.position = 'fixed';
                 div.style.zIndex = 999998;
+                div.style.pointerEvents = 'none';
                 document.body.appendChild(div);
                 weblinger._dwell_element = div;
               }
@@ -461,36 +466,37 @@ var weblinger = {};
     // Hide any cursors, then check for the activated element
     var restore_cursor = false;
     var restore_dwell = false;
-    if(weblinger._cursor_element && weblinger._cursor_element.style.display != 'none') {
-      weblinger._cursor_element.style.display = 'none';
-      restore_cursor = true;
-    }
-    if(weblinger._dwell_element && weblinger._dwell_element.style.left != '-1500px') {
-      restore_dwell = weblinger._dwell_element.style.left;
-      weblinger._dwell_element.style.left = '-1000px';
-    }
+    var cursor_left = null;
+    // if(weblinger._cursor_element && weblinger._cursor_element.style.display != 'none') {
+    //   cursor_left = weblinger._cursor_element.style.left;
+    //   weblinger._cursor_element.style.left = '-1000px';
+    //   restore_cursor = true;
+    // }
+    // if(weblinger._dwell_element && weblinger._dwell_element.style.left != '-1500px') {
+    //   restore_dwell = weblinger._dwell_element.style.left;
+    //   weblinger._dwell_element.style.left = '-1000px';
+    // }
     if(weblinger._config.cursors) {
       weblinger._config.cursors.forEach(function(c) {
-        if(c.style.display != 'none') {
-          c.style.display = 'none';
-          c.restore_cursor = true;
+        if(c.style.pointerEvents != 'none') {
+          c.style.pointerEvents = 'none';
         }
       });
     }
     var elem = document.elementFromPoint(clientX, clientY);
-    if(weblinger._config.cursors) {
-      weblinger._config.cursors.forEach(function(c) {
-        if(c.restore_cursor) {
-          c.style.display = '';
-        }
-      });
-    }
-    if(weblinger._dwell_element && restore_dwell) {
-      weblinger._dwell_element.style.left = restore_dwell;
-    }
-    if(weblinger._cursor_element && restore_cursor) {
-      weblinger._cursor_element.style.display = '';
-    }
+    // if(weblinger._config.cursors) {
+    //   weblinger._config.cursors.forEach(function(c) {
+    //     if(c.restore_cursor) {
+    //       c.style.left = '';
+    //     }
+    //   });
+    // }
+    // if(weblinger._dwell_element && restore_dwell) {
+    //   weblinger._dwell_element.style.left = restore_dwell;
+    // }
+    // if(weblinger._cursor_element && restore_cursor) {
+    //   weblinger._cursor_element.style.left = cursor_left;
+    // }
 
     var target = null;
     if(weblinger._config.targets instanceof Function) {
@@ -599,6 +605,7 @@ var weblinger = {};
         video.setAttribute('playsinline', true);
         video.style.position = 'absolute';
         video.style.left = '-1000px';
+        video.style.bottom = '0px';
         document.body.appendChild(video);
         weblinger._assert_video.content.video = video;
         var canvas = weblinger._assert_video.canvas;
@@ -674,14 +681,14 @@ var weblinger = {};
         calib.style.border = '2px solid #fff';
         calib.style.boxShadow = '0 0 3px #000';
         calib.style.borderRadius = '30px';
-        calib.style.background = 'rgba(50, 105, 168, 0.8)';
         calib.style.position = 'fixed';
         calib.style.zIndex = 999999;
         calib.style.opacity = 0.0;
         document.body.appendChild(calib);
-        calib.style.transition = "left 2s, top 2s, opacity 1s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s";
+        calib.style.transition = "left 2s, top 2s, opacity 1s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, background 0.3s";
         weblinger._calibrate_element = calib;
       }
+      weblinger._calibrate_element.style.background = 'rgba(50, 105, 168, 0.8)';
       weblinger._calibrate_element.style.left = 'calc(50vw - ' + centering + 'px)';
       weblinger._calibrate_element.style.top = 'calc(50vh - ' + centering + 'px)';
       weblinger._calibrate_element.style.display = 'block';
@@ -805,7 +812,56 @@ var weblinger = {};
       } else if(weblinger._config.source == 'head') {
         weblinger.faceapi.tilt_offset = null;
         overlay("Look Here!");
-        setTimeout(function() {
+        var drops =  0;
+        var check_offsets = function() {
+          if(offsets.length > 5) {
+            calib.style.background = 'rgba(83, 168, 50, 0.8)';
+          } else if(drops > 5) {
+            calib.style.background = 'rgba(168, 50, 50, 0.8)';
+          } else {
+            calib.style.background = 'rgba(50, 105, 168, 0.8)';
+          }
+          if(offsets.length < 8) {
+            setTimeout(check_offsets, 200);
+          } else {
+            var avg_x = 0, avg_y = 0;
+            offsets.forEach(function(offset) {
+              avg_x = avg_x + offset.x;
+              avg_y = avg_y + offset.y;
+            });
+            avg_x = avg_x / offsets.length;
+            avg_y = avg_y / offsets.length;
+            var dist_x = 0, dist_y = 0;
+            offsets.forEach(function(offset) {
+              dist_x = dist_x + Math.abs(offset.x - avg_x);
+              dist_y = dist_y + Math.abs(offset.y - avg_y);
+            });
+            dist_x = dist_x / offsets.length * 5;
+            dist_y = dist_y / offsets.length * 5;
+            var last_far = null;
+            var last_ts = null;
+            offsets.forEach(function(offset, idx) {
+              var diff_x = Math.abs(offset.x - avg_x);
+              var diff_y = Math.abs(offset.y - avg_y);
+              if(offset.timestamp - (last_ts ||  offset.timestamp) > 1000) {
+                last_far = idx;
+              } else if(diff_x > dist_x || diff_y > dist_y) {
+                last_far = idx;
+              }
+              last_ts = offset.timestamp;
+            });
+            if(last_far) {
+              drops = drops + offsets.length - last_far - 1;
+              offsets = offsets.slice(Math.max(-1, last_far - offsets.length + 1));
+            }
+            if(offsets.length >= 8) {
+              offsets_ready();
+            } else {
+              setTimeout(check_offsets, 200);
+            }
+          }
+        };
+        var offsets_ready = function() {
           var groups = [];
           expressions.forEach(function(expr) {
             expr.forEach(function(val, idx) {
@@ -828,7 +884,6 @@ var weblinger = {};
           tilts.forEach(function(tilt) {
             avg_bank = avg_bank + tilt.bank;
             avg_attitude = avg_attitude + tilt.attitude;
-            console.log(tilt.attitude, avg_attitude)
           });
           if(isNaN(avg_x)) { debugger }
           if(offsets.length == 0) { debugger }
@@ -836,7 +891,8 @@ var weblinger = {};
           calib.style.opacity = 0.0;
           calib.active = false;
           calibration_ready();
-        }, 5000);        
+        };
+        setTimeout(check_offsets, 3000);
       }
     });
   };
@@ -941,6 +997,7 @@ var weblinger = {};
       var opp_y = Math.tan(angles[0]) * adj_y;
       // TODO: once projected, rotate based on angles[2]
 
+      // These measurements assume a top-centered camera
       var x = (window.screen.height / 2) + opp_x;
       var y = opp_y;
 
@@ -999,7 +1056,7 @@ var weblinger = {};
         });
         if(cutoff) { expr_history = expr_history.slice(cutoff); }
         expr_history = expr_history.slice(-6);
-        progressing_action = expr_history.length > 1;
+        progressing_action = expr_history.length > 3;
         if(expr_history.length > 3) {
           var max = 0;
           var confirmed_action = null;
@@ -1041,19 +1098,65 @@ var weblinger = {};
         // opts.selection_expressions == ['eyebrows', 'smile', 'mouth-open'];
       }
 
-      tilt_history = (tilt_history || []).slice(-5);
+      var history_size = 10;
+      poll_weboji.counter = ((poll_weboji || 0) + 1) % 3;
+      while(tilt_history.length > history_size) {
+        stable_tilt_history.push(tilt_history.shift());
+        if(poll_weboji.counter == 0 && stable_tilt_history.length > history_size) {
+          stable_tilt_history.shift();
+        }
+      }
+      while(stable_tilt_history.length > history_size) {
+        mid_tilt_history.push(stable_tilt_history.pop());
+      }
+      mid_tilt_history = mid_tilt_history.slice(history_size);
+      // tilt_history = (tilt_history || []).slice(-1 * history_size);
+      stable_tilt_history = (stable_tilt_history || []).slice(0, history_size);
       if(!progressing_action || weblinger.state.calibrating) {
         // Don't add to the history if there's
         // an expression is progress, it moves too much
         tilt_history.push([x, y]);
       }
+      var ref_x = 0, ref_y = 0;
+      stable_tilt_history.forEach(function(gaze) {
+        ref_x = ref_x + gaze[0];
+        ref_y = ref_y + gaze[1];
+      });
+      ref_x = ref_x / stable_tilt_history.length;
+      ref_y = ref_y / stable_tilt_history.length;
+      var avg_dist = 0
+      stable_tilt_history.forEach(function(gaze) {
+        avg_dist = avg_dist + Math.pow(gaze[0] - ref_x, 2) + Math.pow(gaze[1] - ref_y, 2);
+      });
+      var min_dist = (Math.pow(window.innerWidth * 0.1, 2) + Math.pow(window.innerHeight * 0.1, 2)) * 3;
+      avg_dist = Math.min(avg_dist / stable_tilt_history.length, min_dist) * 4;
+      var last_far = null;
+      var bads = 0, mid_bads = 0;;
+      tilt_history.forEach(function(gaze, idx) {
+        var dist = Math.pow(gaze[0] - ref_x, 2) + Math.pow(gaze[1] - ref_y, 2);
+        if(dist > avg_dist) {
+          last_far = idx;
+          bads++;
+        } else if(dist > avg_dist / 2) {
+          mid_bads++;
+        }
+      });
+      if(last_far && bads > 2 && stable_tilt_history.length > 5) {
+        console.log("DROP STABLE", avg_dist, stable_tilt_history.length, last_far, tilt_history.length);
+        stable_tilt_history = stable_tilt_history.slice(Math.ceil(-1 * history_size * 0.3)).concat(mid_tilt_history.slice(Math.ceil(-1 * history_size * 0.7))); //.concat([]); //slice(Math.ceil(-1 * tilt_history * 2 / 3));
+      } else if(mid_bads > 3) {
+        console.log("ADJUST STABLE");
+        stable_tilt_history = stable_tilt_history.concat(mid_tilt_history).slice(-1 * history_size);
+      }
+      var tilts = stable_tilt_history.concat(tilt_history);
       var avg_x = 0, avg_y = 0;
-      tilt_history.forEach(function(gaze) {
+      tilts.forEach(function(gaze) {
         avg_x = avg_x + gaze[0];
         avg_y = avg_y + gaze[1];
       })
-      avg_x = avg_x / tilt_history.length;
-      avg_y = avg_y / tilt_history.length;
+      avg_x = avg_x / tilts.length;
+      avg_y = avg_y / tilts.length;
+
       var offset = weblinger.faceapi.tilt_offset || {};
       if(weblinger._config.source == 'head') {
         if(weblinger._config.mode == 'pointer') {
