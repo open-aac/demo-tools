@@ -37,6 +37,8 @@ var weblinger = {};
   };
   var listeners = {};
   weblinger.start = function(opts) {
+    // TODO: add timeouts in case things get stuck unexpectedly
+    // (initializing, calibrating, etc.)
     if(opts.source != 'cursor') {
       overlay("Initializing...");
     }
