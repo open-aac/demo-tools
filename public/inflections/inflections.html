@@ -1,0 +1,315 @@
+<html>
+  <body>
+    <div style='margin: 0 auto; max-width: 700px;'>
+      <h1>Inflections Checker</h1>
+      <p>The inflections library looks for known words and 
+      suggests proper inflections for them based on what
+      came before (prior). You can enter a word (i.e. "think"), 
+      a prior ("tell me if he"), or both and the inflections
+      library will suggest a possible inflection if it matches
+      any of the defined rules. Note that in ambigous cases,
+      where multiple inflections could be correct, a judgment
+      call has to be made and either one "more common"
+      inflection will be proposed, or none will be.</p>
+      <div style='width: calc(50% - 100px); float: left;'>
+        word: <input type='text' id='word'/>
+        <div id='word_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
+      </div>
+      <div style='width: calc(50% - 100px); float: left;'>
+        prior: <input type='text' id='prior'/>
+        <div id='rule_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
+      </div>
+      <div style='width: 200px; float: left;'>
+        <button type='button' id='check'>Check</button>
+        <button type='button' id='random' style='display: none;'>Random</button>
+      </div>
+      <div style='margin-top: 200px; clear: both;' id='debug'>
+        <a href='#'>show configuration</a>
+      </div>
+      <div style='margin-top: 100px; display: none; clear: both;' id='debugging'>
+        <h3>Inflections Configuration</h3>
+        Word List:
+        <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        Inflection Rules:
+        <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        Test Cases:
+        <textarea id='tests' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        Test Log:
+        <div id='results' style='width: 100%; height: 200px; margin-bottom: 10px; padding: 3px 5px; border: 1px solid #888; overflow: auto;'>
+        </div>
+        <button id='update_rules'>Update Rules and Words</button>
+      </div>
+    </div>
+    <script src='./rules.js'></script>
+    <script>
+      /*
+        After loading words and rules for a locale, consider
+        prior text and the current word to look for
+        better inflections of the current word based on prior text.
+
+        This is done by greedily iterating through the
+        rules and choosing, for each part of speech (rule type),
+        the first rule that matches the prior text. In the case
+        of a match, propose the rule's suggested inflection 
+        or override.
+
+        Keep in mind that rules should NOT match in cases where
+        the correct inflection would be ambiguous, rule should
+        only match when a change of inflection is the correct
+        adjustment in most cases. If inflection tense is unclear,
+        none should be applied.
+      */
+      document.querySelector('#random').addEventListener('click', function(e) {
+        e.preventDefault();
+      });
+      document.querySelector('#check').addEventListener('click', function(e) {
+        e.preventDefault();
+        var txt = document.querySelector('#prior').value;
+        var word_string = document.querySelector('#word').value;
+        var output = document.querySelector('#word_result');
+        var output2 = document.querySelector('#rule_result');
+        output.innerText = "Checking...";
+        output2.innerText = "";
+        var res = lookup(txt, word_string);
+        var str = "";
+        res.words.forEach(function(word) {
+          str = str + "Word: " + word.word + " - " + word.types.join(', ');
+          if(word.replacement) {
+            str = str + "\nReplacement: " + word.replacement + " (" + word.rule_type + ", " + word.rule_id + ")";
+            str = str + "\n\n**  " + txt + " " + word.replacement;
+          }
+          str = str + "\n\n";
+        });
+        output.innerText = str;
+        output2.innerText = "Matching Rules:\n  " + (res.rules.map(function(r) { return r.id + " (" + r.type + ")"; }).join('\n  ') || 'none');
+      });
+      var words = [];
+      var rules = [];
+      var checks = [];
+      var log = function(msg, err) {
+        var div = document.createElement('div');
+        div.innerText = msg;
+        if(err) {
+          div.style.color = '#a00';
+          console.error(msg);
+        } else {
+          console.log(msg);
+        }
+        document.querySelector('#results').appendChild(div);
+      };
+      var run_checks = function() {
+        document.querySelector('#results').innerText = "";
+        log("TESTS STARTED " + (new Date()).toString());
+        checks.forEach(function(check, idx) {
+          var err = function(msg) {
+            log("TEST " + idx + ": " + msg, true);
+          };
+          var res = lookup(check[0], check[1], idx == 16);
+          if(res.words.length == 0) {
+            err("word not found:" + check[1]);
+          } else if(check[2] != check[0] + " " + (res.words[0].replacement || res.words[0].word)) {
+            err("bad result, expecting " + check[2] + " but got " + check[0] + " " + (res.words[0].replacement || res.words[0].word) + " (" + (res.words[0].rule_id || 'no_rule') + ")");
+          }
+          if(res.words.length && check[3]) {
+            if(check[3].rule_id) {
+              if(check[3].rule_id != (res.words[0].rule_id || 'no_rule')) {
+                err("expecting rule " + check[3].rule_id + " but got " + (res.words[0].rule_id || 'no_rule'));
+              }
+            }
+            if(check[3].inflection) {
+              if(check[3].inflection != res.words[0].rule_type) {
+                err("expecting inflection " + check[3].inflection + " but got " + res.words[0].rule_type + " (" + check[3].rule_id + ")");
+              }
+            }
+          }
+        });
+        log("TESTS COMPLETE:" + checks.length + " completed");
+      };
+      var process_rules = function(list) {
+        rules = list;
+        rules.forEach(function(rule) {
+          (rule.lookback || []).forEach(function(lookback) {
+            if(lookback.non_match) { lookback.nms = lookback.non_match; lookback.non_match = new RegExp(lookback.non_match); };
+            if(lookback.match) { lookback.ms = lookback.match; lookback.match = new RegExp(lookback.match); };
+          })
+        });
+      };
+      var process_words = function(hash) {
+        var new_words = [];
+        for(var key in hash) {
+          if(!key.match(/^_/)) {
+            hash[key].word = key;
+            new_words.push(hash[key]);
+          }
+        }
+        words = new_words;
+      };
+      document.querySelector('#update_rules').addEventListener('click', function(e) {
+        var rules_json = JSON.parse(document.querySelector('#rules').value);
+        process_rules(rules_json);
+        var words_json = JSON.parse(document.querySelector('#words').value);
+        process_words(words_json);
+        checks = JSON.parse(document.querySelector('#tests').value);
+        run_checks();
+      });
+      var locale = 'en';
+      if(location.search && location.searc.match(/locale=\w+/)) {
+        locale = location.search.match(/locale=(\w+)/)[1];
+      }
+      fetch("./words-" + locale + ".json").then(function(res) { 
+        res.json().then(function(json) {
+          process_words(json);
+          fetch("./rules-" + locale + ".json").then(function(res) {
+            res.json().then(function(json) {
+              checks = json.tests;
+              process_rules(json.rules);
+              var rules_text = "[\n";
+              json.rules.forEach(function(rule) {
+                rules_text = rules_text + "  {\"id\":" + JSON.stringify(rule.id) + ",\"type\":" + JSON.stringify(rule.type) + ",\n";
+                // TODO: match and non-match need to be un-regexed for each lookback
+                lb = JSON.parse(JSON.stringify(rule.lookback));
+                lb.forEach(function(b) {
+                  if(b.nms) { 
+                    b.non_match = b.nms;
+                    delete b['nms'];
+                  }
+                  if(b.ms) {
+                    b.match = b.ms;
+                    delete b['ms'];
+                  }
+                })
+                rules_text = rules_text + "    \"lookback\": " + JSON.stringify(lb).replace(/^\[/, "[\n      ").replace(/\]$/, "\n    ]");
+                if(rule.overrides) {
+                  rules_text = rules_text + ",\"overrides\":" + JSON.stringify(rule.overrides) + "\n";
+                } else if(rule.inflection) {
+                  rules_text = rules_text + ",\"inflection\":" + JSON.stringify(rule.inflection);
+                  if(rule.location) {
+                    rules_text = rules_text + ",\"location\":" + JSON.stringify(rule.location);
+                  }
+                  rules_text = rules_text + "\n";
+                }
+                rules_text = rules_text + "  },\n";
+              });
+              rules_text = rules_text.replace(/,\n$/, '') + "\n]";
+              document.querySelector('#rules').value = rules_text;
+              var words_text = "{\n";
+              words.forEach(function(word) {
+                words_text = words_text + "\"" + word.word + "\": {\n";
+                words_text = words_text + "  \"types\": " + JSON.stringify(word.types) + ",\n";
+                words_text = words_text + "  \"inflections\": " + JSON.stringify(word.inflections);
+                if(word.antonyms) {
+                  words_text = words_text + ",\n  \"antonyms\": " + JSON.stringify(word.antonyms) + "\n"
+                } else {
+                  words_text = words_text + "\n";
+                }
+                words_text = words_text + "},\n";
+              });
+              words_text = words_text.replace(/,\n$/, '') + "\n}";
+              document.querySelector('#words').value = words_text;
+              var tests_text = "[\n";
+              checks.forEach(function(test) {
+                tests_text = tests_text + "  " + JSON.stringify(test) + ",\n";
+              });
+              tests_text = tests_text.replace(/,\n$/, '') + "\n]";
+              document.querySelector('#tests').value = tests_text;
+
+              run_checks();
+            }, function(err) {
+              console.error(err);
+              alert("error parsing rules for " + locale);
+            })
+          }, function(err) {
+            console.error(err);
+            alert("error retrieving rules for " + locale);
+          })
+        }, function(err) {
+          console.error(err);
+          alert("error parsing words for " + locale)
+        })
+        words = res; 
+      }, function(err) {
+        console.error(err);
+        alert("error retrieving words for " + locale);
+      });
+      document.querySelector('#debug').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#debug').style.display = 'none';
+        document.querySelector('#debugging').style.display = 'block';
+      });
+      
+      //   // TODO: Consider doing "I like -ing instead of to-"
+    //   // I have -en/ed
+    //   // plural noun => is to are
+    //   // Emojis on repeat buttons (discourage stimming)
+    //   // TODO: can not => can't https://en.wikipedia.org/wiki/Wikipedia:List_of_English_contractions
+
+    //   // [I/you/he/she/they/we] was, were, think, wish
+    //   // [him/her/me/you/them/us] want, like, to, in, help, tell, near, over, under, for, preposition, give, get, make, not, stop, hello, goodbye, from, feed, bite, suck, hug, kiss, it's, count, around, beneath, among, beyond, visit, bug
+    //   // [his/her/my/your/their/our] eat, on, up, play, drink, off, down, out, is, are, read, use, wear, all, at, of, eat, drink, taste, lick, left, across, into, where's, lost, lower, raise, hide, lose, start, exit, run, turn, return, check, finish, continue, begin, improve, honor, change, reduce, grow, expand, shrink, it's, refill, drink, swallow, feel, communicate, resolve, describe, explain, represent, spray, scrub, wipe, wash, clean, learn, study, cheat, type, become, exercise, play, ponder, 
+    //   // [himself/herself/myself/ourself] by, view, prepare, settle, repeat, defend
+
+    //   // Auto-fill suggestions
+    //   // is (link to verbs?)
+    //   // eat, drink, play, read, watch, feel, color, listen [as links? maybe on the actual button]
+    //   // go, eat at (links to places?)
+    //   // really (don't auto-home?)
+    //   // Page for adding personal stories, either save from sentence box or record audio, to a button
+
+      //   // Verbs:
+      //   //   pronoun (I, you, they, we): present (c)
+      //   //     Y: * they always [look]
+      //   //   verb (do, does, did, can, could, will, would, may, might, must, shall, should) pronoun (he, she, it) [adverb (never, already, etc.)]: present (n)
+      //   // {id: 'has_she_looked'},
+      //   //   pronoun (he, she, it) [adverb (never, already, etc.)]: simple_present (n)
+      //   //     Y: * she never [looks]
+      //   //     Y: that smells weird
+      //   //   pronoun ()
+      //   //   pronoun (he, she, you, etc.) [verb (is, are, were, etc.)] [not|adverb (never, probably, etc.)] verb (-ing, going): infinitive (e)
+      //   //     Y: they are not wanting [to look]
+      //   //     Y: tell me why she is wanting [to look]
+      //   //   pronoun [verb (will, would, could, etc.)] verb (is, am, was) [not|adverb (never, already, etc.)]: present_participle (s)
+      //   //     Y: he would be always [looking]
+      //   //     Y: they can like [eating]
+      //   //     Y: she hates [jumping]
+      //   //     N: she hates [to jump]
+      //   //     N: is there a reason she would want [to jump]
+      //   //   verb (being, have, has, had) [adverb] [not]: past (w)
+      //   //     Y: I have always looked
+      //   //     Y: have looked
+      //   //     Y: he had eaten
+      //   //     Y: she has taken some more
+      //   //     N: I have to look at this
+      //   //     N: she had looked happier before
+      //   //   verb (have, has, had) pronoun (I, you, she) [adverb] [not]: past (w)
+      //   //     Y: have you looked at this
+      //   //     Y: tell me why has she 
+      //   //     N: have you taken your medicine (past participle)
+      //   //   verb (have, has, had) [not] been: present_participle (s)
+      //   //     Y: I have not been looking
+      //   //     N: She has been taken
+      //   //   verb (can, could, will, etc.) [not] be: present participle
+      //   //     Y: he could be thinking about tomorrow
+      //   //     N: it should be finished by now (past participle)
+      //   //   verb (is, am, was, be, are, were, etc.) [pronoun (he, she, it, etc.)] [not]: present_participle (s)
+      //   //     Y: the cat is licking her paws
+      //   //     N: the frog was forgotten
+      //   //   verb (do, does, did, etc.) pronoun (he, she, it, etc.) [not]: present (c)
+      //   //   verb (do, does, did, etc.) [determiner] noun: present (c)
+      //   //   noun (singular): simple_present (n)
+
+      //   // [jumping] am, on?, in?, are, is, go, off, on, prepositions?, there?, was, were, are, am, stop, the, because, done, no, not, together, lot, wether, than, favorite, perfect, silly, serious, own, me, him, her, them, us, -self, usual, despite, because, maybe, however, although
+      //   //   will: present (c)
+      //   // Nouns: 
+      //   //   plural determiners (those, these, some, many): plural (n)
+      //   //   else: base (c)
+      //   // Pronouns:
+      //   //   (at, for, with): objective (n)
+      //   //   pronoun (that, it, this) verb (is, was): objective (n)
+      //   // [him/her/me/you/them/us] want, like, to, in, help, tell, near, over, under, for, preposition, give, get, make, not, stop, hello, goodbye, from, feed, bite, suck, hug, kiss, it's, count, around, beneath, among, beyond, visit, bug
+      //   // [his/her/my/your/their/our] eat, on, up, play, drink, off, down, out, is, are, read, use, wear, all, at, of, eat, drink, taste, lick, left, across, into, where's, lost, lower, raise, hide, lose, start, exit, run, turn, return, check, finish, continue, begin, improve, honor, change, reduce, grow, expand, shrink, it's, refill, drink, swallow, feel, communicate, resolve, describe, explain, represent, spray, scrub, wipe, wash, clean, learn, study, cheat, type, become, exercise, play, ponder, 
+      //   // [himself/herself/myself/ourself] by, view, prepare, settle, repeat, defend
+
+
+    </script>
+  </body>
+</html>
