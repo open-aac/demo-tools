@@ -15746,7 +15746,7 @@
   },
   "wish": {
     "types": ["verb","noun"],
-    "inflections": {"base":"wish","infinitive":"to wish","present":"wish","simple_present":"wishs","plural_present":"wish","past":"wished","simple_past":"wished","present_participle":"wishing","past_participle":"wished","negation":"not wish","plural":"wishes","possessive":"wish's","regulars":["base","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle","negation","plural","possessive"]}
+    "inflections": {"base":"wish","infinitive":"to wish","present":"wish","simple_present":"wishes","plural_present":"wish","past":"wished","simple_past":"wished","present_participle":"wishing","past_participle":"wished","negation":"not wish","plural":"wishes","possessive":"wish's","regulars":["base","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle","negation","plural","possessive"]}
   },
   "with": {
     "types": ["preposition"],

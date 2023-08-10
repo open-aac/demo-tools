@@ -1,4 +1,22 @@
 <html>
+  <head>
+    <style>
+      button {
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        background: #eee;
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #ddd;
+      }
+      input {
+        border: 1px solid #aaa;
+        padding: 5px;
+      }
+    </style>
+  </head>
   <body>
     <div style='margin: 0 auto; max-width: 700px;'>
       <h1>Inflections Checker</h1>
@@ -11,17 +29,21 @@
       where multiple inflections could be correct, a judgment
       call has to be made and either one "more common"
       inflection will be proposed, or none will be.</p>
-      <div style='width: calc(50% - 100px); float: left;'>
+      <div style='width: 48%; float: left;'>
         word: <input type='text' id='word'/>
+        <div style='margin-top: 5px;'>
+          <button type='button' id='check'>Check Inflection Rules</button>
+          <button type='button' id='random'>Surprise Me</button>
+        </div>
         <div id='word_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
       </div>
-      <div style='width: calc(50% - 100px); float: left;'>
-        prior: <input type='text' id='prior'/>
+      <div style='width: 48%; margin-left: 4%; float: left;'>
+        prior: <input type='text' id='prior' style='width: 40%;'/>
+        <span id='word_span' style='font-style: italic; display: inline-block;'></span>
+        <div style='visibility: hidden; margin-top: 5px;'>
+          <button type='button'>Placeholder</button>
+        </div>
         <div id='rule_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
-      </div>
-      <div style='width: 200px; float: left;'>
-        <button type='button' id='check'>Check</button>
-        <button type='button' id='random' style='display: none;'>Random</button>
       </div>
       <div style='margin-top: 200px; clear: both;' id='debug'>
         <a href='#'>show configuration</a>
@@ -62,6 +84,24 @@
       document.querySelector('#random').addEventListener('click', function(e) {
         e.preventDefault();
       });
+      document.querySelector('#word').addEventListener('input', function(e) {
+        document.querySelector('#word_span').innerText = document.querySelector('#word').value;
+      });
+      document.querySelector('#random').addEventListener('click', function(e) {
+        var samples = checks.map(function(t) {
+          var words = t.slice(0, -2);
+          var word = words.pop();
+          return [
+            words.join(' '), word
+          ];
+        });
+        var sample = samples[Math.floor(samples.length * Math.random())];
+        if(sample) {
+          document.querySelector('#word').value = sample[1];
+          document.querySelector('#prior').value = sample[0];
+        }
+        document.querySelector('#check').click();
+      });
       document.querySelector('#check').addEventListener('click', function(e) {
         e.preventDefault();
         var txt = document.querySelector('#prior').value;
@@ -75,13 +115,17 @@
         res.words.forEach(function(word) {
           str = str + "Word: " + word.word + " - " + word.types.join(', ');
           if(word.replacement) {
-            str = str + "\nReplacement: " + word.replacement + " (" + word.rule_type + ", " + word.rule_id + ")";
+            str = str + "\nReplacement: " + word.replacement + " (" + (word.rule_type || 'N/A') + ", " + word.rule_id + ")";
             str = str + "\n\n**  " + txt + " " + word.replacement;
           }
           str = str + "\n\n";
         });
         output.innerText = str;
-        output2.innerText = "Matching Rules:\n  " + (res.rules.map(function(r) { return r.id + " (" + r.type + ")"; }).join('\n  ') || 'none');
+        output2.innerText = "Matching Prior Rules:\n  " + (res.rules.map(function(r) { 
+          var res = r.id + " (" + r.type + ")";
+          if(r.replacement) { res = res + "\n      ** " + r.replacement};
+          return res; 
+        }).join('\n  ') || 'none');
       });
       var words = [];
       var rules = [];

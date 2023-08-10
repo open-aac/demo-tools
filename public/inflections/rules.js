@@ -66,27 +66,64 @@ var matches_rule = function(rule, buttons, do_debug) {
   }
   return !!valid;
 }
-var lookup = function(txt, word_string, do_debug) {
+var lookup = function(prior_txt, word_string, do_debug) {
   // Rule checking is greedy, finding the first matching rule for each type
   var found_types = {};
   var matching_rules = [];
-  var parts = txt.split(/\s+/);
-  var buttons = [];
+  var parts = prior_txt.split(/\s+/);
+  var prior_buttons = [];
   parts.forEach(function(str) {
-    var wrd = words.find(function(w) { return w.word == str; });
-    buttons.push(wrd || {
-      word: str
-    });
+    if(str) {
+      var wrd = words.find(function(w) { return w.word == str; });
+      prior_buttons.push(wrd || {
+        word: str
+      });  
+    }
   });
+  var found_words = words.filter(function(w) { return w.word == word_string; });
   rules.forEach(function(rule) {
-    if(!found_types[rule.type] || rule.type == 'override') {
-      if(matches_rule(rule, buttons, do_debug)) {
+    if(prior_buttons.length == 0) {
+      var matching_replacement = null;
+      if(rule.type == 'override') {
+        matching_replacement = rule.overrides && rule.overrides[word_string];
+      } else if(found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })) {
+        found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })
+        var word = found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })
+        if(rule.inflection && word && word.inflections) {
+          word.types.forEach(function(t) { 
+            matching_replacement = matching_replacement || word.inflections[rule.inflection];
+          });
+        }
+      }
+      if(matching_replacement) {
+        var r = Object.assign({}, rule);
+        var pre = [];
+        r.lookback.forEach(function(l) {
+          var pre_word = null;
+          if(l.words) {
+            pre_word = l.words[Math.floor(Math.random() * l.words.length)];
+          } else if(l.type) {
+            var type_words = words.filter(function(w) { return w.types[0] == key; });
+            pre_word = type_words[Math.floor(Math.random() * type_words.length)];
+          }
+          if(pre_word && (!l.optional || Math.random() > 0.5)) {
+            pre.push(pre_word);
+          }
+        });
+        r.replacement = matching_replacement;
+        if(pre.length) {
+          r.replacement = pre.join(' ') + ' ' + r.replacement;
+        }
+        matching_rules.push(r);
+        found_types[rule.type] = true;  
+      }
+    } else if(!found_types[rule.type] || rule.type == 'override') {
+      if(matches_rule(rule, prior_buttons, do_debug)) {
         matching_rules.push(rule);
         found_types[rule.type] = true;
       }
     }
   });
-  var found_words = words.filter(function(w) { return w.word == word_string; });
   var res = {};
   if(!word_string) {
     for(var key in found_types) {
