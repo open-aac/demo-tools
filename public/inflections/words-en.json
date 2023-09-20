@@ -1,6 +1,7 @@
 {
   "_locale": "en",
   "_version": "0.1",
+  "_type": "words",
   "4-H": {
     "types": ["noun"],
     "inflections": {"base":"4-H","plural":"4-Hs","possessive":"4-H's","negation":"not 4-H","regulars":["base","plural","possessive","negation"]}

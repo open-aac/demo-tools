@@ -197,9 +197,61 @@
         run_checks();
       });
       var locale = 'en';
-      if(location.search && location.searc.match(/locale=\w+/)) {
+      if(location.search && location.search.match(/locale=\w+/)) {
         locale = location.search.match(/locale=(\w+)/)[1];
       }
+      var populate = function() {
+        var rules_text = "[\n";
+        rules.forEach(function(rule) {
+          rules_text = rules_text + "  {\"id\":" + JSON.stringify(rule.id) + ",\"type\":" + JSON.stringify(rule.type) + ",\n";
+          // TODO: match and non-match need to be un-regexed for each lookback
+          lb = JSON.parse(JSON.stringify(rule.lookback));
+          lb.forEach(function(b) {
+            if(b.nms) { 
+              b.non_match = b.nms;
+              delete b['nms'];
+            }
+            if(b.ms) {
+              b.match = b.ms;
+              delete b['ms'];
+            }
+          })
+          rules_text = rules_text + "    \"lookback\": " + JSON.stringify(lb).replace(/^\[/, "[\n      ").replace(/\]$/, "\n    ]");
+          if(rule.overrides) {
+            rules_text = rules_text + ",\"overrides\":" + JSON.stringify(rule.overrides) + "\n";
+          } else if(rule.inflection) {
+            rules_text = rules_text + ",\"inflection\":" + JSON.stringify(rule.inflection);
+            if(rule.location) {
+              rules_text = rules_text + ",\"location\":" + JSON.stringify(rule.location);
+            }
+            rules_text = rules_text + "\n";
+          }
+          rules_text = rules_text + "  },\n";
+        });
+        rules_text = rules_text.replace(/,\n$/, '') + "\n]";
+        document.querySelector('#rules').value = rules_text;
+        var words_text = "{\n";
+        words.forEach(function(word) {
+          words_text = words_text + "\"" + word.word + "\": {\n";
+          words_text = words_text + "  \"types\": " + JSON.stringify(word.types) + ",\n";
+          words_text = words_text + "  \"inflections\": " + JSON.stringify(word.inflections);
+          if(word.antonyms) {
+            words_text = words_text + ",\n  \"antonyms\": " + JSON.stringify(word.antonyms) + "\n"
+          } else {
+            words_text = words_text + "\n";
+          }
+          words_text = words_text + "},\n";
+        });
+        words_text = words_text.replace(/,\n$/, '') + "\n}";
+        document.querySelector('#words').value = words_text;
+        var tests_text = "[\n";
+        checks.forEach(function(test) {
+          tests_text = tests_text + "  " + JSON.stringify(test) + ",\n";
+        });
+        tests_text = tests_text.replace(/,\n$/, '') + "\n]";
+        document.querySelector('#tests').value = tests_text;
+      };
+      rules = [], words = [], checks = [];
       fetch("./words-" + locale + ".json").then(function(res) { 
         res.json().then(function(json) {
           process_words(json);
@@ -207,73 +259,28 @@
             res.json().then(function(json) {
               checks = json.tests;
               process_rules(json.rules);
-              var rules_text = "[\n";
-              json.rules.forEach(function(rule) {
-                rules_text = rules_text + "  {\"id\":" + JSON.stringify(rule.id) + ",\"type\":" + JSON.stringify(rule.type) + ",\n";
-                // TODO: match and non-match need to be un-regexed for each lookback
-                lb = JSON.parse(JSON.stringify(rule.lookback));
-                lb.forEach(function(b) {
-                  if(b.nms) { 
-                    b.non_match = b.nms;
-                    delete b['nms'];
-                  }
-                  if(b.ms) {
-                    b.match = b.ms;
-                    delete b['ms'];
-                  }
-                })
-                rules_text = rules_text + "    \"lookback\": " + JSON.stringify(lb).replace(/^\[/, "[\n      ").replace(/\]$/, "\n    ]");
-                if(rule.overrides) {
-                  rules_text = rules_text + ",\"overrides\":" + JSON.stringify(rule.overrides) + "\n";
-                } else if(rule.inflection) {
-                  rules_text = rules_text + ",\"inflection\":" + JSON.stringify(rule.inflection);
-                  if(rule.location) {
-                    rules_text = rules_text + ",\"location\":" + JSON.stringify(rule.location);
-                  }
-                  rules_text = rules_text + "\n";
-                }
-                rules_text = rules_text + "  },\n";
-              });
-              rules_text = rules_text.replace(/,\n$/, '') + "\n]";
-              document.querySelector('#rules').value = rules_text;
-              var words_text = "{\n";
-              words.forEach(function(word) {
-                words_text = words_text + "\"" + word.word + "\": {\n";
-                words_text = words_text + "  \"types\": " + JSON.stringify(word.types) + ",\n";
-                words_text = words_text + "  \"inflections\": " + JSON.stringify(word.inflections);
-                if(word.antonyms) {
-                  words_text = words_text + ",\n  \"antonyms\": " + JSON.stringify(word.antonyms) + "\n"
-                } else {
-                  words_text = words_text + "\n";
-                }
-                words_text = words_text + "},\n";
-              });
-              words_text = words_text.replace(/,\n$/, '') + "\n}";
-              document.querySelector('#words').value = words_text;
-              var tests_text = "[\n";
-              checks.forEach(function(test) {
-                tests_text = tests_text + "  " + JSON.stringify(test) + ",\n";
-              });
-              tests_text = tests_text.replace(/,\n$/, '') + "\n]";
-              document.querySelector('#tests').value = tests_text;
-
+              populate();
               run_checks();
             }, function(err) {
               console.error(err);
               alert("error parsing rules for " + locale);
+              populate();
             })
           }, function(err) {
             console.error(err);
             alert("error retrieving rules for " + locale);
+            populate();
           })
         }, function(err) {
           console.error(err);
           alert("error parsing words for " + locale)
-        })
+          populate();
+        });
         words = res; 
       }, function(err) {
         console.error(err);
         alert("error retrieving words for " + locale);
+        populate();
       });
       document.querySelector('#debug').addEventListener('click', function(e) {
         e.preventDefault();
