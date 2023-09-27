@@ -29,6 +29,10 @@
       where multiple inflections could be correct, a judgment
       call has to be made and either one "more common"
       inflection will be proposed, or none will be.</p>
+      <p>
+        <a href="https://docs.google.com/document/d/1JJI82jk9hPy-PHMgx5rXNhEhy8Z38-MtSF0Uirt8gFY/edit?usp=sharing">See the documentation</a> for more details.
+        Or check out <a href="words-en.json">words-en.json</a> and <a href="rules-en.json">rules-en.json</a> for example implementations.
+      </p>
       <div style='width: 48%; float: left;'>
         word: <input type='text' id='word'/>
         <div style='margin-top: 5px;'>
@@ -116,7 +120,20 @@
           str = str + "Word: " + word.word + " - " + word.types.join(', ');
           if(word.replacement) {
             str = str + "\nReplacement: " + word.replacement + " (" + (word.rule_type || 'N/A') + ", " + word.rule_id + ")";
-            str = str + "\n\n**  " + txt + " " + word.replacement;
+            if(res.condense_items) {
+              var pre = txt.split(/\s+/);
+              var new_pre = []
+              pre.forEach(function(str, idx) {
+                if(res.condense_items.indexOf(idx) == -1) {
+                  new_pre.push(str);
+                }
+              })
+              result_string = new_pre.join(" ");
+              if(result_string.length > 0) { result_string = result_string + " "; }
+              str = str + "\n\n**  " + result_string + " " + word.replacement;
+            } else {
+              str = str + "\n\n**  " + txt + " " + word.replacement;
+            }
           }
           str = str + "\n\n";
         });
@@ -149,10 +166,26 @@
             log("TEST " + idx + ": " + msg, true);
           };
           var res = lookup(check[0], check[1], idx == 16);
+          result_string = "";
+          if(res.words.length > 0) {
+            result_string = check[0] + " " + (res.words[0].replacement || res.words[0].word)
+            if(res.words.length > 0 && res.words[0].condense_items) {
+              var pre = check[0].split(/\s+/);
+              var new_pre = []
+              pre.forEach(function(str, idx) {
+                if(res.words[0].condense_items.indexOf(idx) == -1) {
+                  new_pre.push(str);
+                }
+              })
+              result_string = new_pre.join(" ");
+              if(result_string.length > 0) { result_string = result_string + " "; }
+              result_string = result_string + (res.words[0].replacement || res.words[0].word);
+            }
+          }
           if(res.words.length == 0) {
             err("word not found:" + check[1]);
-          } else if(check[2] != check[0] + " " + (res.words[0].replacement || res.words[0].word)) {
-            err("bad result, expecting " + check[2] + " but got " + check[0] + " " + (res.words[0].replacement || res.words[0].word) + " (" + (res.words[0].rule_id || 'no_rule') + ")");
+          } else if(check[2] != result_string) {
+            err("bad result, expecting " + check[2] + " but got " + result_string + " (" + (res.words[0].rule_id || 'no_rule') + ")");
           }
           if(res.words.length && check[3]) {
             if(check[3].rule_id) {

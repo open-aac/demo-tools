@@ -318,7 +318,14 @@
     {"id":"to_look","type":"verb",
       "lookback": [
         {"words":["to"]}
-      ],"inflection":"present","location":"c"}
+      ],"inflection":"present","location":"c"},
+    {"id":"at_the_present_time","type":"override",
+      "lookback": [
+        {"words":["at"],"condense":true},
+        {"words":["the"],"condense":true},
+        {"words":["present"],"condense":true}
+      ],"overrides":{"time":"now"}
+    }
   ],
   "substitutions": {
     "default_contractions": {
@@ -485,7 +492,99 @@
       "you people": "y'uns",
       "all right": "a'ight"
     }
-  },  
+  },
+  "inflection_locations": {
+    "adjective": [
+      {"required": "superlative"},
+      {"location": "ne", "inflection": "comparative"},
+      {"location": "e", "inflection": "superlative"},
+      {"location": "w", "inflection": "negative_comparative"},
+      {"location": "nw", "inflection": "negation"},
+      {"location": "c", "inflection": "base"},
+      {"location": "c", "inflection": "base", "if_empty": true},
+      {"location": "n", "inflection": "plural", "type": "noun"},
+      {"location": "s", "inflection": "possessive", "type": "noun"},
+      {"location": "nw", "inflection": "simple_past", "type": "verb"},
+      {"location": "w", "inflection": "past", "type": "verb"},
+      {"location": "s", "inflection": "present_participle", "type": "verb"},
+      {"location": "sw", "inflection": "past_participle", "type": "verb"},
+      {"location": "ne", "inflection": "plural_present", "type": "verb"},
+      {"location": "n", "inflection": "simple_present", "type": "verb"},
+      {"location": "e", "inflection": "infinitive", "type": "verb"},
+      {"location": "se", "inflection": "antonym"}
+    ],
+    "noun": [
+      {"required": "plural"},
+      {"location": "n", "inflection": "plural"},
+      {"location": "c", "inflection": "base"},
+      {"location": "s", "inflection": "possessive"},
+      {"location": "c", "inflection": "base", "if_empty": true},
+      {"location": "nw", "inflection": "simple_past", "type": "verb"},
+      {"location": "w", "inflection": "past", "type": "verb"},
+      {"location": "s", "inflection": "present_participle", "type": "verb"},
+      {"location": "sw", "inflection": "past_participle", "type": "verb"},
+      {"location": "ne", "inflection": "plural_present", "type": "verb"},
+      {"location": "n", "inflection": "simple_present", "type": "verb"},
+      {"location": "e", "inflection": "infinitive", "type": "verb"},
+      {"location": "ne", "inflection": "comparative", "type": "adjective"},
+      {"location": "e", "inflection": "superlative", "type": "adjective"},
+      {"location": "w", "inflection": "negative_comparative", "type": "adjective"},
+      {"location": "ne", "inflection": "comparative", "type": "adverb"},
+      {"location": "e", "inflection": "superlative", "type": "adverb"},
+      {"location": "w", "inflection": "negative_comparative", "type": "adverb"},
+      {"location": "nw", "inflection": "negation"},
+      {"location": "se", "inflection": "antonym"}
+    ],
+    "verb": [
+      {"required": "infinitive"},
+      {"location": "w", "inflection": "past"},
+      {"location": "s", "inflection": "present_participle"},
+      {"location": "sw", "inflection": "past_participle"},
+      {"location": "n", "inflection": "simple_present"},
+      {"location": "e", "inflection": "infinitive"},
+      {"location": "c", "inflection": "present"},
+      {"location": "c", "inflection": "base"},
+      {"location": "c", "inflection": "present", "if_empty": true},
+      {"location": "c", "inflection": "base", "if_empty": true},
+      {"location": "n", "inflection": "personal_present", "override_if_same": "c"},
+      {"location": "n", "inflection": "plural", "type": "noun"},
+      {"location": "s", "inflection": "possessive", "type": "noun"},
+      {"location": "ne", "inflection": "comparative", "type": "adjective"},
+      {"location": "e", "inflection": "superlative", "type": "adjective"},
+      {"location": "w", "inflection": "negative_comparative", "type": "adjective"},
+      {"location": "nw", "inflection": "simple_past"},
+      {"location": "ne", "inflection": "plural_present"},
+      {"location": "se", "inflection": "antonym"}
+    ],
+    "adverb": [
+      {"required": "superlative"},
+      {"location": "ne", "inflection": "comparative"},
+      {"location": "e", "inflection": "superlative"},
+      {"location": "w", "inflection": "negative_comparative"},
+      {"location": "nw", "inflection": "negation"},
+      {"location": "c", "inflection": "base"},
+      {"location": "c", "inflection": "base", "if_empty": true},
+      {"location": "nw", "inflection": "simple_past", "type": "verb"},
+      {"location": "w", "inflection": "past", "type": "verb"},
+      {"location": "s", "inflection": "present_participle", "type": "verb"},
+      {"location": "sw", "inflection": "past_participle", "type": "verb"},
+      {"location": "ne", "inflection": "plural_present", "type": "verb"},
+      {"location": "n", "inflection": "simple_present", "type": "verb"},
+      {"location": "e", "inflection": "infinitive", "type": "verb"},
+      {"location": "se", "inflection": "antonym"}
+    ],
+    "pronoun": [
+      {"required": "objective"},
+      {"location": "c", "inflection": "subjective"},
+      {"location": "c", "inflection": "base"},
+      {"location": "s", "inflection": "possessive"},
+      {"location": "n", "inflection": "objective"},
+      {"location": "w", "inflection": "possessive_adjective"},
+      {"location": "e", "inflection": "reflexive"},
+      {"location": "c", "inflection": "base", "if_empty": true},
+      {"location": "se", "inflection": "antonym"}
+    ]
+  },
   "tests": [
     ["you","is","you are",{"rule_id":"you_are"}],
     ["you","does","you do",{"rule_id":"you_are"}],
@@ -680,6 +779,7 @@
     ["I like","he","I like him",{"rule_id":"i_like_him"}],
     ["she wants","he","she wants him",{"rule_id":"i_like_him"}],
     ["she tells","he","she tells him",{"rule_id":"i_like_him"}],
-    ["she thinks","he","she thinks he",{"rule_id":"i_think_he"}]
+    ["she thinks","he","she thinks he",{"rule_id":"i_think_he"}],
+    ["at the present","time","now",{"rule_id":"at_the_present_time"}]
   ]
 }

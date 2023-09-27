@@ -14545,6 +14545,10 @@
     "types": ["noun"],
     "inflections": {"base":"timbre","plural":"timbres","possessive":"timbre's","negation":"not timbre","regulars":["base","plural","possessive","negation"]}
   },
+  "time": {
+    "types": ["noun", "verb"],
+    "inflections": {"base":"time","infinitive":"to time","present":"time","simple_present":"times","plural_present":"time","past":"timed","simple_past":"timed","present_participle":"timing","past_participle":"timed","negation":"not time","plural":"times","possessive":"time's","regulars":["base","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle","negation","plural","possessive"]}
+  },
   "time out": {
     "types": ["noun"],
     "inflections": {"base":"time out","plural":"time outs","possessive":"time out's","negation":"not time out","regulars":["base","plural","possessive","negation"]}

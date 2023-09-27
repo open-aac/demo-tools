@@ -2,6 +2,7 @@ var matches_rule = function(rule, buttons, do_debug) {
   if(rule.id == 'xxx' && do_debug) { debugger }
   var history_idx = buttons.length - 1;
   var valid = true;
+  var condenses = [];
   for(var idx = rule.lookback.length - 1; idx >= 0 && valid; idx--) {
     var item = buttons[history_idx]
     var check = rule.lookback[idx];
@@ -58,11 +59,17 @@ var matches_rule = function(rule, buttons, do_debug) {
         }  
       }
       if(matching) {
+        if(check.condense) {
+          condenses.push(history_idx);
+        }
         history_idx--;
       } else if(!check.optional) {
         valid = false;
       }
     }
+  }
+  if(valid && condenses.length > 0) {
+    return {condense_items: condenses};
   }
   return !!valid;
 }
@@ -87,7 +94,6 @@ var lookup = function(prior_txt, word_string, do_debug) {
       if(rule.type == 'override') {
         matching_replacement = rule.overrides && rule.overrides[word_string];
       } else if(found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })) {
-        found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })
         var word = found_words.find(function(w) { return w.types.indexOf(rule.type) != -1; })
         if(rule.inflection && word && word.inflections) {
           word.types.forEach(function(t) { 
@@ -118,7 +124,12 @@ var lookup = function(prior_txt, word_string, do_debug) {
         found_types[rule.type] = true;  
       }
     } else if(!found_types[rule.type] || rule.type == 'override') {
-      if(matches_rule(rule, prior_buttons, do_debug)) {
+      var matches = matches_rule(rule, prior_buttons, do_debug);
+      if(matches) {
+        if(matches.condense_items) {
+          rule = Object.assign({}, rule);
+          rule.condense_items = matches.condense_items;
+        }
         matching_rules.push(rule);
         found_types[rule.type] = true;
       }
@@ -143,7 +154,7 @@ var lookup = function(prior_txt, word_string, do_debug) {
       matching_rules.forEach(function(rule) {
         if(rule.type == 'override') {
           for(var key in rule.overrides) {
-            inflections[key] = inflections[key] || {type: 'override', word: rule.overrides[key], id: rule.id};
+            inflections[key] = inflections[key] || {type: 'override', word: rule.overrides[key], id: rule.id, condense_items: rule.condense_items};
           }
         } else {
           inflections[rule.type] = rule;
@@ -153,6 +164,7 @@ var lookup = function(prior_txt, word_string, do_debug) {
       if(inflections[found_word.word] && inflections[found_word.word].word) {
         replacement = inflections[found_word.word].word;
         result_word.replacement = replacement;
+        result_word.condense_items = inflections[found_word.word].condense_items;
         result_word.rule_id = inflections[found_word.word].id;
       } else {
         var replacement_rule = null;
@@ -165,6 +177,7 @@ var lookup = function(prior_txt, word_string, do_debug) {
           var replacement = (found_word.inflections || {})[replacement_rule.inflection] || found_word.word;
           result_word.replacement = replacement;
           result_word.rule_type = replacement_rule.inflection;
+          result_word.condense_items = replacement_rule.condense_items;
           result_word.rule_id = replacement_rule.id;
         }
       }
