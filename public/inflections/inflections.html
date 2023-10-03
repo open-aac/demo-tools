@@ -55,6 +55,7 @@
       <div style='margin-top: 100px; display: none; clear: both;' id='debugging'>
         <h3>Inflections Configuration</h3>
         Word List:
+         (import csv - <a href="words-es.csv">example</a>) <input id='words_csv' type='file' accept='text/csv'>
         <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         Inflection Rules:
         <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
@@ -91,6 +92,20 @@
       document.querySelector('#word').addEventListener('input', function(e) {
         document.querySelector('#word_span').innerText = document.querySelector('#word').value;
       });
+      document.querySelector('#words_csv').addEventListener('change', function(e) {
+        if(e.target.files && e.target.files[0]) {
+          var file = e.target.files[0];
+          var fr = new FileReader();
+          fr.onloadend = function() {
+            var str =  this.result;
+            var hash = in7ns.parse_words(str);
+            debugger
+            process_words(hash);
+            populate();
+          };
+          fr.readAsText(file);
+        }
+      });
       document.querySelector('#random').addEventListener('click', function(e) {
         var samples = checks.map(function(t) {
           var words = t.slice(0, -2);
@@ -114,17 +129,17 @@
         var output2 = document.querySelector('#rule_result');
         output.innerText = "Checking...";
         output2.innerText = "";
-        var res = lookup(txt, word_string);
+        var res = in7ns.lookup(txt, word_string);
         var str = "";
         res.words.forEach(function(word) {
           str = str + "Word: " + word.word + " - " + word.types.join(', ');
           if(word.replacement) {
             str = str + "\nReplacement: " + word.replacement + " (" + (word.rule_type || 'N/A') + ", " + word.rule_id + ")";
-            if(res.condense_items) {
+            if(word.condense_items) {
               var pre = txt.split(/\s+/);
               var new_pre = []
               pre.forEach(function(str, idx) {
-                if(res.condense_items.indexOf(idx) == -1) {
+                if(word.condense_items.indexOf(idx) == -1) {
                   new_pre.push(str);
                 }
               })
@@ -165,7 +180,7 @@
           var err = function(msg) {
             log("TEST " + idx + ": " + msg, true);
           };
-          var res = lookup(check[0], check[1], idx == 16);
+          var res = in7ns.lookup(check[0], check[1], idx == 16);
           result_string = "";
           if(res.words.length > 0) {
             result_string = check[0] + " " + (res.words[0].replacement || res.words[0].word)

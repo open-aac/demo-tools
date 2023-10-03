@@ -2,1444 +2,6 @@
   "_locale": "en",
   "_version": "0.1",
   "_type": "words",
-  "4-H": {
-    "types": ["noun"],
-    "inflections": {"base":"4-H","plural":"4-Hs","possessive":"4-H's","negation":"not 4-H","regulars":["base","plural","possessive","negation"]}
-  },
-  "9 11": {
-    "types": ["numeral"],
-    "inflections": {"base":"9 11","regulars":["base"]}
-  },
-  "AAC": {
-    "types": ["noun"],
-    "inflections": {"base":"AAC","plural":"AACs","possessive":"AAC's","negation":"not AAC","regulars":["base","plural","possessive","negation"]}
-  },
-  "ALS": {
-    "types": ["noun"],
-    "inflections": {"base":"ALS","plural":"ALSes","possessive":"ALS'","negation":"not ALS","regulars":["base","plural","possessive","negation"]}
-  },
-  "AM": {
-    "types": ["noun"],
-    "inflections": {"base":"AM","plural":"AMs","possessive":"AM's","negation":"not AM","regulars":["base","plural","possessive","negation"]},
-    "antonyms": ["PM"]
-  },
-  "ATV": {
-    "types": ["noun"],
-    "inflections": {"base":"ATV","plural":"ATVs","possessive":"ATV's","negation":"not ATV","regulars":["base","plural","possessive","negation"]}
-  },
-  "Afghan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Afghan","plural":"Afghans","possessive":"Afghan's","negation":"not Afghan","comparative":"more Afghan","negative_comparative":"less Afghan","superlative":"the most Afghan","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Afghanistan": {
-    "types": ["noun"],
-    "inflections": {"base":"Afghanistan","plural":"Afghanistans","possessive":"Afghanistan's","negation":"not Afghanistan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Africa": {
-    "types": ["noun"],
-    "inflections": {"base":"Africa","plural":"Africas","possessive":"Africa's","negation":"not Africa","regulars":["base","plural","possessive","negation"]}
-  },
-  "African": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"African","plural":"Africans","comparative":"more African","negative_comparative":"less African","superlative":"the most African","negation":"not African","possessive":"African's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Alabama": {
-    "types": ["noun"],
-    "inflections": {"base":"Alabama","plural":"Alabamas","possessive":"Alabama's","negation":"not Alabama","regulars":["base","plural","possessive","negation"]}
-  },
-  "Alaska": {
-    "types": ["noun"],
-    "inflections": {"base":"Alaska","plural":"Alaskas","possessive":"Alaska's","negation":"not Alaska","regulars":["base","plural","possessive","negation"]}
-  },
-  "Algeria": {
-    "types": ["noun"],
-    "inflections": {"base":"Algeria","plural":"Algerias","possessive":"Algeria's","negation":"not Algeria","regulars":["base","plural","possessive","negation"]}
-  },
-  "Algerian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Algerian","plural":"Algerians","comparative":"more Algerian","negative_comparative":"less Algerian","superlative":"the most Algerian","negation":"not Algerian","possessive":"Algerian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Altantic": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Altantic","plural":"Altantics","comparative":"more Altantic","negative_comparative":"less Altantic","superlative":"the most Altantic","negation":"not Altantic","possessive":"Altantic's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "America": {
-    "types": ["noun"],
-    "inflections": {"base":"America","plural":"Americas","possessive":"America's","negation":"not America","regulars":["base","plural","possessive","negation"]}
-  },
-  "American": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"American","plural":"Americans","comparative":"more American","negative_comparative":"less American","superlative":"the most American","negation":"not American","possessive":"American's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Antarctica": {
-    "types": ["noun"],
-    "inflections": {"base":"Antarctica","plural":"Antarcticas","possessive":"Antarctica's","negation":"not Antarctica","regulars":["base","plural","possessive","negation"]}
-  },
-  "Antarctican": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Antarctican","plural":"Antarcticans","comparative":"more Antarctican","negative_comparative":"less Antarctican","superlative":"the most Antarctican","negation":"not Antarctican","possessive":"Antarctican's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "April": {
-    "types": ["noun"],
-    "inflections": {"base":"April","plural":"Aprils","possessive":"April's","negation":"not April","regulars":["base","plural","possessive","negation"]}
-  },
-  "Arabian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Arabian","plural":"Arabians","comparative":"more Arabian","negative_comparative":"less Arabian","superlative":"the most Arabian","negation":"not Arabian","possessive":"Arabian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Arctic": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Arctic","plural":"Arctics","possessive":"Arctic's","negation":"not Arctic","comparative":"more Arctic","negative_comparative":"less Arctic","superlative":"the most Arctic","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Argentina": {
-    "types": ["noun"],
-    "inflections": {"base":"Argentina","plural":"Argentinas","possessive":"Argentina's","negation":"not Argentina","regulars":["base","plural","possessive","negation"]}
-  },
-  "Argentine": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Argentine","plural":"Argentines","comparative":"more Argentine","negative_comparative":"less Argentine","superlative":"the most Argentine","negation":"not Argentine","possessive":"Argentine's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Arizona": {
-    "types": ["noun"],
-    "inflections": {"base":"Arizona","plural":"Arizonas","possessive":"Arizona's","negation":"not Arizona","regulars":["base","plural","possessive","negation"]}
-  },
-  "Arkansas": {
-    "types": ["noun"],
-    "inflections": {"base":"Arkansas","plural":"Arkansases","possessive":"Arkansas'","negation":"not Arkansas","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ash Wednesday": {
-    "types": ["noun"],
-    "inflections": {"base":"Ash Wednesday","plural":"Ash Wednesdays","possessive":"Ash Wednesday's","negation":"not Ash Wednesday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Asia": {
-    "types": ["noun"],
-    "inflections": {"base":"Asia","plural":"Asias","possessive":"Asia's","negation":"not Asia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Asian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Asian","plural":"Asians","comparative":"more Asian","negative_comparative":"less Asian","superlative":"the most Asian","negation":"not Asian","possessive":"Asian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "August": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"August","plural":"Augusts","possessive":"August's","negation":"not August","comparative":"more August","negative_comparative":"less August","superlative":"the most August","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Australia": {
-    "types": ["noun"],
-    "inflections": {"base":"Australia","plural":"Australias","possessive":"Australia's","negation":"not Australia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Australian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Australian","plural":"Australians","comparative":"more Australian","negative_comparative":"less Australian","superlative":"the most Australian","negation":"not Australian","possessive":"Australian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Austria": {
-    "types": ["noun"],
-    "inflections": {"base":"Austria","plural":"Austrias","possessive":"Austria's","negation":"not Austria","regulars":["base","plural","possessive","negation"]}
-  },
-  "Austrian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Austrian","plural":"Austrians","comparative":"more Austrian","negative_comparative":"less Austrian","superlative":"the most Austrian","negation":"not Austrian","possessive":"Austrian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Aztec": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Aztec","plural":"Aztecs","comparative":"more Aztec","negative_comparative":"less Aztec","superlative":"the most Aztec","negation":"not Aztec","possessive":"Aztec's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Babylon": {
-    "types": ["noun"],
-    "inflections": {"base":"Babylon","plural":"Babylons","possessive":"Babylon's","negation":"not Babylon","regulars":["base","plural","possessive","negation"]}
-  },
-  "Bar Mitzveh": {
-    "types": ["noun"],
-    "inflections": {"base":"Bar Mitzveh","plural":"Bar Mitzvehs","possessive":"Bar Mitzveh's","negation":"not Bar Mitzveh","regulars":["base","plural","possessive","negation"]}
-  },
-  "Belgian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Belgian","plural":"Belgians","comparative":"more Belgian","negative_comparative":"less Belgian","superlative":"the most Belgian","negation":"not Belgian","possessive":"Belgian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Belgium": {
-    "types": ["noun"],
-    "inflections": {"base":"Belgium","plural":"Belgiums","possessive":"Belgium's","negation":"not Belgium","regulars":["base","plural","possessive","negation"]}
-  },
-  "Bible": {
-    "types": ["noun"],
-    "inflections": {"base":"Bible","plural":"Bibles","possessive":"Bible's","negation":"not Bible","regulars":["base","plural","possessive","negation"]}
-  },
-  "Big Ben": {
-    "types": ["noun"],
-    "inflections": {"base":"Big Ben","plural":"Big Bens","possessive":"Big Ben's","negation":"not Big Ben","regulars":["base","plural","possessive","negation"]}
-  },
-  "Bolivia": {
-    "types": ["noun"],
-    "inflections": {"base":"Bolivia","plural":"Bolivias","possessive":"Bolivia's","negation":"not Bolivia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Bolivian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Bolivian","plural":"Bolivians","comparative":"more Bolivian","negative_comparative":"less Bolivian","superlative":"the most Bolivian","negation":"not Bolivian","possessive":"Bolivian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Brazil": {
-    "types": ["noun"],
-    "inflections": {"base":"Brazil","plural":"Brazils","possessive":"Brazil's","negation":"not Brazil","regulars":["base","plural","possessive","negation"]}
-  },
-  "Brazilian": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Brazilian","plural":"Brazilians","possessive":"Brazilian's","negation":"not Brazilian","comparative":"more Brazilian","negative_comparative":"less Brazilian","superlative":"the most Brazilian","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "British": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"British","plural":"Britishes","comparative":"more British","negative_comparative":"less British","superlative":"the most British","negation":"not British","possessive":"British's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Broadway": {
-    "types": ["noun"],
-    "inflections": {"base":"Broadway","plural":"Broadways","possessive":"Broadway's","negation":"not Broadway","regulars":["base","plural","possessive","negation"]}
-  },
-  "Buckingham Palace": {
-    "types": ["noun"],
-    "inflections": {"base":"Buckingham Palace","plural":"Buckingham Palaces","possessive":"Buckingham Palace's","negation":"not Buckingham Palace","regulars":["base","plural","possessive","negation"]}
-  },
-  "CEO": {
-    "types": ["noun"],
-    "inflections": {"base":"CEO","plural":"CEOs","possessive":"CEO's","negation":"not CEO","regulars":["base","plural","possessive","negation"]}
-  },
-  "Caesar": {
-    "types": ["noun"],
-    "inflections": {"base":"Caesar","plural":"Caesars","possessive":"Caesar's","negation":"not Caesar","regulars":["base","plural","possessive","negation"]}
-  },
-  "California": {
-    "types": ["noun"],
-    "inflections": {"base":"California","plural":"Californias","possessive":"California's","negation":"not California","regulars":["base","plural","possessive","negation"]}
-  },
-  "Canada": {
-    "types": ["noun"],
-    "inflections": {"base":"Canada","plural":"Canadas","possessive":"Canada's","negation":"not Canada","regulars":["base","plural","possessive","negation"]}
-  },
-  "Canadian": {
-    "types": ["noun"],
-    "inflections": {"base":"Canadian","plural":"Canadians","possessive":"Canadian's","negation":"not Canadian","regulars":["base","plural","possessive","negation"]}
-  },
-  "Central Park": {
-    "types": ["noun"],
-    "inflections": {"base":"Central Park","plural":"Central Parks","possessive":"Central Park's","negation":"not Central Park","regulars":["base","plural","possessive","negation"]}
-  },
-  "Chad": {
-    "types": ["noun"],
-    "inflections": {"base":"Chad","plural":"Chads","possessive":"Chad's","negation":"not Chad","regulars":["base","plural","possessive","negation"]}
-  },
-  "Chadian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Chadian","plural":"Chadians","comparative":"more Chadian","negative_comparative":"less Chadian","superlative":"the most Chadian","negation":"not Chadian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Chile": {
-    "types": ["noun"],
-    "inflections": {"base":"Chile","plural":"Chiles","possessive":"Chile's","negation":"not Chile","regulars":["base","plural","possessive","negation"]}
-  },
-  "Chilean": {
-    "types": ["adjective"],
-    "inflections": {"base":"Chilean","plural":"Chileans","comparative":"more Chilean","negative_comparative":"less Chilean","superlative":"the most Chilean","negation":"not Chilean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "China": {
-    "types": ["noun"],
-    "inflections": {"base":"China","plural":"Chinas","comparative":"more China","negative_comparative":"less China","superlative":"the most China","negation":"not China","possessive":"China's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Chinese": {
-    "types": ["adjective"],
-    "inflections": {"base":"Chinese","plural":"Chineses","comparative":"more Chinese","negative_comparative":"less Chinese","superlative":"the most Chinese","negation":"not Chinese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Chinese New Year": {
-    "types": ["noun"],
-    "inflections": {"base":"Chinese New Year","plural":"Chinese New Years","possessive":"Chinese New Year's","negation":"not Chinese New Year","regulars":["base","plural","possessive","negation"]}
-  },
-  "Christ the Redeemer": {
-    "types": ["noun"],
-    "inflections": {"base":"Christ the Redeemer","plural":"Christ the Redeemers","possessive":"Christ the Redeemer's","negation":"not Christ the Redeemer","regulars":["base","plural","possessive","negation"]}
-  },
-  "Christian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Christian","plural":"Christians","comparative":"more Christian","negative_comparative":"less Christian","superlative":"the most Christian","negation":"not Christian","possessive":"Christian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Christianity": {
-    "types": ["noun"],
-    "inflections": {"base":"Christianity","plural":"Christianities","possessive":"Christianity's","negation":"not Christianity","regulars":["base","plural","possessive","negation"]}
-  },
-  "Christmas": {
-    "types": ["noun"],
-    "inflections": {"base":"Christmas","plural":"Christmases","possessive":"Christmas'","negation":"not Christmas","comparative":"more Christmas","negative_comparative":"less Christmas","superlative":"the most Christmas","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Cinco de Mayo": {
-    "types": ["noun"],
-    "inflections": {"base":"Cinco de Mayo","plural":"Cinco de Mayos","possessive":"Cinco de Mayo's","negation":"not Cinco de Mayo","regulars":["base","plural","possessive","negation"]}
-  },
-  "Colombia": {
-    "types": ["noun"],
-    "inflections": {"base":"Colombia","plural":"Colombias","possessive":"Colombia's","negation":"not Colombia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Colombian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Colombian","plural":"Colombians","comparative":"more Colombian","negative_comparative":"less Colombian","superlative":"the most Colombian","negation":"not Colombian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Colorado": {
-    "types": ["noun"],
-    "inflections": {"base":"Colorado","plural":"Colorados","possessive":"Colorado's","negation":"not Colorado","regulars":["base","plural","possessive","negation"]}
-  },
-  "Colosseum": {
-    "types": ["noun"],
-    "inflections": {"base":"Colosseum","plural":"Colosseums","possessive":"Colosseum's","negation":"not Colosseum","regulars":["base","plural","possessive","negation"]}
-  },
-  "Congo": {
-    "types": ["noun"],
-    "inflections": {"base":"Congo","plural":"Congos","possessive":"Congo's","negation":"not Congo","regulars":["base","plural","possessive","negation"]}
-  },
-  "Congolese": {
-    "types": ["adjective"],
-    "inflections": {"base":"Congolese","plural":"Congoleses","comparative":"more Congolese","negative_comparative":"less Congolese","superlative":"the most Congolese","negation":"not Congolese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Connecticut": {
-    "types": ["noun"],
-    "inflections": {"base":"Connecticut","plural":"Connecticuts","possessive":"Connecticut's","negation":"not Connecticut","regulars":["base","plural","possessive","negation"]}
-  },
-  "Cuba": {
-    "types": ["noun"],
-    "inflections": {"base":"Cuba","plural":"Cubas","possessive":"Cuba's","negation":"not Cuba","regulars":["base","plural","possessive","negation"]}
-  },
-  "Cuban": {
-    "types": ["adjective"],
-    "inflections": {"base":"Cuban","plural":"Cubans","comparative":"more Cuban","negative_comparative":"less Cuban","superlative":"the most Cuban","negation":"not Cuban","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "December": {
-    "types": ["noun"],
-    "inflections": {"base":"December","plural":"Decembers","possessive":"December's","negation":"not December","regulars":["base","plural","possessive","negation"]}
-  },
-  "Delaware": {
-    "types": ["noun"],
-    "inflections": {"base":"Delaware","plural":"Delawares","possessive":"Delaware's","negation":"not Delaware","regulars":["base","plural","possessive","negation"]}
-  },
-  "Dr. Pepper": {
-    "types": ["noun"],
-    "inflections": {"base":"Dr. Pepper","plural":"Dr. Peppers","possessive":"Dr. Pepper's","negation":"not Dr. Pepper","regulars":["base","plural","possessive","negation"]}
-  },
-  "EMT": {
-    "types": ["noun"],
-    "inflections": {"base":"EMT","plural":"EMTs","possessive":"EMT's","negation":"not EMT","regulars":["base","plural","possessive","negation"]}
-  },
-  "Earth": {
-    "types": ["noun"],
-    "inflections": {"base":"Earth","plural":"Earths","possessive":"Earth's","negation":"not Earth","regulars":["base","plural","possessive","negation"]}
-  },
-  "Earth Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Earth Day","plural":"Earth Days","possessive":"Earth Day's","negation":"not Earth Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Easter": {
-    "types": ["noun"],
-    "inflections": {"base":"Easter","plural":"Easters","possessive":"Easter's","negation":"not Easter","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ecuador": {
-    "types": ["noun"],
-    "inflections": {"base":"Ecuador","plural":"Ecuadors","possessive":"Ecuador's","negation":"not Ecuador","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ecuadorian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Ecuadorian","plural":"Ecuadorians","comparative":"more Ecuadorian","negative_comparative":"less Ecuadorian","superlative":"the most Ecuadorian","negation":"not Ecuadorian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Egypt": {
-    "types": ["noun"],
-    "inflections": {"base":"Egypt","plural":"Egypts","possessive":"Egypt's","negation":"not Egypt","regulars":["base","plural","possessive","negation"]}
-  },
-  "Egyptian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Egyptian","plural":"Egyptians","comparative":"more Egyptian","negative_comparative":"less Egyptian","superlative":"the most Egyptian","negation":"not Egyptian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Eiffel Tower": {
-    "types": ["noun"],
-    "inflections": {"base":"Eiffel Tower","plural":"Eiffel Towers","possessive":"Eiffel Tower's","negation":"not Eiffel Tower","regulars":["base","plural","possessive","negation"]}
-  },
-  "Empire State Building": {
-    "types": ["noun"],
-    "inflections": {"base":"Empire State Building","plural":"Empire State Buildings","possessive":"Empire State Building's","negation":"not Empire State Building","regulars":["base","plural","possessive","negation"]}
-  },
-  "England": {
-    "types": ["noun"],
-    "inflections": {"base":"England","plural":"Englands","possessive":"England's","negation":"not England","regulars":["base","plural","possessive","negation"]}
-  },
-  "English": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"English","plural":"Englishes","possessive":"English's","negation":"not English","comparative":"more English","negative_comparative":"less English","superlative":"the most English","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Ethiopia": {
-    "types": ["noun"],
-    "inflections": {"base":"Ethiopia","plural":"Ethiopias","possessive":"Ethiopia's","negation":"not Ethiopia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ethiopian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Ethiopian","plural":"Ethiopians","comparative":"more Ethiopian","negative_comparative":"less Ethiopian","superlative":"the most Ethiopian","negation":"not Ethiopian","possessive":"Ethiopian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Etruscan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Etruscan","plural":"Etruscans","comparative":"more Etruscan","negative_comparative":"less Etruscan","superlative":"the most Etruscan","negation":"not Etruscan","possessive":"Etruscan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Europe": {
-    "types": ["noun"],
-    "inflections": {"base":"Europe","plural":"Europes","possessive":"Europe's","negation":"not Europe","regulars":["base","plural","possessive","negation"]}
-  },
-  "European": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"European","plural":"Europeans","comparative":"more European","negative_comparative":"less European","superlative":"the most European","negation":"not European","possessive":"European's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Facebook": {
-    "types": ["noun"],
-    "inflections": {"base":"Facebook","plural":"Facebooks","possessive":"Facebook's","negation":"not Facebook","regulars":["base","plural","possessive","negation"]}
-  },
-  "Fanta": {
-    "types": ["noun"],
-    "inflections": {"base":"Fanta","plural":"Fantas","possessive":"Fanta's","negation":"not Fanta","regulars":["base","plural","possessive","negation"]}
-  },
-  "Father's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Father's Day","plural":"Father's Days","possessive":"Father's Day's","negation":"not Father's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "February": {
-    "types": ["noun"],
-    "inflections": {"base":"February","plural":"Februaries","possessive":"February's","negation":"not February","regulars":["base","plural","possessive","negation"]}
-  },
-  "Finland": {
-    "types": ["noun"],
-    "inflections": {"base":"Finland","plural":"Finlands","possessive":"Finland's","negation":"not Finland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Finnish": {
-    "types": ["adjective"],
-    "inflections": {"base":"Finnish","plural":"Finnishes","comparative":"more Finnish","negative_comparative":"less Finnish","superlative":"the most Finnish","negation":"not Finnish","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Florida": {
-    "types": ["noun"],
-    "inflections": {"base":"Florida","plural":"Floridas","possessive":"Florida's","negation":"not Florida","regulars":["base","plural","possessive","negation"]}
-  },
-  "Fourth of July": {
-    "types": ["noun"],
-    "inflections": {"base":"Fourth of July","plural":"N/A","possessive":"Fourth of July's","negation":"not Fourth of July","regulars":["base","possessive","negation"]}
-  },
-  "France": {
-    "types": ["noun"],
-    "inflections": {"base":"France","plural":"Frances","possessive":"France's","negation":"not France","regulars":["base","plural","possessive","negation"]}
-  },
-  "French": {
-    "types": ["adjective"],
-    "inflections": {"base":"French","plural":"Frenches","comparative":"more French","negative_comparative":"less French","superlative":"the most French","negation":"not French","regulars":["base","plural","negative_comparative","negation"]}
-  },
-  "Friday": {
-    "types": ["noun"],
-    "inflections": {"base":"Friday","plural":"Fridays","possessive":"Friday's","negation":"not Friday","regulars":["base","plural","possessive","negation"]}
-  },
-  "GPA": {
-    "types": ["noun"],
-    "inflections": {"base":"GPA","plural":"GPAs","possessive":"GPA's","negation":"not GPA","regulars":["base","plural","possessive","negation"]}
-  },
-  "Georgia": {
-    "types": ["noun"],
-    "inflections": {"base":"Georgia","plural":"Georgias","possessive":"Georgia's","negation":"not Georgia","regulars":["base","plural","possessive","negation"]}
-  },
-  "German": {
-    "types": ["adjective"],
-    "inflections": {"base":"German","plural":"Germans","comparative":"more German","negative_comparative":"less German","superlative":"the most German","negation":"not German","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Germany": {
-    "types": ["noun"],
-    "inflections": {"base":"Germany","plural":"Germanies","possessive":"Germany's","negation":"not Germany","regulars":["base","plural","possessive","negation"]}
-  },
-  "God": {
-    "types": ["noun"],
-    "inflections": {"base":"God","plural":"Gods","possessive":"God's","negation":"not God","regulars":["base","plural","possessive","negation"]}
-  },
-  "Golden Gate Bridge": {
-    "types": ["noun"],
-    "inflections": {"base":"Golden Gate Bridge","plural":"Golden Gate Bridges","possessive":"Golden Gate Bridge's","negation":"not Golden Gate Bridge","regulars":["base","plural","possessive","negation"]}
-  },
-  "Grand Canyon": {
-    "types": ["noun"],
-    "inflections": {"base":"Grand Canyon","plural":"Grand Canyons","possessive":"Grand Canyon's","negation":"not Grand Canyon","regulars":["base","plural","possessive","negation"]}
-  },
-  "Great Barrier Reef": {
-    "types": ["noun"],
-    "inflections": {"base":"Great Barrier Reef","plural":"Great Barrier Reefs","possessive":"Great Barrier Reef's","negation":"not Great Barrier Reef","regulars":["base","plural","possessive","negation"]}
-  },
-  "Great Wall of China": {
-    "types": ["noun"],
-    "inflections": {"base":"Great Wall of China","plural":"Great Wall of Chinas","possessive":"Great Wall of China's","negation":"not Great Wall of China","regulars":["base","plural","possessive","negation"]}
-  },
-  "Greece": {
-    "types": ["noun"],
-    "inflections": {"base":"Greece","plural":"Greeces","possessive":"Greece's","negation":"not Greece","regulars":["base","plural","possessive","negation"]}
-  },
-  "Greek": {
-    "types": ["adjective"],
-    "inflections": {"base":"Greek","plural":"Greeks","comparative":"more Greek","negative_comparative":"less Greek","superlative":"the most Greek","negation":"not Greek","regulars":["base","plural","negative_comparative","negation"]}
-  },
-  "Greenland": {
-    "types": ["noun"],
-    "inflections": {"base":"Greenland","plural":"Greenlands","possessive":"Greenland's","negation":"not Greenland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Greenlandic": {
-    "types": ["adjective"],
-    "inflections": {"base":"Greenlandic","plural":"Greenlandics","comparative":"more Greenlandic","negative_comparative":"less Greenlandic","superlative":"the most Greenlandic","negation":"not Greenlandic","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Groundhog Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Groundhog Day","plural":"Groundhog Days","possessive":"Groundhog Day's","negation":"not Groundhog Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Guatemala": {
-    "types": ["noun"],
-    "inflections": {"base":"Guatemala","plural":"Guatemalas","possessive":"Guatemala's","negation":"not Guatemala","regulars":["base","plural","possessive","negation"]}
-  },
-  "Guatemalan": {
-    "types": ["adjective"],
-    "inflections": {"base":"Guatemalan","plural":"Guatemalans","comparative":"more Guatemalan","negative_comparative":"less Guatemalan","superlative":"the most Guatemalan","negation":"not Guatemalan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Halloween": {
-    "types": ["noun"],
-    "inflections": {"base":"Halloween","plural":"Halloweens","possessive":"Halloween's","negation":"not Halloween","regulars":["base","plural","possessive","negation"]}
-  },
-  "Hannukah": {
-    "types": ["noun"],
-    "inflections": {"base":"Hannukah","plural":"Hannukahs","possessive":"Hannukah's","negation":"not Hannukah","regulars":["base","plural","possessive","negation"]}
-  },
-  "Hawaii": {
-    "types": ["noun"],
-    "inflections": {"base":"Hawaii","plural":"Hawaiis","possessive":"Hawaii's","negation":"not Hawaii","regulars":["base","plural","possessive","negation"]}
-  },
-  "Hindu": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Hindu","plural":"Hindus","comparative":"more Hindu","negative_comparative":"less Hindu","superlative":"the most Hindu","negation":"not Hindu","possessive":"Hindu's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Hinduism": {
-    "types": ["noun"],
-    "inflections": {"base":"Hinduism","plural":"Hinduisms","possessive":"Hinduism's","negation":"not Hinduism","regulars":["base","plural","possessive","negation"]}
-  },
-  "Hitler": {
-    "types": ["noun"],
-    "inflections": {"base":"Hitler","plural":"Hitlers","possessive":"Hitler's","negation":"not Hitler","regulars":["base","plural","possessive","negation"]}
-  },
-  "Holy Roman Empire": {
-    "types": ["noun"],
-    "inflections": {"base":"Holy Roman Empire","plural":"Holy Roman Empires","possessive":"Holy Roman Empire's","negation":"not Holy Roman Empire","regulars":["base","plural","possessive","negation"]}
-  },
-  "I": {
-    "types": ["pronoun"],
-    "inflections": {"base":"I","objective":"me","possessive":"mine","possessive_adjective":"my","reflexive":"myself","negation":"not I","regulars":["base","objective","possessive","possessive_adjective","reflexive","negation"]},
-    "antonyms": ["you"]
-  },
-  "I am ____ years old": {
-    "types": ["social"],
-    "inflections": {"base":"I am ____ years old","regulars":["base"]}
-  },
-  "I don't know": {
-    "types": ["social"],
-    "inflections": {"base":"I don't know","regulars":["base"]}
-  },
-  "I need a break": {
-    "types": ["social"],
-    "inflections": {"base":"I need a break","regulars":["base"]}
-  },
-  "I use a computer to help me talk.": {
-    "types": ["social"],
-    "inflections": {"base":"I use a computer to help me talk.","regulars":["base"]}
-  },
-  "I will tell you, I just need a minute.": {
-    "types": ["social"],
-    "inflections": {"base":"I will tell you, I just need a minute.","regulars":["base"]}
-  },
-  "I'd": {
-    "types": ["verb"],
-    "inflections": {"base":"I'd","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'd","regulars":["base","negation"]}
-  },
-  "I'll": {
-    "types": ["verb"],
-    "inflections": {"base":"I'll","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'll","regulars":["base","negation"]}
-  },
-  "I'm": {
-    "types": ["verb"],
-    "inflections": {"base":"I'm","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'm","regulars":["base","negation"]}
-  },
-  "I've": {
-    "types": ["verb"],
-    "inflections": {"base":"I've","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I've","regulars":["base","negation"]}
-  },
-  "Iceland": {
-    "types": ["noun"],
-    "inflections": {"base":"Iceland","plural":"Icelands","possessive":"Iceland's","negation":"not Iceland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Icelandic": {
-    "types": ["adjective"],
-    "inflections": {"base":"Icelandic","plural":"Icelandics","comparative":"more Icelandic","negative_comparative":"less Icelandic","superlative":"the most Icelandic","negation":"not Icelandic","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Idaho": {
-    "types": ["noun"],
-    "inflections": {"base":"Idaho","plural":"Idahos","possessive":"Idaho's","negation":"not Idaho","regulars":["base","plural","possessive","negation"]}
-  },
-  "Illinois": {
-    "types": ["noun"],
-    "inflections": {"base":"Illinois","plural":"Illinoes","possessive":"Illinois'","negation":"not Illinois","regulars":["base","plural","possessive","negation"]}
-  },
-  "Inca": {
-    "types": ["adjective"],
-    "inflections": {"base":"Inca","plural":"Incas","comparative":"more Inca","negative_comparative":"less Inca","superlative":"the most Inca","negation":"not Inca","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "India": {
-    "types": ["noun"],
-    "inflections": {"base":"India","plural":"Indias","possessive":"India's","negation":"not India","regulars":["base","plural","possessive","negation"]}
-  },
-  "Indian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Indian","plural":"Indians","comparative":"more Indian","negative_comparative":"less Indian","superlative":"the most Indian","negation":"not Indian","possessive":"Indian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Indiana": {
-    "types": ["noun"],
-    "inflections": {"base":"Indiana","plural":"Indianas","possessive":"Indiana's","negation":"not Indiana","regulars":["base","plural","possessive","negation"]}
-  },
-  "Indigenous Peoples Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Indigenous Peoples Day","plural":"Indigenous Peoples Days","possessive":"Indigenous Peoples Day's","negation":"not Indigenous Peoples Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Indonesia": {
-    "types": ["noun"],
-    "inflections": {"base":"Indonesia","plural":"Indonesias","possessive":"Indonesia's","negation":"not Indonesia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Indonesian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Indonesian","plural":"Indonesians","comparative":"more Indonesian","negative_comparative":"less Indonesian","superlative":"the most Indonesian","negation":"not Indonesian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Instagram": {
-    "types": ["noun"],
-    "inflections": {"base":"Instagram","plural":"Instagrams","possessive":"Instagram's","negation":"not Instagram","regulars":["base","plural","possessive","negation"]}
-  },
-  "Internet": {
-    "types": ["noun"],
-    "inflections": {"base":"Internet","plural":"Internets","possessive":"Internet's","negation":"not Internet","regulars":["base","plural","possessive","negation"]}
-  },
-  "Iowa": {
-    "types": ["noun"],
-    "inflections": {"base":"Iowa","plural":"Iowas","possessive":"Iowa's","negation":"not Iowa","regulars":["base","plural","possessive","negation"]}
-  },
-  "Iran": {
-    "types": ["noun"],
-    "inflections": {"base":"Iran","plural":"Irans","possessive":"Iran's","negation":"not Iran","regulars":["base","plural","possessive","negation"]}
-  },
-  "Iranian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Iranian","plural":"Iranians","comparative":"more Iranian","negative_comparative":"less Iranian","superlative":"the most Iranian","negation":"not Iranian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Ireland": {
-    "types": ["noun"],
-    "inflections": {"base":"Ireland","plural":"Irelands","possessive":"Ireland's","negation":"not Ireland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Irish": {
-    "types": ["adjective"],
-    "inflections": {"base":"Irish","plural":"Irish","comparative":"more Irish","negative_comparative":"less Irish","superlative":"the most Irish","negation":"not Irish","regulars":["base","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Islam": {
-    "types": ["noun"],
-    "inflections": {"base":"Islam","plural":"Islams","possessive":"Islam's","negation":"not Islam","regulars":["base","plural","possessive","negation"]}
-  },
-  "Israel": {
-    "types": ["noun"],
-    "inflections": {"base":"Israel","plural":"Israels","possessive":"Israel's","negation":"not Israel","regulars":["base","plural","possessive","negation"]}
-  },
-  "Israeli": {
-    "types": ["adjective"],
-    "inflections": {"base":"Israeli","plural":"Israelis","comparative":"more Israeli","negative_comparative":"less Israeli","superlative":"the most Israeli","negation":"not Israeli","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Italian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Italian","plural":"Italians","comparative":"more Italian","negative_comparative":"less Italian","superlative":"the most Italian","negation":"not Italian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Italy": {
-    "types": ["noun"],
-    "inflections": {"base":"Italy","plural":"Italies","possessive":"Italy's","negation":"not Italy","regulars":["base","plural","possessive","negation"]}
-  },
-  "January": {
-    "types": ["noun"],
-    "inflections": {"base":"January","plural":"Januaries","possessive":"January's","negation":"not January","regulars":["base","plural","possessive","negation"]}
-  },
-  "Japan": {
-    "types": ["noun"],
-    "inflections": {"base":"Japan","plural":"Japans","possessive":"Japan's","negation":"not Japan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Japanese": {
-    "types": ["adjective"],
-    "inflections": {"base":"Japanese","plural":"Japaneses","comparative":"more Japanese","negative_comparative":"less Japanese","superlative":"the most Japanese","negation":"not Japanese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Jesus": {
-    "types": ["noun"],
-    "inflections": {"base":"Jesus","plural":"Jesuses","possessive":"Jesus'","negation":"not Jesus","regulars":["base","plural","possessive","negation"]}
-  },
-  "Jewish": {
-    "types": ["adjective"],
-    "inflections": {"base":"Jewish","plural":"Jewishes","comparative":"more Jewish","negative_comparative":"less Jewish","superlative":"the most Jewish","negation":"not Jewish","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Judaism": {
-    "types": ["noun"],
-    "inflections": {"base":"Judaism","plural":"Judaisms","comparative":"more Judaism","negative_comparative":"less Judaism","superlative":"the most Judaism","negation":"not Judaism","possessive":"Judaism's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "July": {
-    "types": ["noun"],
-    "inflections": {"base":"July","plural":"Julies","possessive":"July's","negation":"not July","regulars":["base","plural","possessive","negation"]}
-  },
-  "June": {
-    "types": ["noun"],
-    "inflections": {"base":"June","plural":"Junes","possessive":"June's","negation":"not June","regulars":["base","plural","possessive","negation"]}
-  },
-  "Jupiter": {
-    "types": ["noun"],
-    "inflections": {"base":"Jupiter","plural":"Jupiters","possessive":"Jupiter's","negation":"not Jupiter","regulars":["base","plural","possessive","negation"]}
-  },
-  "Kansas": {
-    "types": ["noun"],
-    "inflections": {"base":"Kansas","plural":"Kansases","possessive":"Kansas'","negation":"not Kansas","regulars":["base","plural","possessive","negation"]}
-  },
-  "Kazakh": {
-    "types": ["adjective"],
-    "inflections": {"base":"Kazakh","plural":"Kazakhs","comparative":"more Kazakh","negative_comparative":"less Kazakh","superlative":"the most Kazakh","negation":"not Kazakh","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Kazakhstan": {
-    "types": ["noun"],
-    "inflections": {"base":"Kazakhstan","plural":"Kazakhstans","possessive":"Kazakhstan's","negation":"not Kazakhstan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Kentucky": {
-    "types": ["noun"],
-    "inflections": {"base":"Kentucky","plural":"Kentuckies","possessive":"Kentucky's","negation":"not Kentucky","regulars":["base","plural","possessive","negation"]}
-  },
-  "Kenya": {
-    "types": ["noun"],
-    "inflections": {"base":"Kenya","plural":"Kenyas","possessive":"Kenya's","negation":"not Kenya","regulars":["base","plural","possessive","negation"]}
-  },
-  "Kenyan": {
-    "types": ["adjective"],
-    "inflections": {"base":"Kenyan","plural":"Kenyans","comparative":"more Kenyan","negative_comparative":"less Kenyan","superlative":"the most Kenyan","negation":"not Kenyan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Korean": {
-    "types": ["adjective"],
-    "inflections": {"base":"Korean","plural":"Koreans","comparative":"more Korean","negative_comparative":"less Korean","superlative":"the most Korean","negation":"not Korean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Labor Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Labor Day","plural":"Labor Days","possessive":"Labor Day's","negation":"not Labor Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Libya": {
-    "types": ["noun"],
-    "inflections": {"base":"Libya","plural":"Libyas","possessive":"Libya's","negation":"not Libya","regulars":["base","plural","possessive","negation"]}
-  },
-  "Libyan": {
-    "types": ["adjective"],
-    "inflections": {"base":"Libyan","plural":"Libyans","comparative":"more Libyan","negative_comparative":"less Libyan","superlative":"the most Libyan","negation":"not Libyan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Lincoln": {
-    "types": ["noun"],
-    "inflections": {"base":"Lincoln","plural":"Lincolns","possessive":"Lincoln's","negation":"not Lincoln","regulars":["base","plural","possessive","negation"]}
-  },
-  "LinkedIn": {
-    "types": ["noun"],
-    "inflections": {"base":"LinkedIn","plural":"LinkedIns","possessive":"LinkedIn's","negation":"not LinkedIn","regulars":["base","plural","possessive","negation"]}
-  },
-  "Louisiana": {
-    "types": ["noun"],
-    "inflections": {"base":"Louisiana","plural":"Louisianas","possessive":"Louisiana's","negation":"not Louisiana","regulars":["base","plural","possessive","negation"]}
-  },
-  "M\u0026Ms": {
-    "types": ["noun"],
-    "inflections": {"base":"M\u0026M","plural":"M\u0026Ms","possessive":"M\u0026M's","negation":"not M\u0026M","regulars":["plural","possessive","negation"]}
-  },
-  "Machu Pichu": {
-    "types": ["noun"],
-    "inflections": {"base":"Machu Pichu","plural":"Machu Pichus","possessive":"Machu Pichu's","negation":"not Machu Pichu","regulars":["base","plural","possessive","negation"]}
-  },
-  "Madagascar": {
-    "types": ["noun"],
-    "inflections": {"base":"Madagascar","plural":"Madagascars","possessive":"Madagascar's","negation":"not Madagascar","regulars":["base","plural","possessive","negation"]}
-  },
-  "Maine": {
-    "types": ["noun"],
-    "inflections": {"base":"Maine","plural":"Maines","possessive":"Maine's","negation":"not Maine","regulars":["base","plural","possessive","negation"]}
-  },
-  "Malagasy": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Malagasy","plural":"Malagasies","comparative":"more Malagasy","negative_comparative":"less Malagasy","superlative":"the most Malagasy","negation":"not Malagasy","possessive":"Malagasy's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "March": {
-    "types": ["noun"],
-    "inflections": {"base":"March","plural":"Marches","possessive":"March's","negation":"not March","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mardi Gras": {
-    "types": ["noun"],
-    "inflections": {"base":"Mardi Gras","plural":"Mardi Gras","possessive":"Mardi Gras'","negation":"not Mardi Gras","regulars":["base","possessive","negation"]}
-  },
-  "Mars": {
-    "types": ["noun"],
-    "inflections": {"base":"Mars","plural":"Marses","possessive":"Mars'","negation":"not Mars","regulars":["base","plural","possessive","negation"]}
-  },
-  "Martin Luther King Jr. Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Martin Luther King Jr. Day","plural":"Martin Luther King Jr. Days","possessive":"Martin Luther King Jr. Day's","negation":"not Martin Luther King Jr. Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Maryland": {
-    "types": ["noun"],
-    "inflections": {"base":"Maryland","plural":"Marylands","possessive":"Maryland's","negation":"not Maryland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Massachusetts": {
-    "types": ["noun"],
-    "inflections": {"base":"Massachusetts","plural":"Massachusettses","possessive":"Massachusetts'","negation":"not Massachusetts","regulars":["base","plural","possessive","negation"]}
-  },
-  "May": {
-    "types": ["noun"],
-    "inflections": {"base":"May","plural":"Mays","possessive":"May's","negation":"not May","regulars":["base","plural","possessive","negation"]}
-  },
-  "Maya": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Maya","plural":"Mayas","possessive":"Maya's","negation":"not Maya","comparative":"more Maya","negative_comparative":"less Maya","superlative":"the most Maya","regulars":["base","plural","possessive","negation","negative_comparative"]}
-  },
-  "Mediterranean": {
-    "types": ["adjective"],
-    "inflections": {"base":"Mediterranean","plural":"Mediterraneans","comparative":"more Mediterranean","negative_comparative":"less Mediterranean","superlative":"the most Mediterranean","negation":"not Mediterranean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Mercury": {
-    "types": ["noun"],
-    "inflections": {"base":"Mercury","plural":"Mercuries","possessive":"Mercury's","negation":"not Mercury","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mesopotamia": {
-    "types": ["noun"],
-    "inflections": {"base":"Mesopotamia","plural":"Mesopotamias","possessive":"Mesopotamia's","negation":"not Mesopotamia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Messenger": {
-    "types": ["noun"],
-    "inflections": {"base":"Messenger","plural":"Messengers","possessive":"Messenger's","negation":"not Messenger","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mexican": {
-    "types": ["adjective"],
-    "inflections": {"base":"Mexican","plural":"Mexicans","comparative":"more Mexican","negative_comparative":"less Mexican","superlative":"the most Mexican","negation":"not Mexican","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Mexico": {
-    "types": ["noun"],
-    "inflections": {"base":"Mexico","plural":"Mexicos","possessive":"Mexico's","negation":"not Mexico","regulars":["base","plural","possessive","negation"]}
-  },
-  "Michigan": {
-    "types": ["noun"],
-    "inflections": {"base":"Michigan","plural":"Michigans","possessive":"Michigan's","negation":"not Michigan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Micronesia": {
-    "types": ["noun"],
-    "inflections": {"base":"Micronesia","plural":"Micronesias","possessive":"Micronesia's","negation":"not Micronesia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Micronesian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Micronesian","plural":"Micronesians","comparative":"more Micronesian","negative_comparative":"less Micronesian","superlative":"the most Micronesian","negation":"not Micronesian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Milky Way": {
-    "types": ["noun"],
-    "inflections": {"base":"Milky Way","plural":"Milky Ways","possessive":"Milky Way's","negation":"not Milky Way","regulars":["base","plural","possessive","negation"]}
-  },
-  "Minnesota": {
-    "types": ["noun"],
-    "inflections": {"base":"Minnesota","plural":"Minnesotas","possessive":"Minnesota's","negation":"not Minnesota","regulars":["base","plural","possessive","negation"]}
-  },
-  "Miss": {
-    "types": ["noun","verb"],
-    "inflections": {"base":"miss","plural":"misses","possessive":"miss'","negation":"not miss","infinitive":"to miss","present":"miss","simple_present":"misses","plural_present":"miss","past":"missed","simple_past":"missed","present_participle":"missing","past_participle":"missed","regulars":["plural","possessive","negation","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle"]}
-  },
-  "Mississippi": {
-    "types": ["noun"],
-    "inflections": {"base":"Mississippi","plural":"Mississippis","possessive":"Mississippi's","negation":"not Mississippi","regulars":["base","plural","possessive","negation"]}
-  },
-  "Missouri": {
-    "types": ["noun"],
-    "inflections": {"base":"Missouri","plural":"Missouris","possessive":"Missouri's","negation":"not Missouri","regulars":["base","plural","possessive","negation"]}
-  },
-  "Monday": {
-    "types": ["noun"],
-    "inflections": {"base":"Monday","plural":"Mondays","possessive":"Monday's","negation":"not Monday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mongol": {
-    "types": ["adjective"],
-    "inflections": {"base":"Mongol","plural":"Mongols","comparative":"more Mongol","negative_comparative":"less Mongol","superlative":"the most Mongol","negation":"not Mongol","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Mongolia": {
-    "types": ["noun"],
-    "inflections": {"base":"Mongolia","plural":"Mongolias","possessive":"Mongolia's","negation":"not Mongolia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mongolian": {
-    "types": ["adjective"],
-    "inflections": {"base":"Mongolian","plural":"Mongolians","comparative":"more Mongolian","negative_comparative":"less Mongolian","superlative":"the most Mongolian","negation":"not Mongolian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Montana": {
-    "types": ["noun"],
-    "inflections": {"base":"Montana","plural":"Montanas","possessive":"Montana's","negation":"not Montana","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mother's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Mother's Day","plural":"Mother's Days","possessive":"Mother's Day's","negation":"not Mother's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mount Everest": {
-    "types": ["noun"],
-    "inflections": {"base":"Mount Everest","plural":"Mount Everests","possessive":"Mount Everest's","negation":"not Mount Everest","regulars":["base","plural","possessive","negation"]}
-  },
-  "Mr.": {
-    "types": ["noun"],
-    "inflections": {"base":"Mr.","plural":"Mr.","possessive":"Mr's","negation":"not Mr.","regulars":["base","negation","plural","possessive"]}
-  },
-  "Mrs.": {
-    "types": ["noun"],
-    "inflections": {"base":"Mrs.","plural":"Mrs.","possessive":"Mrs'","negation":"not Mrs.","regulars":["base","negation"]}
-  },
-  "Muslim": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Muslim","plural":"Muslims","possessive":"Muslim's","negation":"not Muslim","comparative":"more Muslim","negative_comparative":"less Muslim","superlative":"the most Muslim","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Nascar": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Nascar","plural":"Nascars","comparative":"N/A","negative_comparative":"N/A","superlative":"N/A","negation":"not Nascar","possessive":"Nascar's","regulars":["base","plural","negation","possessive","negative_comparative"]}
-  },
-  "Natchez": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Natchez","plural":"Natchezes","comparative":"more Natchez","negative_comparative":"less Natchez","superlative":"the most Natchez","negation":"not Natchez","possessive":"Natchez's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Nebraska": {
-    "types": ["noun"],
-    "inflections": {"base":"Nebraska","plural":"Nebraskas","possessive":"Nebraska's","negation":"not Nebraska","regulars":["base","plural","possessive","negation"]}
-  },
-  "Nepal": {
-    "types": ["noun"],
-    "inflections": {"base":"Nepal","plural":"Nepals","possessive":"Nepal's","negation":"not Nepal","regulars":["base","plural","possessive","negation"]}
-  },
-  "Nepalese": {
-    "types": ["adjective"],
-    "inflections": {"base":"Nepalese","plural":"Nepaleses","comparative":"more Nepalese","negative_comparative":"less Nepalese","superlative":"the most Nepalese","negation":"not Nepalese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Neptune": {
-    "types": ["noun"],
-    "inflections": {"base":"Neptune","plural":"Neptunes","possessive":"Neptune's","negation":"not Neptune","regulars":["base","plural","possessive","negation"]}
-  },
-  "Nevada": {
-    "types": ["noun"],
-    "inflections": {"base":"Nevada","plural":"Nevadas","possessive":"Nevada's","negation":"not Nevada","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Guinea": {
-    "types": ["noun"],
-    "inflections": {"base":"New Guinea","plural":"New Guineas","possessive":"New Guinea's","negation":"not New Guinea","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Guinean": {
-    "types": ["adjective"],
-    "inflections": {"base":"New Guinean","plural":"New Guineans","comparative":"more New Guinean","negative_comparative":"less New Guinean","superlative":"the most New Guinean","negation":"not New Guinean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "New Hampshire": {
-    "types": ["noun"],
-    "inflections": {"base":"New Hampshire","plural":"New Hampshires","possessive":"New Hampshire's","negation":"not New Hampshire","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Jersey": {
-    "types": ["noun"],
-    "inflections": {"base":"New Jersey","plural":"New Jerseys","possessive":"New Jersey's","negation":"not New Jersey","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Mexico": {
-    "types": ["noun"],
-    "inflections": {"base":"New Mexico","plural":"New Mexicos","possessive":"New Mexico's","negation":"not New Mexico","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Year's": {
-    "types": ["noun"],
-    "inflections": {"base":"New Year's","plural":"New Year's","possessive":"New Years'","negation":"not New Year's","regulars":["base","negation","plural","possessive"]}
-  },
-  "New York": {
-    "types": ["noun"],
-    "inflections": {"base":"New York","plural":"New Yorks","possessive":"New York's","negation":"not New York","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Zealand": {
-    "types": ["noun"],
-    "inflections": {"base":"New Zealand","plural":"New Zealands","possessive":"New Zealand's","negation":"not New Zealand","regulars":["base","plural","possessive","negation"]}
-  },
-  "New Zealander": {
-    "types": ["adjective"],
-    "inflections": {"base":"New Zealander","plural":"New Zealanders","comparative":"more New Zealander","negative_comparative":"less New Zealander","superlative":"the most New Zealander","negation":"not New Zealander","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
-  },
-  "Nigeria": {
-    "types": ["noun"],
-    "inflections": {"base":"Nigeria","plural":"Nigerias","possessive":"Nigeria's","negation":"not Nigeria","regulars":["base","plural","possessive","negation"]}
-  },
-  "Nigerian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Nigerian","plural":"Nigerians","possessive":"Nigerian's","negation":"not Nigerian","comparative":"more Nigerian","negative_comparative":"less Nigerian","superlative":"the most Nigerian","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "North America": {
-    "types": ["noun"],
-    "inflections": {"base":"North America","plural":"North Americas","possessive":"North America's","negation":"not North America","regulars":["base","plural","possessive","negation"]}
-  },
-  "North Carolina": {
-    "types": ["noun"],
-    "inflections": {"base":"North Carolina","plural":"North Carolinas","possessive":"North Carolina's","negation":"not North Carolina","regulars":["base","plural","possessive","negation"]}
-  },
-  "North Dakota": {
-    "types": ["noun"],
-    "inflections": {"base":"North Dakota","plural":"North Dakotas","possessive":"North Dakota's","negation":"not North Dakota","regulars":["base","plural","possessive","negation"]}
-  },
-  "North Korea": {
-    "types": ["noun"],
-    "inflections": {"base":"North Korea","plural":"North Koreas","possessive":"North Korea's","negation":"not North Korea","regulars":["base","plural","possessive","negation"]}
-  },
-  "Norway": {
-    "types": ["noun"],
-    "inflections": {"base":"Norway","plural":"Norways","possessive":"Norway's","negation":"not Norway","regulars":["base","plural","possessive","negation"]}
-  },
-  "Norweigan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Norweigan","plural":"Norweigans","comparative":"more Norweigan","negative_comparative":"less Norweigan","superlative":"the most Norweigan","negation":"not Norweigan","possessive":"Norweigan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "November": {
-    "types": ["noun"],
-    "inflections": {"base":"November","plural":"Novembers","possessive":"November's","negation":"not November","regulars":["base","plural","possessive","negation"]}
-  },
-  "OT": {
-    "types": ["noun"],
-    "inflections": {"base":"OT","plural":"OTs","possessive":"OT's","negation":"not OT","regulars":["base","plural","possessive","negation"]}
-  },
-  "October": {
-    "types": ["noun"],
-    "inflections": {"base":"October","plural":"Octobers","possessive":"October's","negation":"not October","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ohio": {
-    "types": ["noun"],
-    "inflections": {"base":"Ohio","plural":"Ohios","possessive":"Ohio's","negation":"not Ohio","regulars":["base","plural","possessive","negation"]}
-  },
-  "Oklahoma": {
-    "types": ["noun"],
-    "inflections": {"base":"Oklahoma","plural":"Oklahomas","possessive":"Oklahoma's","negation":"not Oklahoma","regulars":["base","plural","possessive","negation"]}
-  },
-  "Olympics": {
-    "types": ["noun"],
-    "inflections": {"base":"Olympics","plural":"Olympics","possessive":"Olympics'","negation":"not Olympics","regulars":["base","possessive","negation"]}
-  },
-  "Oregon": {
-    "types": ["noun"],
-    "inflections": {"base":"Oregon","plural":"Oregons","possessive":"Oregon's","negation":"not Oregon","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ottoman Empire": {
-    "types": ["noun"],
-    "inflections": {"base":"Ottoman Empire","plural":"Ottoman Empires","possessive":"Ottoman Empire's","negation":"not Ottoman Empire","regulars":["base","plural","possessive","negation"]}
-  },
-  "PM": {
-    "types": ["noun"],
-    "inflections": {"base":"PM","plural":"PMs","possessive":"PM's","negation":"not PM","regulars":["base","plural","possessive","negation"]}
-  },
-  "PT": {
-    "types": ["noun"],
-    "inflections": {"base":"PT","plural":"PTs","possessive":"PT's","negation":"not PT","regulars":["base","plural","possessive","negation"]}
-  },
-  "Pacific": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Pacific","plural":"Pacifics","comparative":"more Pacific","negative_comparative":"less Pacific","superlative":"the most Pacific","negation":"not Pacific","possessive":"Pacific's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Pacific Islander": {
-    "types": ["noun"],
-    "inflections": {"base":"Pacific Islander","plural":"Pacific Islanders","comparative":"more Pacific Islander","negative_comparative":"less Pacific Islander","superlative":"the most Pacific Islander","negation":"not Pacific Islander","possessive":"Pacific Islander's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Pakistan": {
-    "types": ["noun"],
-    "inflections": {"base":"Pakistan","plural":"Pakistans","possessive":"Pakistan's","negation":"not Pakistan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Pakistani": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Pakistani","plural":"Pakistanis","comparative":"more Pakistani","negative_comparative":"less Pakistani","superlative":"the most Pakistani","negation":"not Pakistani","possessive":"Pakistani's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Pearl Harbor": {
-    "types": ["noun"],
-    "inflections": {"base":"Pearl Harbor","plural":"Pearl Harbors","possessive":"Pearl Harbor's","negation":"not Pearl Harbor","regulars":["base","plural","possessive","negation"]}
-  },
-  "Pennsylvania": {
-    "types": ["noun"],
-    "inflections": {"base":"Pennsylvania","plural":"Pennsylvanias","possessive":"Pennsylvania's","negation":"not Pennsylvania","regulars":["base","plural","possessive","negation"]}
-  },
-  "Pepsi": {
-    "types": ["noun"],
-    "inflections": {"base":"Pepsi","plural":"Pepsis","possessive":"Pepsi's","negation":"not Pepsi","regulars":["base","plural","possessive","negation"]}
-  },
-  "Peru": {
-    "types": ["noun"],
-    "inflections": {"base":"Peru","plural":"Perus","possessive":"Peru's","negation":"not Peru","regulars":["base","plural","possessive","negation"]}
-  },
-  "Peruvean": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Peruvean","plural":"Peruveans","comparative":"more Peruvean","negative_comparative":"less Peruvean","superlative":"the most Peruvean","negation":"not Peruvean","possessive":"Peruvean's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Poland": {
-    "types": ["noun"],
-    "inflections": {"base":"Poland","plural":"Polands","possessive":"Poland's","negation":"not Poland","regulars":["base","plural","possessive","negation"]}
-  },
-  "Polish": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Polish","plural":"Polishes","comparative":"more Polish","negative_comparative":"less Polish","superlative":"the most Polish","negation":"not Polish","possessive":"Polish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Polynesia": {
-    "types": ["noun"],
-    "inflections": {"base":"Polynesia","plural":"Polynesias","possessive":"Polynesia's","negation":"not Polynesia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Polynesian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Polynesian","plural":"Polynesians","comparative":"more Polynesian","negative_comparative":"less Polynesian","superlative":"the most Polynesian","negation":"not Polynesian","possessive":"Polynesian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Portugal": {
-    "types": ["noun"],
-    "inflections": {"base":"Portugal","plural":"Portugals","possessive":"Portugal's","negation":"not Portugal","regulars":["base","plural","possessive","negation"]}
-  },
-  "Portuguese": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Portuguese","plural":"Portugueses","comparative":"more Portuguese","negative_comparative":"less Portuguese","superlative":"the most Portuguese","negation":"not Portuguese","possessive":"Portuguese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "President's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"President's Day","plural":"President's Days","possessive":"President's Day's","negation":"not President's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Prussia": {
-    "types": ["noun"],
-    "inflections": {"base":"Prussia","plural":"Prussias","possessive":"Prussia's","negation":"not Prussia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Pyramids of Giza": {
-    "types": ["noun"],
-    "inflections": {"base":"Pyramids of Giza","plural":"Pyramids of Gizas","possessive":"Pyramids of Giza's","negation":"not Pyramids of Giza","regulars":["base","plural","possessive","negation"]}
-  },
-  "Quran": {
-    "types": ["noun"],
-    "inflections": {"base":"Quran","plural":"Qurans","possessive":"Quran's","negation":"not Quran","regulars":["base","plural","possessive","negation"]}
-  },
-  "R \u0026 B": {
-    "types": ["noun"],
-    "inflections": {"base":"R \u0026 B","plural":"R \u0026 Bs","possessive":"R \u0026 B's","negation":"not R \u0026 B","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ramadan": {
-    "types": ["noun"],
-    "inflections": {"base":"Ramadan","plural":"Ramadans","possessive":"Ramadan's","negation":"not Ramadan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Rhode Island": {
-    "types": ["noun"],
-    "inflections": {"base":"Rhode Island","plural":"Rhode Islands","possessive":"Rhode Island's","negation":"not Rhode Island","regulars":["base","plural","possessive","negation"]}
-  },
-  "Rudolph": {
-    "types": ["noun"],
-    "inflections": {"base":"Rudolph","plural":"Rudolphs","possessive":"Rudolph's","negation":"not Rudolph","regulars":["base","plural","possessive","negation"]}
-  },
-  "Russia": {
-    "types": ["noun"],
-    "inflections": {"base":"Russia","plural":"Russias","possessive":"Russia's","negation":"not Russia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Russias": {
-    "types": ["noun"],
-    "inflections": {"base":"Russias","plural":"Russiases","possessive":"Russias'","negation":"not Russias","regulars":["base","plural","possessive","negation"]}
-  },
-  "SUV": {
-    "types": ["noun"],
-    "inflections": {"base":"SUV","plural":"SUVs","possessive":"SUV's","negation":"not SUV","regulars":["base","plural","possessive","negation"]}
-  },
-  "Samoa": {
-    "types": ["noun"],
-    "inflections": {"base":"Samoa","plural":"Samoas","possessive":"Samoa's","negation":"not Samoa","regulars":["base","plural","possessive","negation"]}
-  },
-  "Samoan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Samoan","plural":"Samoans","comparative":"more Samoan","negative_comparative":"less Samoan","superlative":"the most Samoan","negation":"not Samoan","possessive":"Samoan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Santa Claus": {
-    "types": ["noun"],
-    "inflections": {"base":"Santa Claus","plural":"Santa Clauses","possessive":"Santa Claus'","negation":"not Santa Claus","regulars":["base","plural","possessive","negation"]}
-  },
-  "Saturday": {
-    "types": ["noun"],
-    "inflections": {"base":"Saturday","plural":"Saturdays","possessive":"Saturday's","negation":"not Saturday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Saturn": {
-    "types": ["noun"],
-    "inflections": {"base":"Saturn","plural":"Saturns","possessive":"Saturn's","negation":"not Saturn","regulars":["base","plural","possessive","negation"]}
-  },
-  "Saudi": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Saudi","plural":"Saudis","comparative":"more Saudi","negative_comparative":"less Saudi","superlative":"the most Saudi","negation":"not Saudi","possessive":"Saudi's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Saudi Arabia": {
-    "types": ["noun"],
-    "inflections": {"base":"Saudi Arabia","plural":"Saudi Arabias","possessive":"Saudi Arabia's","negation":"not Saudi Arabia","regulars":["base","plural","possessive","negation"]}
-  },
-  "September": {
-    "types": ["noun"],
-    "inflections": {"base":"September","plural":"Septembers","possessive":"September's","negation":"not September","regulars":["base","plural","possessive","negation"]}
-  },
-  "Snapchat": {
-    "types": ["noun"],
-    "inflections": {"base":"Snapchat","plural":"Snapchats","possessive":"Snapchat's","negation":"not Snapchat","regulars":["base","plural","possessive","negation"]}
-  },
-  "South Africa": {
-    "types": ["noun"],
-    "inflections": {"base":"South Africa","plural":"South Africas","possessive":"South Africa's","negation":"not South Africa","regulars":["base","plural","possessive","negation"]}
-  },
-  "South African": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"South African","plural":"South Africans","comparative":"more South African","negative_comparative":"less South African","superlative":"the most South African","negation":"not South African","possessive":"South African's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "South America": {
-    "types": ["noun"],
-    "inflections": {"base":"South America","plural":"South Americas","possessive":"South America's","negation":"not South America","regulars":["base","plural","possessive","negation"]}
-  },
-  "South Carolina": {
-    "types": ["noun"],
-    "inflections": {"base":"South Carolina","plural":"South Carolinas","possessive":"South Carolina's","negation":"not South Carolina","regulars":["base","plural","possessive","negation"]}
-  },
-  "South Dakota": {
-    "types": ["noun"],
-    "inflections": {"base":"South Dakota","plural":"South Dakotas","possessive":"South Dakota's","negation":"not South Dakota","regulars":["base","plural","possessive","negation"]}
-  },
-  "South Korea": {
-    "types": ["noun"],
-    "inflections": {"base":"South Korea","plural":"South Koreas","possessive":"South Korea's","negation":"not South Korea","regulars":["base","plural","possessive","negation"]}
-  },
-  "Spain": {
-    "types": ["noun"],
-    "inflections": {"base":"Spain","plural":"Spains","possessive":"Spain's","negation":"not Spain","regulars":["base","plural","possessive","negation"]}
-  },
-  "Spanish": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Spanish","plural":"Spanishes","comparative":"more Spanish","negative_comparative":"less Spanish","superlative":"the most Spanish","negation":"not Spanish","possessive":"Spanish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Sprite": {
-    "types": ["noun"],
-    "inflections": {"base":"Sprite","plural":"Sprites","possessive":"Sprite's","negation":"not Sprite","regulars":["base","plural","possessive","negation"]}
-  },
-  "St. Patrick's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"St. Patrick's Day","plural":"St. Patrick's Days","possessive":"St. Patrick's Day's","negation":"not St. Patrick's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Statue of Liberty": {
-    "types": ["noun"],
-    "inflections": {"base":"Statue of Liberty","plural":"Statues of Liberty","possessive":"Statue of Liberty's","negation":"not Statue of Liberty","regulars":["base","possessive","negation","plural"]}
-  },
-  "Sudan": {
-    "types": ["noun"],
-    "inflections": {"base":"Sudan","plural":"Sudans","possessive":"Sudan's","negation":"not Sudan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Sudanese": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Sudanese","plural":"Sudaneses","comparative":"more Sudanese","negative_comparative":"less Sudanese","superlative":"the most Sudanese","negation":"not Sudanese","possessive":"Sudanese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Sumer": {
-    "types": ["noun"],
-    "inflections": {"base":"Sumer","plural":"Sumers","possessive":"Sumer's","negation":"not Sumer","regulars":["base","plural","possessive","negation"]}
-  },
-  "Sunday": {
-    "types": ["noun"],
-    "inflections": {"base":"Sunday","plural":"Sundays","possessive":"Sunday's","negation":"not Sunday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Sweden": {
-    "types": ["noun"],
-    "inflections": {"base":"Sweden","plural":"Swedens","possessive":"Sweden's","negation":"not Sweden","regulars":["base","plural","possessive","negation"]}
-  },
-  "Swedish": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Swedish","plural":"Swedishes","comparative":"more Swedish","negative_comparative":"less Swedish","superlative":"the most Swedish","negation":"not Swedish","possessive":"Swedish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Swiss": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Swiss","plural":"Swisses","comparative":"Swisser","negative_comparative":"less Swiss","superlative":"Swissest","negation":"not Swiss","possessive":"Swiss'","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Switzerland": {
-    "types": ["noun"],
-    "inflections": {"base":"Switzerland","plural":"Switzerlands","possessive":"Switzerland's","negation":"not Switzerland","regulars":["base","plural","possessive","negation"]}
-  },
-  "TA": {
-    "types": ["noun"],
-    "inflections": {"base":"TA","plural":"TAs","possessive":"TA's","negation":"not TA","regulars":["base","plural","possessive","negation"]}
-  },
-  "Taiwan": {
-    "types": ["noun"],
-    "inflections": {"base":"Taiwan","plural":"Taiwans","possessive":"Taiwan's","negation":"not Taiwan","regulars":["base","plural","possessive","negation"]}
-  },
-  "Taiwanese": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Taiwanese","plural":"Taiwaneses","comparative":"more Taiwanese","negative_comparative":"less Taiwanese","superlative":"the most Taiwanese","negation":"not Taiwanese","possessive":"Taiwanese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Taj Mahal": {
-    "types": ["noun"],
-    "inflections": {"base":"Taj Mahal","plural":"Taj Mahals","possessive":"Taj Mahal's","negation":"not Taj Mahal","regulars":["base","plural","possessive","negation"]}
-  },
-  "Tao": {
-    "types": ["noun"],
-    "inflections": {"base":"Tao","plural":"Taos","possessive":"Tao's","negation":"not Tao","regulars":["base","plural","possessive","negation"]}
-  },
-  "Tennessee": {
-    "types": ["noun"],
-    "inflections": {"base":"Tennessee","plural":"Tennessees","possessive":"Tennessee's","negation":"not Tennessee","regulars":["base","plural","possessive","negation"]}
-  },
-  "Texas": {
-    "types": ["noun"],
-    "inflections": {"base":"Texas","plural":"Texases","possessive":"Texas'","negation":"not Texas","regulars":["base","plural","possessive","negation"]}
-  },
-  "Thanksgiving": {
-    "types": ["noun"],
-    "inflections": {"base":"Thanksgiving","plural":"Thanksgivings","possessive":"Thanksgiving's","negation":"not Thanksgiving","regulars":["base","plural","possessive","negation"]}
-  },
-  "This app is called CoughDrop": {
-    "types": ["social"],
-    "inflections": {"base":"This app is called CoughDrop","regulars":["base"]}
-  },
-  "Thursday": {
-    "types": ["noun"],
-    "inflections": {"base":"Thursday","plural":"Thursdays","possessive":"Thursday's","negation":"not Thursday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Times Square": {
-    "types": ["noun"],
-    "inflections": {"base":"Times Square","plural":"Times Squares","possessive":"Times Square's","negation":"not Times Square","regulars":["base","plural","possessive","negation"]}
-  },
-  "Tonga": {
-    "types": ["noun"],
-    "inflections": {"base":"Tonga","plural":"Tongas","possessive":"Tonga's","negation":"not Tonga","regulars":["base","plural","possessive","negation"]}
-  },
-  "Tongan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Tongan","plural":"Tongans","comparative":"more Tongan","negative_comparative":"less Tongan","superlative":"the most Tongan","negation":"not Tongan","possessive":"Tongan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Tower of Pisa": {
-    "types": ["noun"],
-    "inflections": {"base":"Tower of Pisa","plural":"Tower of Pisas","possessive":"Tower of Pisa's","negation":"not Tower of Pisa","regulars":["base","plural","possessive","negation"]}
-  },
-  "Tuesday": {
-    "types": ["noun"],
-    "inflections": {"base":"Tuesday","plural":"Tuesdays","possessive":"Tuesday's","negation":"not Tuesday","regulars":["base","plural","possessive","negation"]}
-  },
-  "Turkey": {
-    "types": ["noun"],
-    "inflections": {"base":"Turkey","plural":"Turkeys","possessive":"Turkey's","negation":"not Turkey","regulars":["base","plural","possessive","negation"]}
-  },
-  "Turkish": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Turkish","plural":"Turkishes","comparative":"more Turkish","negative_comparative":"less Turkish","superlative":"the most Turkish","negation":"not Turkish","possessive":"Turkish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Twitter": {
-    "types": ["noun"],
-    "inflections": {"base":"Twitter","plural":"Twitters","possessive":"Twitter's","negation":"not Twitter","regulars":["base","plural","possessive","negation"]}
-  },
-  "U F O": {
-    "types": ["noun"],
-    "inflections": {"base":"U F O","plural":"U F Os","possessive":"U F O's","negation":"not U F O","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ukraine": {
-    "types": ["noun"],
-    "inflections": {"base":"Ukraine","plural":"Ukraines","possessive":"Ukraine's","negation":"not Ukraine","regulars":["base","plural","possessive","negation"]}
-  },
-  "Ukrainian": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Ukrainian","plural":"Ukrainians","comparative":"more Ukrainian","negative_comparative":"less Ukrainian","superlative":"the most Ukrainian","negation":"not Ukrainian","possessive":"Ukrainian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "United Nations": {
-    "types": ["noun"],
-    "inflections": {"base":"United Nations","plural":"United Nationses","possessive":"United Nations'","negation":"not United Nations","regulars":["base","plural","possessive","negation"]}
-  },
-  "United States": {
-    "types": ["noun"],
-    "inflections": {"base":"United States","plural":"United Stateses","possessive":"United States'","negation":"not United States","regulars":["base","plural","possessive","negation"]}
-  },
-  "Uranus": {
-    "types": ["noun"],
-    "inflections": {"base":"Uranus","plural":"Uranuses","possessive":"Uranus'","negation":"not Uranus","regulars":["base","plural","possessive","negation"]}
-  },
-  "Utah": {
-    "types": ["noun"],
-    "inflections": {"base":"Utah","plural":"Utahs","possessive":"Utah's","negation":"not Utah","regulars":["base","plural","possessive","negation"]}
-  },
-  "V-Day": {
-    "types": ["noun"],
-    "inflections": {"base":"V-Day","plural":"V-Days","possessive":"V-Day's","negation":"not V-Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Valentine's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Valentine's Day","plural":"Valentine's Days","possessive":"Valentine's Day's","negation":"not Valentine's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Venezuela": {
-    "types": ["noun"],
-    "inflections": {"base":"Venezuela","plural":"Venezuelas","possessive":"Venezuela's","negation":"not Venezuela","regulars":["base","plural","possessive","negation"]}
-  },
-  "Venezuelan": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Venezuelan","plural":"Venezuelans","comparative":"more Venezuelan","negative_comparative":"less Venezuelan","superlative":"the most Venezuelan","negation":"not Venezuelan","possessive":"Venezuelan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Venus": {
-    "types": ["noun"],
-    "inflections": {"base":"Venus","plural":"Venuses","possessive":"Venus'","negation":"not Venus","regulars":["base","plural","possessive","negation"]}
-  },
-  "Vermont": {
-    "types": ["noun"],
-    "inflections": {"base":"Vermont","plural":"Vermonts","possessive":"Vermont's","negation":"not Vermont","regulars":["base","plural","possessive","negation"]}
-  },
-  "Veteran's Day": {
-    "types": ["noun"],
-    "inflections": {"base":"Veteran's Day","plural":"Veteran's Days","possessive":"Veteran's Day's","negation":"not Veteran's Day","regulars":["base","plural","possessive","negation"]}
-  },
-  "Vietnam": {
-    "types": ["noun"],
-    "inflections": {"base":"Vietnam","plural":"Vietnams","possessive":"Vietnam's","negation":"not Vietnam","regulars":["base","plural","possessive","negation"]}
-  },
-  "Vietnamese": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Vietnamese","plural":"Vietnameses","comparative":"more Vietnamese","negative_comparative":"less Vietnamese","superlative":"the most Vietnamese","negation":"not Vietnamese","possessive":"Vietnamese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
-  "Viking": {
-    "types": ["noun","adjective"],
-    "inflections": {"base":"Viking","plural":"Vikings","possessive":"Viking's","negation":"not Viking","comparative":"more Viking","negative_comparative":"less Viking","superlative":"the most Viking","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
-  },
-  "Virginia": {
-    "types": ["noun"],
-    "inflections": {"base":"Virginia","plural":"Virginias","possessive":"Virginia's","negation":"not Virginia","regulars":["base","plural","possessive","negation"]}
-  },
-  "Washington": {
-    "types": ["noun"],
-    "inflections": {"base":"Washington","plural":"Washingtons","possessive":"Washington's","negation":"not Washington","regulars":["base","plural","possessive","negation"]}
-  },
-  "Washington D.C.": {
-    "types": ["noun"],
-    "inflections": {"base":"Washington D.C.","plural":"Washington D.C.s","possessive":"Washington D.C.'s","negation":"not Washington D.C.","regulars":["base","plural","possessive","negation"]}
-  },
-  "Wednesday": {
-    "types": ["noun"],
-    "inflections": {"base":"Wednesday","plural":"Wednesdays","possessive":"Wednesday's","negation":"not Wednesday","regulars":["base","plural","possessive","negation"]}
-  },
-  "West Virginia": {
-    "types": ["noun"],
-    "inflections": {"base":"West Virginia","plural":"West Virginias","possessive":"West Virginia's","negation":"not West Virginia","regulars":["base","plural","possessive","negation"]}
-  },
-  "White House": {
-    "types": ["noun"],
-    "inflections": {"base":"White House","plural":"White Houses","possessive":"White House's","negation":"not White House","regulars":["base","plural","possessive","negation"]}
-  },
-  "Wisconsin": {
-    "types": ["noun"],
-    "inflections": {"base":"Wisconsin","plural":"Wisconsins","possessive":"Wisconsin's","negation":"not Wisconsin","regulars":["base","plural","possessive","negation"]}
-  },
-  "Worchestershire sauce": {
-    "types": ["noun"],
-    "inflections": {"base":"Worchestershire sauce","plural":"Worchestershire sauces","possessive":"Worchestershire sauce's","negation":"not Worchestershire sauce","regulars":["base","plural","possessive","negation"]}
-  },
-  "World War 1": {
-    "types": ["noun"],
-    "inflections": {"base":"World War 1","plural":"World War 1s","possessive":"World War 1's","negation":"not World War 1","regulars":["base","plural","possessive","negation"]}
-  },
-  "World War 2": {
-    "types": ["noun"],
-    "inflections": {"base":"World War 2","plural":"World War 2s","possessive":"World War 2's","negation":"not World War 2","regulars":["base","plural","possessive","negation"]}
-  },
-  "Wyoming": {
-    "types": ["noun"],
-    "inflections": {"base":"Wyoming","plural":"Wyomings","possessive":"Wyoming's","negation":"not Wyoming","regulars":["base","plural","possessive","negation"]}
-  },
-  "Yom Kippur": {
-    "types": ["noun"],
-    "inflections": {"base":"Yom Kippur","plural":"Yom Kippurs","possessive":"Yom Kippur's","negation":"not Yom Kippur","regulars":["base","plural","possessive","negation"]}
-  },
-  "YouTube": {
-    "types": ["noun"],
-    "inflections": {"base":"YouTube","plural":"YouTubes","possessive":"YouTube's","negation":"not YouTube","regulars":["base","plural","possessive","negation"]}
-  },
-  "Zimbabwe": {
-    "types": ["noun"],
-    "inflections": {"base":"Zimbabwe","plural":"Zimbabwes","possessive":"Zimbabwe's","negation":"not Zimbabwe","regulars":["base","plural","possessive","negation"]}
-  },
-  "Zimbabwean": {
-    "types": ["adjective","noun"],
-    "inflections": {"base":"Zimbabwean","plural":"Zimbabweans","comparative":"more Zimbabwean","negative_comparative":"less Zimbabwean","superlative":"the most Zimbabwean","negation":"not Zimbabwean","possessive":"Zimbabwean's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
-  },
   "aa": {
     "types": ["noun"],
     "inflections": {"base":"aa","plural":"aas","possessive":"aa's","negation":"not aa","regulars":["base","plural","possessive","negation"]}
@@ -16069,5 +14631,1443 @@
   "zoom": {
     "types": ["verb","noun"],
     "inflections": {"base":"zoom","infinitive":"to zoom","present":"zoom","simple_present":"zooms","plural_present":"zoom","past":"zoomed","simple_past":"zoomed","present_participle":"zooming","past_participle":"zoomed","negation":"not zoom","plural":"zooms","possessive":"zoom's","regulars":["base","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle","negation","plural","possessive"]}
+  },
+  "4-H": {
+    "types": ["noun"],
+    "inflections": {"base":"4-H","plural":"4-Hs","possessive":"4-H's","negation":"not 4-H","regulars":["base","plural","possessive","negation"]}
+  },
+  "9 11": {
+    "types": ["numeral"],
+    "inflections": {"base":"9 11","regulars":["base"]}
+  },
+  "AAC": {
+    "types": ["noun"],
+    "inflections": {"base":"AAC","plural":"AACs","possessive":"AAC's","negation":"not AAC","regulars":["base","plural","possessive","negation"]}
+  },
+  "ALS": {
+    "types": ["noun"],
+    "inflections": {"base":"ALS","plural":"ALSes","possessive":"ALS'","negation":"not ALS","regulars":["base","plural","possessive","negation"]}
+  },
+  "AM": {
+    "types": ["noun"],
+    "inflections": {"base":"AM","plural":"AMs","possessive":"AM's","negation":"not AM","regulars":["base","plural","possessive","negation"]},
+    "antonyms": ["PM"]
+  },
+  "ATV": {
+    "types": ["noun"],
+    "inflections": {"base":"ATV","plural":"ATVs","possessive":"ATV's","negation":"not ATV","regulars":["base","plural","possessive","negation"]}
+  },
+  "Afghan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Afghan","plural":"Afghans","possessive":"Afghan's","negation":"not Afghan","comparative":"more Afghan","negative_comparative":"less Afghan","superlative":"the most Afghan","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Afghanistan": {
+    "types": ["noun"],
+    "inflections": {"base":"Afghanistan","plural":"Afghanistans","possessive":"Afghanistan's","negation":"not Afghanistan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Africa": {
+    "types": ["noun"],
+    "inflections": {"base":"Africa","plural":"Africas","possessive":"Africa's","negation":"not Africa","regulars":["base","plural","possessive","negation"]}
+  },
+  "African": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"African","plural":"Africans","comparative":"more African","negative_comparative":"less African","superlative":"the most African","negation":"not African","possessive":"African's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Alabama": {
+    "types": ["noun"],
+    "inflections": {"base":"Alabama","plural":"Alabamas","possessive":"Alabama's","negation":"not Alabama","regulars":["base","plural","possessive","negation"]}
+  },
+  "Alaska": {
+    "types": ["noun"],
+    "inflections": {"base":"Alaska","plural":"Alaskas","possessive":"Alaska's","negation":"not Alaska","regulars":["base","plural","possessive","negation"]}
+  },
+  "Algeria": {
+    "types": ["noun"],
+    "inflections": {"base":"Algeria","plural":"Algerias","possessive":"Algeria's","negation":"not Algeria","regulars":["base","plural","possessive","negation"]}
+  },
+  "Algerian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Algerian","plural":"Algerians","comparative":"more Algerian","negative_comparative":"less Algerian","superlative":"the most Algerian","negation":"not Algerian","possessive":"Algerian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Altantic": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Altantic","plural":"Altantics","comparative":"more Altantic","negative_comparative":"less Altantic","superlative":"the most Altantic","negation":"not Altantic","possessive":"Altantic's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "America": {
+    "types": ["noun"],
+    "inflections": {"base":"America","plural":"Americas","possessive":"America's","negation":"not America","regulars":["base","plural","possessive","negation"]}
+  },
+  "American": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"American","plural":"Americans","comparative":"more American","negative_comparative":"less American","superlative":"the most American","negation":"not American","possessive":"American's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Antarctica": {
+    "types": ["noun"],
+    "inflections": {"base":"Antarctica","plural":"Antarcticas","possessive":"Antarctica's","negation":"not Antarctica","regulars":["base","plural","possessive","negation"]}
+  },
+  "Antarctican": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Antarctican","plural":"Antarcticans","comparative":"more Antarctican","negative_comparative":"less Antarctican","superlative":"the most Antarctican","negation":"not Antarctican","possessive":"Antarctican's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "April": {
+    "types": ["noun"],
+    "inflections": {"base":"April","plural":"Aprils","possessive":"April's","negation":"not April","regulars":["base","plural","possessive","negation"]}
+  },
+  "Arabian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Arabian","plural":"Arabians","comparative":"more Arabian","negative_comparative":"less Arabian","superlative":"the most Arabian","negation":"not Arabian","possessive":"Arabian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Arctic": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Arctic","plural":"Arctics","possessive":"Arctic's","negation":"not Arctic","comparative":"more Arctic","negative_comparative":"less Arctic","superlative":"the most Arctic","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Argentina": {
+    "types": ["noun"],
+    "inflections": {"base":"Argentina","plural":"Argentinas","possessive":"Argentina's","negation":"not Argentina","regulars":["base","plural","possessive","negation"]}
+  },
+  "Argentine": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Argentine","plural":"Argentines","comparative":"more Argentine","negative_comparative":"less Argentine","superlative":"the most Argentine","negation":"not Argentine","possessive":"Argentine's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Arizona": {
+    "types": ["noun"],
+    "inflections": {"base":"Arizona","plural":"Arizonas","possessive":"Arizona's","negation":"not Arizona","regulars":["base","plural","possessive","negation"]}
+  },
+  "Arkansas": {
+    "types": ["noun"],
+    "inflections": {"base":"Arkansas","plural":"Arkansases","possessive":"Arkansas'","negation":"not Arkansas","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ash Wednesday": {
+    "types": ["noun"],
+    "inflections": {"base":"Ash Wednesday","plural":"Ash Wednesdays","possessive":"Ash Wednesday's","negation":"not Ash Wednesday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Asia": {
+    "types": ["noun"],
+    "inflections": {"base":"Asia","plural":"Asias","possessive":"Asia's","negation":"not Asia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Asian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Asian","plural":"Asians","comparative":"more Asian","negative_comparative":"less Asian","superlative":"the most Asian","negation":"not Asian","possessive":"Asian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "August": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"August","plural":"Augusts","possessive":"August's","negation":"not August","comparative":"more August","negative_comparative":"less August","superlative":"the most August","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Australia": {
+    "types": ["noun"],
+    "inflections": {"base":"Australia","plural":"Australias","possessive":"Australia's","negation":"not Australia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Australian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Australian","plural":"Australians","comparative":"more Australian","negative_comparative":"less Australian","superlative":"the most Australian","negation":"not Australian","possessive":"Australian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Austria": {
+    "types": ["noun"],
+    "inflections": {"base":"Austria","plural":"Austrias","possessive":"Austria's","negation":"not Austria","regulars":["base","plural","possessive","negation"]}
+  },
+  "Austrian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Austrian","plural":"Austrians","comparative":"more Austrian","negative_comparative":"less Austrian","superlative":"the most Austrian","negation":"not Austrian","possessive":"Austrian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Aztec": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Aztec","plural":"Aztecs","comparative":"more Aztec","negative_comparative":"less Aztec","superlative":"the most Aztec","negation":"not Aztec","possessive":"Aztec's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Babylon": {
+    "types": ["noun"],
+    "inflections": {"base":"Babylon","plural":"Babylons","possessive":"Babylon's","negation":"not Babylon","regulars":["base","plural","possessive","negation"]}
+  },
+  "Bar Mitzveh": {
+    "types": ["noun"],
+    "inflections": {"base":"Bar Mitzveh","plural":"Bar Mitzvehs","possessive":"Bar Mitzveh's","negation":"not Bar Mitzveh","regulars":["base","plural","possessive","negation"]}
+  },
+  "Belgian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Belgian","plural":"Belgians","comparative":"more Belgian","negative_comparative":"less Belgian","superlative":"the most Belgian","negation":"not Belgian","possessive":"Belgian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Belgium": {
+    "types": ["noun"],
+    "inflections": {"base":"Belgium","plural":"Belgiums","possessive":"Belgium's","negation":"not Belgium","regulars":["base","plural","possessive","negation"]}
+  },
+  "Bible": {
+    "types": ["noun"],
+    "inflections": {"base":"Bible","plural":"Bibles","possessive":"Bible's","negation":"not Bible","regulars":["base","plural","possessive","negation"]}
+  },
+  "Big Ben": {
+    "types": ["noun"],
+    "inflections": {"base":"Big Ben","plural":"Big Bens","possessive":"Big Ben's","negation":"not Big Ben","regulars":["base","plural","possessive","negation"]}
+  },
+  "Bolivia": {
+    "types": ["noun"],
+    "inflections": {"base":"Bolivia","plural":"Bolivias","possessive":"Bolivia's","negation":"not Bolivia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Bolivian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Bolivian","plural":"Bolivians","comparative":"more Bolivian","negative_comparative":"less Bolivian","superlative":"the most Bolivian","negation":"not Bolivian","possessive":"Bolivian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Brazil": {
+    "types": ["noun"],
+    "inflections": {"base":"Brazil","plural":"Brazils","possessive":"Brazil's","negation":"not Brazil","regulars":["base","plural","possessive","negation"]}
+  },
+  "Brazilian": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Brazilian","plural":"Brazilians","possessive":"Brazilian's","negation":"not Brazilian","comparative":"more Brazilian","negative_comparative":"less Brazilian","superlative":"the most Brazilian","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "British": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"British","plural":"Britishes","comparative":"more British","negative_comparative":"less British","superlative":"the most British","negation":"not British","possessive":"British's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Broadway": {
+    "types": ["noun"],
+    "inflections": {"base":"Broadway","plural":"Broadways","possessive":"Broadway's","negation":"not Broadway","regulars":["base","plural","possessive","negation"]}
+  },
+  "Buckingham Palace": {
+    "types": ["noun"],
+    "inflections": {"base":"Buckingham Palace","plural":"Buckingham Palaces","possessive":"Buckingham Palace's","negation":"not Buckingham Palace","regulars":["base","plural","possessive","negation"]}
+  },
+  "CEO": {
+    "types": ["noun"],
+    "inflections": {"base":"CEO","plural":"CEOs","possessive":"CEO's","negation":"not CEO","regulars":["base","plural","possessive","negation"]}
+  },
+  "Caesar": {
+    "types": ["noun"],
+    "inflections": {"base":"Caesar","plural":"Caesars","possessive":"Caesar's","negation":"not Caesar","regulars":["base","plural","possessive","negation"]}
+  },
+  "California": {
+    "types": ["noun"],
+    "inflections": {"base":"California","plural":"Californias","possessive":"California's","negation":"not California","regulars":["base","plural","possessive","negation"]}
+  },
+  "Canada": {
+    "types": ["noun"],
+    "inflections": {"base":"Canada","plural":"Canadas","possessive":"Canada's","negation":"not Canada","regulars":["base","plural","possessive","negation"]}
+  },
+  "Canadian": {
+    "types": ["noun"],
+    "inflections": {"base":"Canadian","plural":"Canadians","possessive":"Canadian's","negation":"not Canadian","regulars":["base","plural","possessive","negation"]}
+  },
+  "Central Park": {
+    "types": ["noun"],
+    "inflections": {"base":"Central Park","plural":"Central Parks","possessive":"Central Park's","negation":"not Central Park","regulars":["base","plural","possessive","negation"]}
+  },
+  "Chad": {
+    "types": ["noun"],
+    "inflections": {"base":"Chad","plural":"Chads","possessive":"Chad's","negation":"not Chad","regulars":["base","plural","possessive","negation"]}
+  },
+  "Chadian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Chadian","plural":"Chadians","comparative":"more Chadian","negative_comparative":"less Chadian","superlative":"the most Chadian","negation":"not Chadian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Chile": {
+    "types": ["noun"],
+    "inflections": {"base":"Chile","plural":"Chiles","possessive":"Chile's","negation":"not Chile","regulars":["base","plural","possessive","negation"]}
+  },
+  "Chilean": {
+    "types": ["adjective"],
+    "inflections": {"base":"Chilean","plural":"Chileans","comparative":"more Chilean","negative_comparative":"less Chilean","superlative":"the most Chilean","negation":"not Chilean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "China": {
+    "types": ["noun"],
+    "inflections": {"base":"China","plural":"Chinas","comparative":"more China","negative_comparative":"less China","superlative":"the most China","negation":"not China","possessive":"China's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Chinese": {
+    "types": ["adjective"],
+    "inflections": {"base":"Chinese","plural":"Chineses","comparative":"more Chinese","negative_comparative":"less Chinese","superlative":"the most Chinese","negation":"not Chinese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Chinese New Year": {
+    "types": ["noun"],
+    "inflections": {"base":"Chinese New Year","plural":"Chinese New Years","possessive":"Chinese New Year's","negation":"not Chinese New Year","regulars":["base","plural","possessive","negation"]}
+  },
+  "Christ the Redeemer": {
+    "types": ["noun"],
+    "inflections": {"base":"Christ the Redeemer","plural":"Christ the Redeemers","possessive":"Christ the Redeemer's","negation":"not Christ the Redeemer","regulars":["base","plural","possessive","negation"]}
+  },
+  "Christian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Christian","plural":"Christians","comparative":"more Christian","negative_comparative":"less Christian","superlative":"the most Christian","negation":"not Christian","possessive":"Christian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Christianity": {
+    "types": ["noun"],
+    "inflections": {"base":"Christianity","plural":"Christianities","possessive":"Christianity's","negation":"not Christianity","regulars":["base","plural","possessive","negation"]}
+  },
+  "Christmas": {
+    "types": ["noun"],
+    "inflections": {"base":"Christmas","plural":"Christmases","possessive":"Christmas'","negation":"not Christmas","comparative":"more Christmas","negative_comparative":"less Christmas","superlative":"the most Christmas","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Cinco de Mayo": {
+    "types": ["noun"],
+    "inflections": {"base":"Cinco de Mayo","plural":"Cinco de Mayos","possessive":"Cinco de Mayo's","negation":"not Cinco de Mayo","regulars":["base","plural","possessive","negation"]}
+  },
+  "Colombia": {
+    "types": ["noun"],
+    "inflections": {"base":"Colombia","plural":"Colombias","possessive":"Colombia's","negation":"not Colombia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Colombian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Colombian","plural":"Colombians","comparative":"more Colombian","negative_comparative":"less Colombian","superlative":"the most Colombian","negation":"not Colombian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Colorado": {
+    "types": ["noun"],
+    "inflections": {"base":"Colorado","plural":"Colorados","possessive":"Colorado's","negation":"not Colorado","regulars":["base","plural","possessive","negation"]}
+  },
+  "Colosseum": {
+    "types": ["noun"],
+    "inflections": {"base":"Colosseum","plural":"Colosseums","possessive":"Colosseum's","negation":"not Colosseum","regulars":["base","plural","possessive","negation"]}
+  },
+  "Congo": {
+    "types": ["noun"],
+    "inflections": {"base":"Congo","plural":"Congos","possessive":"Congo's","negation":"not Congo","regulars":["base","plural","possessive","negation"]}
+  },
+  "Congolese": {
+    "types": ["adjective"],
+    "inflections": {"base":"Congolese","plural":"Congoleses","comparative":"more Congolese","negative_comparative":"less Congolese","superlative":"the most Congolese","negation":"not Congolese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Connecticut": {
+    "types": ["noun"],
+    "inflections": {"base":"Connecticut","plural":"Connecticuts","possessive":"Connecticut's","negation":"not Connecticut","regulars":["base","plural","possessive","negation"]}
+  },
+  "Cuba": {
+    "types": ["noun"],
+    "inflections": {"base":"Cuba","plural":"Cubas","possessive":"Cuba's","negation":"not Cuba","regulars":["base","plural","possessive","negation"]}
+  },
+  "Cuban": {
+    "types": ["adjective"],
+    "inflections": {"base":"Cuban","plural":"Cubans","comparative":"more Cuban","negative_comparative":"less Cuban","superlative":"the most Cuban","negation":"not Cuban","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "December": {
+    "types": ["noun"],
+    "inflections": {"base":"December","plural":"Decembers","possessive":"December's","negation":"not December","regulars":["base","plural","possessive","negation"]}
+  },
+  "Delaware": {
+    "types": ["noun"],
+    "inflections": {"base":"Delaware","plural":"Delawares","possessive":"Delaware's","negation":"not Delaware","regulars":["base","plural","possessive","negation"]}
+  },
+  "Dr. Pepper": {
+    "types": ["noun"],
+    "inflections": {"base":"Dr. Pepper","plural":"Dr. Peppers","possessive":"Dr. Pepper's","negation":"not Dr. Pepper","regulars":["base","plural","possessive","negation"]}
+  },
+  "EMT": {
+    "types": ["noun"],
+    "inflections": {"base":"EMT","plural":"EMTs","possessive":"EMT's","negation":"not EMT","regulars":["base","plural","possessive","negation"]}
+  },
+  "Earth": {
+    "types": ["noun"],
+    "inflections": {"base":"Earth","plural":"Earths","possessive":"Earth's","negation":"not Earth","regulars":["base","plural","possessive","negation"]}
+  },
+  "Earth Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Earth Day","plural":"Earth Days","possessive":"Earth Day's","negation":"not Earth Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Easter": {
+    "types": ["noun"],
+    "inflections": {"base":"Easter","plural":"Easters","possessive":"Easter's","negation":"not Easter","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ecuador": {
+    "types": ["noun"],
+    "inflections": {"base":"Ecuador","plural":"Ecuadors","possessive":"Ecuador's","negation":"not Ecuador","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ecuadorian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Ecuadorian","plural":"Ecuadorians","comparative":"more Ecuadorian","negative_comparative":"less Ecuadorian","superlative":"the most Ecuadorian","negation":"not Ecuadorian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Egypt": {
+    "types": ["noun"],
+    "inflections": {"base":"Egypt","plural":"Egypts","possessive":"Egypt's","negation":"not Egypt","regulars":["base","plural","possessive","negation"]}
+  },
+  "Egyptian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Egyptian","plural":"Egyptians","comparative":"more Egyptian","negative_comparative":"less Egyptian","superlative":"the most Egyptian","negation":"not Egyptian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Eiffel Tower": {
+    "types": ["noun"],
+    "inflections": {"base":"Eiffel Tower","plural":"Eiffel Towers","possessive":"Eiffel Tower's","negation":"not Eiffel Tower","regulars":["base","plural","possessive","negation"]}
+  },
+  "Empire State Building": {
+    "types": ["noun"],
+    "inflections": {"base":"Empire State Building","plural":"Empire State Buildings","possessive":"Empire State Building's","negation":"not Empire State Building","regulars":["base","plural","possessive","negation"]}
+  },
+  "England": {
+    "types": ["noun"],
+    "inflections": {"base":"England","plural":"Englands","possessive":"England's","negation":"not England","regulars":["base","plural","possessive","negation"]}
+  },
+  "English": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"English","plural":"Englishes","possessive":"English's","negation":"not English","comparative":"more English","negative_comparative":"less English","superlative":"the most English","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Ethiopia": {
+    "types": ["noun"],
+    "inflections": {"base":"Ethiopia","plural":"Ethiopias","possessive":"Ethiopia's","negation":"not Ethiopia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ethiopian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Ethiopian","plural":"Ethiopians","comparative":"more Ethiopian","negative_comparative":"less Ethiopian","superlative":"the most Ethiopian","negation":"not Ethiopian","possessive":"Ethiopian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Etruscan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Etruscan","plural":"Etruscans","comparative":"more Etruscan","negative_comparative":"less Etruscan","superlative":"the most Etruscan","negation":"not Etruscan","possessive":"Etruscan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Europe": {
+    "types": ["noun"],
+    "inflections": {"base":"Europe","plural":"Europes","possessive":"Europe's","negation":"not Europe","regulars":["base","plural","possessive","negation"]}
+  },
+  "European": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"European","plural":"Europeans","comparative":"more European","negative_comparative":"less European","superlative":"the most European","negation":"not European","possessive":"European's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Facebook": {
+    "types": ["noun"],
+    "inflections": {"base":"Facebook","plural":"Facebooks","possessive":"Facebook's","negation":"not Facebook","regulars":["base","plural","possessive","negation"]}
+  },
+  "Fanta": {
+    "types": ["noun"],
+    "inflections": {"base":"Fanta","plural":"Fantas","possessive":"Fanta's","negation":"not Fanta","regulars":["base","plural","possessive","negation"]}
+  },
+  "Father's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Father's Day","plural":"Father's Days","possessive":"Father's Day's","negation":"not Father's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "February": {
+    "types": ["noun"],
+    "inflections": {"base":"February","plural":"Februaries","possessive":"February's","negation":"not February","regulars":["base","plural","possessive","negation"]}
+  },
+  "Finland": {
+    "types": ["noun"],
+    "inflections": {"base":"Finland","plural":"Finlands","possessive":"Finland's","negation":"not Finland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Finnish": {
+    "types": ["adjective"],
+    "inflections": {"base":"Finnish","plural":"Finnishes","comparative":"more Finnish","negative_comparative":"less Finnish","superlative":"the most Finnish","negation":"not Finnish","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Florida": {
+    "types": ["noun"],
+    "inflections": {"base":"Florida","plural":"Floridas","possessive":"Florida's","negation":"not Florida","regulars":["base","plural","possessive","negation"]}
+  },
+  "Fourth of July": {
+    "types": ["noun"],
+    "inflections": {"base":"Fourth of July","plural":"N/A","possessive":"Fourth of July's","negation":"not Fourth of July","regulars":["base","possessive","negation"]}
+  },
+  "France": {
+    "types": ["noun"],
+    "inflections": {"base":"France","plural":"Frances","possessive":"France's","negation":"not France","regulars":["base","plural","possessive","negation"]}
+  },
+  "French": {
+    "types": ["adjective"],
+    "inflections": {"base":"French","plural":"Frenches","comparative":"more French","negative_comparative":"less French","superlative":"the most French","negation":"not French","regulars":["base","plural","negative_comparative","negation"]}
+  },
+  "Friday": {
+    "types": ["noun"],
+    "inflections": {"base":"Friday","plural":"Fridays","possessive":"Friday's","negation":"not Friday","regulars":["base","plural","possessive","negation"]}
+  },
+  "GPA": {
+    "types": ["noun"],
+    "inflections": {"base":"GPA","plural":"GPAs","possessive":"GPA's","negation":"not GPA","regulars":["base","plural","possessive","negation"]}
+  },
+  "Georgia": {
+    "types": ["noun"],
+    "inflections": {"base":"Georgia","plural":"Georgias","possessive":"Georgia's","negation":"not Georgia","regulars":["base","plural","possessive","negation"]}
+  },
+  "German": {
+    "types": ["adjective"],
+    "inflections": {"base":"German","plural":"Germans","comparative":"more German","negative_comparative":"less German","superlative":"the most German","negation":"not German","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Germany": {
+    "types": ["noun"],
+    "inflections": {"base":"Germany","plural":"Germanies","possessive":"Germany's","negation":"not Germany","regulars":["base","plural","possessive","negation"]}
+  },
+  "God": {
+    "types": ["noun"],
+    "inflections": {"base":"God","plural":"Gods","possessive":"God's","negation":"not God","regulars":["base","plural","possessive","negation"]}
+  },
+  "Golden Gate Bridge": {
+    "types": ["noun"],
+    "inflections": {"base":"Golden Gate Bridge","plural":"Golden Gate Bridges","possessive":"Golden Gate Bridge's","negation":"not Golden Gate Bridge","regulars":["base","plural","possessive","negation"]}
+  },
+  "Grand Canyon": {
+    "types": ["noun"],
+    "inflections": {"base":"Grand Canyon","plural":"Grand Canyons","possessive":"Grand Canyon's","negation":"not Grand Canyon","regulars":["base","plural","possessive","negation"]}
+  },
+  "Great Barrier Reef": {
+    "types": ["noun"],
+    "inflections": {"base":"Great Barrier Reef","plural":"Great Barrier Reefs","possessive":"Great Barrier Reef's","negation":"not Great Barrier Reef","regulars":["base","plural","possessive","negation"]}
+  },
+  "Great Wall of China": {
+    "types": ["noun"],
+    "inflections": {"base":"Great Wall of China","plural":"Great Wall of Chinas","possessive":"Great Wall of China's","negation":"not Great Wall of China","regulars":["base","plural","possessive","negation"]}
+  },
+  "Greece": {
+    "types": ["noun"],
+    "inflections": {"base":"Greece","plural":"Greeces","possessive":"Greece's","negation":"not Greece","regulars":["base","plural","possessive","negation"]}
+  },
+  "Greek": {
+    "types": ["adjective"],
+    "inflections": {"base":"Greek","plural":"Greeks","comparative":"more Greek","negative_comparative":"less Greek","superlative":"the most Greek","negation":"not Greek","regulars":["base","plural","negative_comparative","negation"]}
+  },
+  "Greenland": {
+    "types": ["noun"],
+    "inflections": {"base":"Greenland","plural":"Greenlands","possessive":"Greenland's","negation":"not Greenland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Greenlandic": {
+    "types": ["adjective"],
+    "inflections": {"base":"Greenlandic","plural":"Greenlandics","comparative":"more Greenlandic","negative_comparative":"less Greenlandic","superlative":"the most Greenlandic","negation":"not Greenlandic","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Groundhog Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Groundhog Day","plural":"Groundhog Days","possessive":"Groundhog Day's","negation":"not Groundhog Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Guatemala": {
+    "types": ["noun"],
+    "inflections": {"base":"Guatemala","plural":"Guatemalas","possessive":"Guatemala's","negation":"not Guatemala","regulars":["base","plural","possessive","negation"]}
+  },
+  "Guatemalan": {
+    "types": ["adjective"],
+    "inflections": {"base":"Guatemalan","plural":"Guatemalans","comparative":"more Guatemalan","negative_comparative":"less Guatemalan","superlative":"the most Guatemalan","negation":"not Guatemalan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Halloween": {
+    "types": ["noun"],
+    "inflections": {"base":"Halloween","plural":"Halloweens","possessive":"Halloween's","negation":"not Halloween","regulars":["base","plural","possessive","negation"]}
+  },
+  "Hannukah": {
+    "types": ["noun"],
+    "inflections": {"base":"Hannukah","plural":"Hannukahs","possessive":"Hannukah's","negation":"not Hannukah","regulars":["base","plural","possessive","negation"]}
+  },
+  "Hawaii": {
+    "types": ["noun"],
+    "inflections": {"base":"Hawaii","plural":"Hawaiis","possessive":"Hawaii's","negation":"not Hawaii","regulars":["base","plural","possessive","negation"]}
+  },
+  "Hindu": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Hindu","plural":"Hindus","comparative":"more Hindu","negative_comparative":"less Hindu","superlative":"the most Hindu","negation":"not Hindu","possessive":"Hindu's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Hinduism": {
+    "types": ["noun"],
+    "inflections": {"base":"Hinduism","plural":"Hinduisms","possessive":"Hinduism's","negation":"not Hinduism","regulars":["base","plural","possessive","negation"]}
+  },
+  "Hitler": {
+    "types": ["noun"],
+    "inflections": {"base":"Hitler","plural":"Hitlers","possessive":"Hitler's","negation":"not Hitler","regulars":["base","plural","possessive","negation"]}
+  },
+  "Holy Roman Empire": {
+    "types": ["noun"],
+    "inflections": {"base":"Holy Roman Empire","plural":"Holy Roman Empires","possessive":"Holy Roman Empire's","negation":"not Holy Roman Empire","regulars":["base","plural","possessive","negation"]}
+  },
+  "I": {
+    "types": ["pronoun"],
+    "inflections": {"base":"I","objective":"me","possessive":"mine","possessive_adjective":"my","reflexive":"myself","negation":"not I","regulars":["base","objective","possessive","possessive_adjective","reflexive","negation"]},
+    "antonyms": ["you"]
+  },
+  "I am ____ years old": {
+    "types": ["social"],
+    "inflections": {"base":"I am ____ years old","regulars":["base"]}
+  },
+  "I don't know": {
+    "types": ["social"],
+    "inflections": {"base":"I don't know","regulars":["base"]}
+  },
+  "I need a break": {
+    "types": ["social"],
+    "inflections": {"base":"I need a break","regulars":["base"]}
+  },
+  "I use a computer to help me talk.": {
+    "types": ["social"],
+    "inflections": {"base":"I use a computer to help me talk.","regulars":["base"]}
+  },
+  "I will tell you, I just need a minute.": {
+    "types": ["social"],
+    "inflections": {"base":"I will tell you, I just need a minute.","regulars":["base"]}
+  },
+  "I'd": {
+    "types": ["verb"],
+    "inflections": {"base":"I'd","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'd","regulars":["base","negation"]}
+  },
+  "I'll": {
+    "types": ["verb"],
+    "inflections": {"base":"I'll","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'll","regulars":["base","negation"]}
+  },
+  "I'm": {
+    "types": ["verb"],
+    "inflections": {"base":"I'm","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I'm","regulars":["base","negation"]}
+  },
+  "I've": {
+    "types": ["verb"],
+    "inflections": {"base":"I've","infinitive":"N/A","present":"N/A","simple_present":"N/A","plural_present":"N/A","past":"N/A","simple_past":"N/A","present_participle":"N/A","past_participle":"N/A","negation":"not I've","regulars":["base","negation"]}
+  },
+  "Iceland": {
+    "types": ["noun"],
+    "inflections": {"base":"Iceland","plural":"Icelands","possessive":"Iceland's","negation":"not Iceland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Icelandic": {
+    "types": ["adjective"],
+    "inflections": {"base":"Icelandic","plural":"Icelandics","comparative":"more Icelandic","negative_comparative":"less Icelandic","superlative":"the most Icelandic","negation":"not Icelandic","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Idaho": {
+    "types": ["noun"],
+    "inflections": {"base":"Idaho","plural":"Idahos","possessive":"Idaho's","negation":"not Idaho","regulars":["base","plural","possessive","negation"]}
+  },
+  "Illinois": {
+    "types": ["noun"],
+    "inflections": {"base":"Illinois","plural":"Illinoes","possessive":"Illinois'","negation":"not Illinois","regulars":["base","plural","possessive","negation"]}
+  },
+  "Inca": {
+    "types": ["adjective"],
+    "inflections": {"base":"Inca","plural":"Incas","comparative":"more Inca","negative_comparative":"less Inca","superlative":"the most Inca","negation":"not Inca","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "India": {
+    "types": ["noun"],
+    "inflections": {"base":"India","plural":"Indias","possessive":"India's","negation":"not India","regulars":["base","plural","possessive","negation"]}
+  },
+  "Indian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Indian","plural":"Indians","comparative":"more Indian","negative_comparative":"less Indian","superlative":"the most Indian","negation":"not Indian","possessive":"Indian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Indiana": {
+    "types": ["noun"],
+    "inflections": {"base":"Indiana","plural":"Indianas","possessive":"Indiana's","negation":"not Indiana","regulars":["base","plural","possessive","negation"]}
+  },
+  "Indigenous Peoples Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Indigenous Peoples Day","plural":"Indigenous Peoples Days","possessive":"Indigenous Peoples Day's","negation":"not Indigenous Peoples Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Indonesia": {
+    "types": ["noun"],
+    "inflections": {"base":"Indonesia","plural":"Indonesias","possessive":"Indonesia's","negation":"not Indonesia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Indonesian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Indonesian","plural":"Indonesians","comparative":"more Indonesian","negative_comparative":"less Indonesian","superlative":"the most Indonesian","negation":"not Indonesian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Instagram": {
+    "types": ["noun"],
+    "inflections": {"base":"Instagram","plural":"Instagrams","possessive":"Instagram's","negation":"not Instagram","regulars":["base","plural","possessive","negation"]}
+  },
+  "Internet": {
+    "types": ["noun"],
+    "inflections": {"base":"Internet","plural":"Internets","possessive":"Internet's","negation":"not Internet","regulars":["base","plural","possessive","negation"]}
+  },
+  "Iowa": {
+    "types": ["noun"],
+    "inflections": {"base":"Iowa","plural":"Iowas","possessive":"Iowa's","negation":"not Iowa","regulars":["base","plural","possessive","negation"]}
+  },
+  "Iran": {
+    "types": ["noun"],
+    "inflections": {"base":"Iran","plural":"Irans","possessive":"Iran's","negation":"not Iran","regulars":["base","plural","possessive","negation"]}
+  },
+  "Iranian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Iranian","plural":"Iranians","comparative":"more Iranian","negative_comparative":"less Iranian","superlative":"the most Iranian","negation":"not Iranian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Ireland": {
+    "types": ["noun"],
+    "inflections": {"base":"Ireland","plural":"Irelands","possessive":"Ireland's","negation":"not Ireland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Irish": {
+    "types": ["adjective"],
+    "inflections": {"base":"Irish","plural":"Irish","comparative":"more Irish","negative_comparative":"less Irish","superlative":"the most Irish","negation":"not Irish","regulars":["base","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Islam": {
+    "types": ["noun"],
+    "inflections": {"base":"Islam","plural":"Islams","possessive":"Islam's","negation":"not Islam","regulars":["base","plural","possessive","negation"]}
+  },
+  "Israel": {
+    "types": ["noun"],
+    "inflections": {"base":"Israel","plural":"Israels","possessive":"Israel's","negation":"not Israel","regulars":["base","plural","possessive","negation"]}
+  },
+  "Israeli": {
+    "types": ["adjective"],
+    "inflections": {"base":"Israeli","plural":"Israelis","comparative":"more Israeli","negative_comparative":"less Israeli","superlative":"the most Israeli","negation":"not Israeli","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Italian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Italian","plural":"Italians","comparative":"more Italian","negative_comparative":"less Italian","superlative":"the most Italian","negation":"not Italian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Italy": {
+    "types": ["noun"],
+    "inflections": {"base":"Italy","plural":"Italies","possessive":"Italy's","negation":"not Italy","regulars":["base","plural","possessive","negation"]}
+  },
+  "January": {
+    "types": ["noun"],
+    "inflections": {"base":"January","plural":"Januaries","possessive":"January's","negation":"not January","regulars":["base","plural","possessive","negation"]}
+  },
+  "Japan": {
+    "types": ["noun"],
+    "inflections": {"base":"Japan","plural":"Japans","possessive":"Japan's","negation":"not Japan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Japanese": {
+    "types": ["adjective"],
+    "inflections": {"base":"Japanese","plural":"Japaneses","comparative":"more Japanese","negative_comparative":"less Japanese","superlative":"the most Japanese","negation":"not Japanese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Jesus": {
+    "types": ["noun"],
+    "inflections": {"base":"Jesus","plural":"Jesuses","possessive":"Jesus'","negation":"not Jesus","regulars":["base","plural","possessive","negation"]}
+  },
+  "Jewish": {
+    "types": ["adjective"],
+    "inflections": {"base":"Jewish","plural":"Jewishes","comparative":"more Jewish","negative_comparative":"less Jewish","superlative":"the most Jewish","negation":"not Jewish","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Judaism": {
+    "types": ["noun"],
+    "inflections": {"base":"Judaism","plural":"Judaisms","comparative":"more Judaism","negative_comparative":"less Judaism","superlative":"the most Judaism","negation":"not Judaism","possessive":"Judaism's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "July": {
+    "types": ["noun"],
+    "inflections": {"base":"July","plural":"Julies","possessive":"July's","negation":"not July","regulars":["base","plural","possessive","negation"]}
+  },
+  "June": {
+    "types": ["noun"],
+    "inflections": {"base":"June","plural":"Junes","possessive":"June's","negation":"not June","regulars":["base","plural","possessive","negation"]}
+  },
+  "Jupiter": {
+    "types": ["noun"],
+    "inflections": {"base":"Jupiter","plural":"Jupiters","possessive":"Jupiter's","negation":"not Jupiter","regulars":["base","plural","possessive","negation"]}
+  },
+  "Kansas": {
+    "types": ["noun"],
+    "inflections": {"base":"Kansas","plural":"Kansases","possessive":"Kansas'","negation":"not Kansas","regulars":["base","plural","possessive","negation"]}
+  },
+  "Kazakh": {
+    "types": ["adjective"],
+    "inflections": {"base":"Kazakh","plural":"Kazakhs","comparative":"more Kazakh","negative_comparative":"less Kazakh","superlative":"the most Kazakh","negation":"not Kazakh","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Kazakhstan": {
+    "types": ["noun"],
+    "inflections": {"base":"Kazakhstan","plural":"Kazakhstans","possessive":"Kazakhstan's","negation":"not Kazakhstan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Kentucky": {
+    "types": ["noun"],
+    "inflections": {"base":"Kentucky","plural":"Kentuckies","possessive":"Kentucky's","negation":"not Kentucky","regulars":["base","plural","possessive","negation"]}
+  },
+  "Kenya": {
+    "types": ["noun"],
+    "inflections": {"base":"Kenya","plural":"Kenyas","possessive":"Kenya's","negation":"not Kenya","regulars":["base","plural","possessive","negation"]}
+  },
+  "Kenyan": {
+    "types": ["adjective"],
+    "inflections": {"base":"Kenyan","plural":"Kenyans","comparative":"more Kenyan","negative_comparative":"less Kenyan","superlative":"the most Kenyan","negation":"not Kenyan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Korean": {
+    "types": ["adjective"],
+    "inflections": {"base":"Korean","plural":"Koreans","comparative":"more Korean","negative_comparative":"less Korean","superlative":"the most Korean","negation":"not Korean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Labor Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Labor Day","plural":"Labor Days","possessive":"Labor Day's","negation":"not Labor Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Libya": {
+    "types": ["noun"],
+    "inflections": {"base":"Libya","plural":"Libyas","possessive":"Libya's","negation":"not Libya","regulars":["base","plural","possessive","negation"]}
+  },
+  "Libyan": {
+    "types": ["adjective"],
+    "inflections": {"base":"Libyan","plural":"Libyans","comparative":"more Libyan","negative_comparative":"less Libyan","superlative":"the most Libyan","negation":"not Libyan","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Lincoln": {
+    "types": ["noun"],
+    "inflections": {"base":"Lincoln","plural":"Lincolns","possessive":"Lincoln's","negation":"not Lincoln","regulars":["base","plural","possessive","negation"]}
+  },
+  "LinkedIn": {
+    "types": ["noun"],
+    "inflections": {"base":"LinkedIn","plural":"LinkedIns","possessive":"LinkedIn's","negation":"not LinkedIn","regulars":["base","plural","possessive","negation"]}
+  },
+  "Louisiana": {
+    "types": ["noun"],
+    "inflections": {"base":"Louisiana","plural":"Louisianas","possessive":"Louisiana's","negation":"not Louisiana","regulars":["base","plural","possessive","negation"]}
+  },
+  "M\u0026Ms": {
+    "types": ["noun"],
+    "inflections": {"base":"M\u0026M","plural":"M\u0026Ms","possessive":"M\u0026M's","negation":"not M\u0026M","regulars":["plural","possessive","negation"]}
+  },
+  "Machu Pichu": {
+    "types": ["noun"],
+    "inflections": {"base":"Machu Pichu","plural":"Machu Pichus","possessive":"Machu Pichu's","negation":"not Machu Pichu","regulars":["base","plural","possessive","negation"]}
+  },
+  "Madagascar": {
+    "types": ["noun"],
+    "inflections": {"base":"Madagascar","plural":"Madagascars","possessive":"Madagascar's","negation":"not Madagascar","regulars":["base","plural","possessive","negation"]}
+  },
+  "Maine": {
+    "types": ["noun"],
+    "inflections": {"base":"Maine","plural":"Maines","possessive":"Maine's","negation":"not Maine","regulars":["base","plural","possessive","negation"]}
+  },
+  "Malagasy": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Malagasy","plural":"Malagasies","comparative":"more Malagasy","negative_comparative":"less Malagasy","superlative":"the most Malagasy","negation":"not Malagasy","possessive":"Malagasy's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "March": {
+    "types": ["noun"],
+    "inflections": {"base":"March","plural":"Marches","possessive":"March's","negation":"not March","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mardi Gras": {
+    "types": ["noun"],
+    "inflections": {"base":"Mardi Gras","plural":"Mardi Gras","possessive":"Mardi Gras'","negation":"not Mardi Gras","regulars":["base","possessive","negation"]}
+  },
+  "Mars": {
+    "types": ["noun"],
+    "inflections": {"base":"Mars","plural":"Marses","possessive":"Mars'","negation":"not Mars","regulars":["base","plural","possessive","negation"]}
+  },
+  "Martin Luther King Jr. Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Martin Luther King Jr. Day","plural":"Martin Luther King Jr. Days","possessive":"Martin Luther King Jr. Day's","negation":"not Martin Luther King Jr. Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Maryland": {
+    "types": ["noun"],
+    "inflections": {"base":"Maryland","plural":"Marylands","possessive":"Maryland's","negation":"not Maryland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Massachusetts": {
+    "types": ["noun"],
+    "inflections": {"base":"Massachusetts","plural":"Massachusettses","possessive":"Massachusetts'","negation":"not Massachusetts","regulars":["base","plural","possessive","negation"]}
+  },
+  "May": {
+    "types": ["noun"],
+    "inflections": {"base":"May","plural":"Mays","possessive":"May's","negation":"not May","regulars":["base","plural","possessive","negation"]}
+  },
+  "Maya": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Maya","plural":"Mayas","possessive":"Maya's","negation":"not Maya","comparative":"more Maya","negative_comparative":"less Maya","superlative":"the most Maya","regulars":["base","plural","possessive","negation","negative_comparative"]}
+  },
+  "Mediterranean": {
+    "types": ["adjective"],
+    "inflections": {"base":"Mediterranean","plural":"Mediterraneans","comparative":"more Mediterranean","negative_comparative":"less Mediterranean","superlative":"the most Mediterranean","negation":"not Mediterranean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Mercury": {
+    "types": ["noun"],
+    "inflections": {"base":"Mercury","plural":"Mercuries","possessive":"Mercury's","negation":"not Mercury","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mesopotamia": {
+    "types": ["noun"],
+    "inflections": {"base":"Mesopotamia","plural":"Mesopotamias","possessive":"Mesopotamia's","negation":"not Mesopotamia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Messenger": {
+    "types": ["noun"],
+    "inflections": {"base":"Messenger","plural":"Messengers","possessive":"Messenger's","negation":"not Messenger","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mexican": {
+    "types": ["adjective"],
+    "inflections": {"base":"Mexican","plural":"Mexicans","comparative":"more Mexican","negative_comparative":"less Mexican","superlative":"the most Mexican","negation":"not Mexican","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Mexico": {
+    "types": ["noun"],
+    "inflections": {"base":"Mexico","plural":"Mexicos","possessive":"Mexico's","negation":"not Mexico","regulars":["base","plural","possessive","negation"]}
+  },
+  "Michigan": {
+    "types": ["noun"],
+    "inflections": {"base":"Michigan","plural":"Michigans","possessive":"Michigan's","negation":"not Michigan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Micronesia": {
+    "types": ["noun"],
+    "inflections": {"base":"Micronesia","plural":"Micronesias","possessive":"Micronesia's","negation":"not Micronesia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Micronesian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Micronesian","plural":"Micronesians","comparative":"more Micronesian","negative_comparative":"less Micronesian","superlative":"the most Micronesian","negation":"not Micronesian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Milky Way": {
+    "types": ["noun"],
+    "inflections": {"base":"Milky Way","plural":"Milky Ways","possessive":"Milky Way's","negation":"not Milky Way","regulars":["base","plural","possessive","negation"]}
+  },
+  "Minnesota": {
+    "types": ["noun"],
+    "inflections": {"base":"Minnesota","plural":"Minnesotas","possessive":"Minnesota's","negation":"not Minnesota","regulars":["base","plural","possessive","negation"]}
+  },
+  "Miss": {
+    "types": ["noun","verb"],
+    "inflections": {"base":"miss","plural":"misses","possessive":"miss'","negation":"not miss","infinitive":"to miss","present":"miss","simple_present":"misses","plural_present":"miss","past":"missed","simple_past":"missed","present_participle":"missing","past_participle":"missed","regulars":["plural","possessive","negation","infinitive","present","simple_present","plural_present","past","simple_past","present_participle","past_participle"]}
+  },
+  "Mississippi": {
+    "types": ["noun"],
+    "inflections": {"base":"Mississippi","plural":"Mississippis","possessive":"Mississippi's","negation":"not Mississippi","regulars":["base","plural","possessive","negation"]}
+  },
+  "Missouri": {
+    "types": ["noun"],
+    "inflections": {"base":"Missouri","plural":"Missouris","possessive":"Missouri's","negation":"not Missouri","regulars":["base","plural","possessive","negation"]}
+  },
+  "Monday": {
+    "types": ["noun"],
+    "inflections": {"base":"Monday","plural":"Mondays","possessive":"Monday's","negation":"not Monday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mongol": {
+    "types": ["adjective"],
+    "inflections": {"base":"Mongol","plural":"Mongols","comparative":"more Mongol","negative_comparative":"less Mongol","superlative":"the most Mongol","negation":"not Mongol","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Mongolia": {
+    "types": ["noun"],
+    "inflections": {"base":"Mongolia","plural":"Mongolias","possessive":"Mongolia's","negation":"not Mongolia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mongolian": {
+    "types": ["adjective"],
+    "inflections": {"base":"Mongolian","plural":"Mongolians","comparative":"more Mongolian","negative_comparative":"less Mongolian","superlative":"the most Mongolian","negation":"not Mongolian","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Montana": {
+    "types": ["noun"],
+    "inflections": {"base":"Montana","plural":"Montanas","possessive":"Montana's","negation":"not Montana","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mother's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Mother's Day","plural":"Mother's Days","possessive":"Mother's Day's","negation":"not Mother's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mount Everest": {
+    "types": ["noun"],
+    "inflections": {"base":"Mount Everest","plural":"Mount Everests","possessive":"Mount Everest's","negation":"not Mount Everest","regulars":["base","plural","possessive","negation"]}
+  },
+  "Mr.": {
+    "types": ["noun"],
+    "inflections": {"base":"Mr.","plural":"Mr.","possessive":"Mr's","negation":"not Mr.","regulars":["base","negation","plural","possessive"]}
+  },
+  "Mrs.": {
+    "types": ["noun"],
+    "inflections": {"base":"Mrs.","plural":"Mrs.","possessive":"Mrs'","negation":"not Mrs.","regulars":["base","negation"]}
+  },
+  "Muslim": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Muslim","plural":"Muslims","possessive":"Muslim's","negation":"not Muslim","comparative":"more Muslim","negative_comparative":"less Muslim","superlative":"the most Muslim","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Nascar": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Nascar","plural":"Nascars","comparative":"N/A","negative_comparative":"N/A","superlative":"N/A","negation":"not Nascar","possessive":"Nascar's","regulars":["base","plural","negation","possessive","negative_comparative"]}
+  },
+  "Natchez": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Natchez","plural":"Natchezes","comparative":"more Natchez","negative_comparative":"less Natchez","superlative":"the most Natchez","negation":"not Natchez","possessive":"Natchez's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Nebraska": {
+    "types": ["noun"],
+    "inflections": {"base":"Nebraska","plural":"Nebraskas","possessive":"Nebraska's","negation":"not Nebraska","regulars":["base","plural","possessive","negation"]}
+  },
+  "Nepal": {
+    "types": ["noun"],
+    "inflections": {"base":"Nepal","plural":"Nepals","possessive":"Nepal's","negation":"not Nepal","regulars":["base","plural","possessive","negation"]}
+  },
+  "Nepalese": {
+    "types": ["adjective"],
+    "inflections": {"base":"Nepalese","plural":"Nepaleses","comparative":"more Nepalese","negative_comparative":"less Nepalese","superlative":"the most Nepalese","negation":"not Nepalese","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Neptune": {
+    "types": ["noun"],
+    "inflections": {"base":"Neptune","plural":"Neptunes","possessive":"Neptune's","negation":"not Neptune","regulars":["base","plural","possessive","negation"]}
+  },
+  "Nevada": {
+    "types": ["noun"],
+    "inflections": {"base":"Nevada","plural":"Nevadas","possessive":"Nevada's","negation":"not Nevada","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Guinea": {
+    "types": ["noun"],
+    "inflections": {"base":"New Guinea","plural":"New Guineas","possessive":"New Guinea's","negation":"not New Guinea","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Guinean": {
+    "types": ["adjective"],
+    "inflections": {"base":"New Guinean","plural":"New Guineans","comparative":"more New Guinean","negative_comparative":"less New Guinean","superlative":"the most New Guinean","negation":"not New Guinean","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "New Hampshire": {
+    "types": ["noun"],
+    "inflections": {"base":"New Hampshire","plural":"New Hampshires","possessive":"New Hampshire's","negation":"not New Hampshire","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Jersey": {
+    "types": ["noun"],
+    "inflections": {"base":"New Jersey","plural":"New Jerseys","possessive":"New Jersey's","negation":"not New Jersey","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Mexico": {
+    "types": ["noun"],
+    "inflections": {"base":"New Mexico","plural":"New Mexicos","possessive":"New Mexico's","negation":"not New Mexico","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Year's": {
+    "types": ["noun"],
+    "inflections": {"base":"New Year's","plural":"New Year's","possessive":"New Years'","negation":"not New Year's","regulars":["base","negation","plural","possessive"]}
+  },
+  "New York": {
+    "types": ["noun"],
+    "inflections": {"base":"New York","plural":"New Yorks","possessive":"New York's","negation":"not New York","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Zealand": {
+    "types": ["noun"],
+    "inflections": {"base":"New Zealand","plural":"New Zealands","possessive":"New Zealand's","negation":"not New Zealand","regulars":["base","plural","possessive","negation"]}
+  },
+  "New Zealander": {
+    "types": ["adjective"],
+    "inflections": {"base":"New Zealander","plural":"New Zealanders","comparative":"more New Zealander","negative_comparative":"less New Zealander","superlative":"the most New Zealander","negation":"not New Zealander","regulars":["base","plural","comparative","negative_comparative","superlative","negation"]}
+  },
+  "Nigeria": {
+    "types": ["noun"],
+    "inflections": {"base":"Nigeria","plural":"Nigerias","possessive":"Nigeria's","negation":"not Nigeria","regulars":["base","plural","possessive","negation"]}
+  },
+  "Nigerian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Nigerian","plural":"Nigerians","possessive":"Nigerian's","negation":"not Nigerian","comparative":"more Nigerian","negative_comparative":"less Nigerian","superlative":"the most Nigerian","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "North America": {
+    "types": ["noun"],
+    "inflections": {"base":"North America","plural":"North Americas","possessive":"North America's","negation":"not North America","regulars":["base","plural","possessive","negation"]}
+  },
+  "North Carolina": {
+    "types": ["noun"],
+    "inflections": {"base":"North Carolina","plural":"North Carolinas","possessive":"North Carolina's","negation":"not North Carolina","regulars":["base","plural","possessive","negation"]}
+  },
+  "North Dakota": {
+    "types": ["noun"],
+    "inflections": {"base":"North Dakota","plural":"North Dakotas","possessive":"North Dakota's","negation":"not North Dakota","regulars":["base","plural","possessive","negation"]}
+  },
+  "North Korea": {
+    "types": ["noun"],
+    "inflections": {"base":"North Korea","plural":"North Koreas","possessive":"North Korea's","negation":"not North Korea","regulars":["base","plural","possessive","negation"]}
+  },
+  "Norway": {
+    "types": ["noun"],
+    "inflections": {"base":"Norway","plural":"Norways","possessive":"Norway's","negation":"not Norway","regulars":["base","plural","possessive","negation"]}
+  },
+  "Norweigan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Norweigan","plural":"Norweigans","comparative":"more Norweigan","negative_comparative":"less Norweigan","superlative":"the most Norweigan","negation":"not Norweigan","possessive":"Norweigan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "November": {
+    "types": ["noun"],
+    "inflections": {"base":"November","plural":"Novembers","possessive":"November's","negation":"not November","regulars":["base","plural","possessive","negation"]}
+  },
+  "OT": {
+    "types": ["noun"],
+    "inflections": {"base":"OT","plural":"OTs","possessive":"OT's","negation":"not OT","regulars":["base","plural","possessive","negation"]}
+  },
+  "October": {
+    "types": ["noun"],
+    "inflections": {"base":"October","plural":"Octobers","possessive":"October's","negation":"not October","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ohio": {
+    "types": ["noun"],
+    "inflections": {"base":"Ohio","plural":"Ohios","possessive":"Ohio's","negation":"not Ohio","regulars":["base","plural","possessive","negation"]}
+  },
+  "Oklahoma": {
+    "types": ["noun"],
+    "inflections": {"base":"Oklahoma","plural":"Oklahomas","possessive":"Oklahoma's","negation":"not Oklahoma","regulars":["base","plural","possessive","negation"]}
+  },
+  "Olympics": {
+    "types": ["noun"],
+    "inflections": {"base":"Olympics","plural":"Olympics","possessive":"Olympics'","negation":"not Olympics","regulars":["base","possessive","negation"]}
+  },
+  "Oregon": {
+    "types": ["noun"],
+    "inflections": {"base":"Oregon","plural":"Oregons","possessive":"Oregon's","negation":"not Oregon","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ottoman Empire": {
+    "types": ["noun"],
+    "inflections": {"base":"Ottoman Empire","plural":"Ottoman Empires","possessive":"Ottoman Empire's","negation":"not Ottoman Empire","regulars":["base","plural","possessive","negation"]}
+  },
+  "PM": {
+    "types": ["noun"],
+    "inflections": {"base":"PM","plural":"PMs","possessive":"PM's","negation":"not PM","regulars":["base","plural","possessive","negation"]}
+  },
+  "PT": {
+    "types": ["noun"],
+    "inflections": {"base":"PT","plural":"PTs","possessive":"PT's","negation":"not PT","regulars":["base","plural","possessive","negation"]}
+  },
+  "Pacific": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Pacific","plural":"Pacifics","comparative":"more Pacific","negative_comparative":"less Pacific","superlative":"the most Pacific","negation":"not Pacific","possessive":"Pacific's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Pacific Islander": {
+    "types": ["noun"],
+    "inflections": {"base":"Pacific Islander","plural":"Pacific Islanders","comparative":"more Pacific Islander","negative_comparative":"less Pacific Islander","superlative":"the most Pacific Islander","negation":"not Pacific Islander","possessive":"Pacific Islander's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Pakistan": {
+    "types": ["noun"],
+    "inflections": {"base":"Pakistan","plural":"Pakistans","possessive":"Pakistan's","negation":"not Pakistan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Pakistani": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Pakistani","plural":"Pakistanis","comparative":"more Pakistani","negative_comparative":"less Pakistani","superlative":"the most Pakistani","negation":"not Pakistani","possessive":"Pakistani's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Pearl Harbor": {
+    "types": ["noun"],
+    "inflections": {"base":"Pearl Harbor","plural":"Pearl Harbors","possessive":"Pearl Harbor's","negation":"not Pearl Harbor","regulars":["base","plural","possessive","negation"]}
+  },
+  "Pennsylvania": {
+    "types": ["noun"],
+    "inflections": {"base":"Pennsylvania","plural":"Pennsylvanias","possessive":"Pennsylvania's","negation":"not Pennsylvania","regulars":["base","plural","possessive","negation"]}
+  },
+  "Pepsi": {
+    "types": ["noun"],
+    "inflections": {"base":"Pepsi","plural":"Pepsis","possessive":"Pepsi's","negation":"not Pepsi","regulars":["base","plural","possessive","negation"]}
+  },
+  "Peru": {
+    "types": ["noun"],
+    "inflections": {"base":"Peru","plural":"Perus","possessive":"Peru's","negation":"not Peru","regulars":["base","plural","possessive","negation"]}
+  },
+  "Peruvean": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Peruvean","plural":"Peruveans","comparative":"more Peruvean","negative_comparative":"less Peruvean","superlative":"the most Peruvean","negation":"not Peruvean","possessive":"Peruvean's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Poland": {
+    "types": ["noun"],
+    "inflections": {"base":"Poland","plural":"Polands","possessive":"Poland's","negation":"not Poland","regulars":["base","plural","possessive","negation"]}
+  },
+  "Polish": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Polish","plural":"Polishes","comparative":"more Polish","negative_comparative":"less Polish","superlative":"the most Polish","negation":"not Polish","possessive":"Polish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Polynesia": {
+    "types": ["noun"],
+    "inflections": {"base":"Polynesia","plural":"Polynesias","possessive":"Polynesia's","negation":"not Polynesia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Polynesian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Polynesian","plural":"Polynesians","comparative":"more Polynesian","negative_comparative":"less Polynesian","superlative":"the most Polynesian","negation":"not Polynesian","possessive":"Polynesian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Portugal": {
+    "types": ["noun"],
+    "inflections": {"base":"Portugal","plural":"Portugals","possessive":"Portugal's","negation":"not Portugal","regulars":["base","plural","possessive","negation"]}
+  },
+  "Portuguese": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Portuguese","plural":"Portugueses","comparative":"more Portuguese","negative_comparative":"less Portuguese","superlative":"the most Portuguese","negation":"not Portuguese","possessive":"Portuguese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "President's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"President's Day","plural":"President's Days","possessive":"President's Day's","negation":"not President's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Prussia": {
+    "types": ["noun"],
+    "inflections": {"base":"Prussia","plural":"Prussias","possessive":"Prussia's","negation":"not Prussia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Pyramids of Giza": {
+    "types": ["noun"],
+    "inflections": {"base":"Pyramids of Giza","plural":"Pyramids of Gizas","possessive":"Pyramids of Giza's","negation":"not Pyramids of Giza","regulars":["base","plural","possessive","negation"]}
+  },
+  "Quran": {
+    "types": ["noun"],
+    "inflections": {"base":"Quran","plural":"Qurans","possessive":"Quran's","negation":"not Quran","regulars":["base","plural","possessive","negation"]}
+  },
+  "R \u0026 B": {
+    "types": ["noun"],
+    "inflections": {"base":"R \u0026 B","plural":"R \u0026 Bs","possessive":"R \u0026 B's","negation":"not R \u0026 B","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ramadan": {
+    "types": ["noun"],
+    "inflections": {"base":"Ramadan","plural":"Ramadans","possessive":"Ramadan's","negation":"not Ramadan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Rhode Island": {
+    "types": ["noun"],
+    "inflections": {"base":"Rhode Island","plural":"Rhode Islands","possessive":"Rhode Island's","negation":"not Rhode Island","regulars":["base","plural","possessive","negation"]}
+  },
+  "Rudolph": {
+    "types": ["noun"],
+    "inflections": {"base":"Rudolph","plural":"Rudolphs","possessive":"Rudolph's","negation":"not Rudolph","regulars":["base","plural","possessive","negation"]}
+  },
+  "Russia": {
+    "types": ["noun"],
+    "inflections": {"base":"Russia","plural":"Russias","possessive":"Russia's","negation":"not Russia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Russias": {
+    "types": ["noun"],
+    "inflections": {"base":"Russias","plural":"Russiases","possessive":"Russias'","negation":"not Russias","regulars":["base","plural","possessive","negation"]}
+  },
+  "SUV": {
+    "types": ["noun"],
+    "inflections": {"base":"SUV","plural":"SUVs","possessive":"SUV's","negation":"not SUV","regulars":["base","plural","possessive","negation"]}
+  },
+  "Samoa": {
+    "types": ["noun"],
+    "inflections": {"base":"Samoa","plural":"Samoas","possessive":"Samoa's","negation":"not Samoa","regulars":["base","plural","possessive","negation"]}
+  },
+  "Samoan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Samoan","plural":"Samoans","comparative":"more Samoan","negative_comparative":"less Samoan","superlative":"the most Samoan","negation":"not Samoan","possessive":"Samoan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Santa Claus": {
+    "types": ["noun"],
+    "inflections": {"base":"Santa Claus","plural":"Santa Clauses","possessive":"Santa Claus'","negation":"not Santa Claus","regulars":["base","plural","possessive","negation"]}
+  },
+  "Saturday": {
+    "types": ["noun"],
+    "inflections": {"base":"Saturday","plural":"Saturdays","possessive":"Saturday's","negation":"not Saturday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Saturn": {
+    "types": ["noun"],
+    "inflections": {"base":"Saturn","plural":"Saturns","possessive":"Saturn's","negation":"not Saturn","regulars":["base","plural","possessive","negation"]}
+  },
+  "Saudi": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Saudi","plural":"Saudis","comparative":"more Saudi","negative_comparative":"less Saudi","superlative":"the most Saudi","negation":"not Saudi","possessive":"Saudi's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Saudi Arabia": {
+    "types": ["noun"],
+    "inflections": {"base":"Saudi Arabia","plural":"Saudi Arabias","possessive":"Saudi Arabia's","negation":"not Saudi Arabia","regulars":["base","plural","possessive","negation"]}
+  },
+  "September": {
+    "types": ["noun"],
+    "inflections": {"base":"September","plural":"Septembers","possessive":"September's","negation":"not September","regulars":["base","plural","possessive","negation"]}
+  },
+  "Snapchat": {
+    "types": ["noun"],
+    "inflections": {"base":"Snapchat","plural":"Snapchats","possessive":"Snapchat's","negation":"not Snapchat","regulars":["base","plural","possessive","negation"]}
+  },
+  "South Africa": {
+    "types": ["noun"],
+    "inflections": {"base":"South Africa","plural":"South Africas","possessive":"South Africa's","negation":"not South Africa","regulars":["base","plural","possessive","negation"]}
+  },
+  "South African": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"South African","plural":"South Africans","comparative":"more South African","negative_comparative":"less South African","superlative":"the most South African","negation":"not South African","possessive":"South African's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "South America": {
+    "types": ["noun"],
+    "inflections": {"base":"South America","plural":"South Americas","possessive":"South America's","negation":"not South America","regulars":["base","plural","possessive","negation"]}
+  },
+  "South Carolina": {
+    "types": ["noun"],
+    "inflections": {"base":"South Carolina","plural":"South Carolinas","possessive":"South Carolina's","negation":"not South Carolina","regulars":["base","plural","possessive","negation"]}
+  },
+  "South Dakota": {
+    "types": ["noun"],
+    "inflections": {"base":"South Dakota","plural":"South Dakotas","possessive":"South Dakota's","negation":"not South Dakota","regulars":["base","plural","possessive","negation"]}
+  },
+  "South Korea": {
+    "types": ["noun"],
+    "inflections": {"base":"South Korea","plural":"South Koreas","possessive":"South Korea's","negation":"not South Korea","regulars":["base","plural","possessive","negation"]}
+  },
+  "Spain": {
+    "types": ["noun"],
+    "inflections": {"base":"Spain","plural":"Spains","possessive":"Spain's","negation":"not Spain","regulars":["base","plural","possessive","negation"]}
+  },
+  "Spanish": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Spanish","plural":"Spanishes","comparative":"more Spanish","negative_comparative":"less Spanish","superlative":"the most Spanish","negation":"not Spanish","possessive":"Spanish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Sprite": {
+    "types": ["noun"],
+    "inflections": {"base":"Sprite","plural":"Sprites","possessive":"Sprite's","negation":"not Sprite","regulars":["base","plural","possessive","negation"]}
+  },
+  "St. Patrick's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"St. Patrick's Day","plural":"St. Patrick's Days","possessive":"St. Patrick's Day's","negation":"not St. Patrick's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Statue of Liberty": {
+    "types": ["noun"],
+    "inflections": {"base":"Statue of Liberty","plural":"Statues of Liberty","possessive":"Statue of Liberty's","negation":"not Statue of Liberty","regulars":["base","possessive","negation","plural"]}
+  },
+  "Sudan": {
+    "types": ["noun"],
+    "inflections": {"base":"Sudan","plural":"Sudans","possessive":"Sudan's","negation":"not Sudan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Sudanese": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Sudanese","plural":"Sudaneses","comparative":"more Sudanese","negative_comparative":"less Sudanese","superlative":"the most Sudanese","negation":"not Sudanese","possessive":"Sudanese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Sumer": {
+    "types": ["noun"],
+    "inflections": {"base":"Sumer","plural":"Sumers","possessive":"Sumer's","negation":"not Sumer","regulars":["base","plural","possessive","negation"]}
+  },
+  "Sunday": {
+    "types": ["noun"],
+    "inflections": {"base":"Sunday","plural":"Sundays","possessive":"Sunday's","negation":"not Sunday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Sweden": {
+    "types": ["noun"],
+    "inflections": {"base":"Sweden","plural":"Swedens","possessive":"Sweden's","negation":"not Sweden","regulars":["base","plural","possessive","negation"]}
+  },
+  "Swedish": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Swedish","plural":"Swedishes","comparative":"more Swedish","negative_comparative":"less Swedish","superlative":"the most Swedish","negation":"not Swedish","possessive":"Swedish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Swiss": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Swiss","plural":"Swisses","comparative":"Swisser","negative_comparative":"less Swiss","superlative":"Swissest","negation":"not Swiss","possessive":"Swiss'","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Switzerland": {
+    "types": ["noun"],
+    "inflections": {"base":"Switzerland","plural":"Switzerlands","possessive":"Switzerland's","negation":"not Switzerland","regulars":["base","plural","possessive","negation"]}
+  },
+  "TA": {
+    "types": ["noun"],
+    "inflections": {"base":"TA","plural":"TAs","possessive":"TA's","negation":"not TA","regulars":["base","plural","possessive","negation"]}
+  },
+  "Taiwan": {
+    "types": ["noun"],
+    "inflections": {"base":"Taiwan","plural":"Taiwans","possessive":"Taiwan's","negation":"not Taiwan","regulars":["base","plural","possessive","negation"]}
+  },
+  "Taiwanese": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Taiwanese","plural":"Taiwaneses","comparative":"more Taiwanese","negative_comparative":"less Taiwanese","superlative":"the most Taiwanese","negation":"not Taiwanese","possessive":"Taiwanese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Taj Mahal": {
+    "types": ["noun"],
+    "inflections": {"base":"Taj Mahal","plural":"Taj Mahals","possessive":"Taj Mahal's","negation":"not Taj Mahal","regulars":["base","plural","possessive","negation"]}
+  },
+  "Tao": {
+    "types": ["noun"],
+    "inflections": {"base":"Tao","plural":"Taos","possessive":"Tao's","negation":"not Tao","regulars":["base","plural","possessive","negation"]}
+  },
+  "Tennessee": {
+    "types": ["noun"],
+    "inflections": {"base":"Tennessee","plural":"Tennessees","possessive":"Tennessee's","negation":"not Tennessee","regulars":["base","plural","possessive","negation"]}
+  },
+  "Texas": {
+    "types": ["noun"],
+    "inflections": {"base":"Texas","plural":"Texases","possessive":"Texas'","negation":"not Texas","regulars":["base","plural","possessive","negation"]}
+  },
+  "Thanksgiving": {
+    "types": ["noun"],
+    "inflections": {"base":"Thanksgiving","plural":"Thanksgivings","possessive":"Thanksgiving's","negation":"not Thanksgiving","regulars":["base","plural","possessive","negation"]}
+  },
+  "This app is called CoughDrop": {
+    "types": ["social"],
+    "inflections": {"base":"This app is called CoughDrop","regulars":["base"]}
+  },
+  "Thursday": {
+    "types": ["noun"],
+    "inflections": {"base":"Thursday","plural":"Thursdays","possessive":"Thursday's","negation":"not Thursday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Times Square": {
+    "types": ["noun"],
+    "inflections": {"base":"Times Square","plural":"Times Squares","possessive":"Times Square's","negation":"not Times Square","regulars":["base","plural","possessive","negation"]}
+  },
+  "Tonga": {
+    "types": ["noun"],
+    "inflections": {"base":"Tonga","plural":"Tongas","possessive":"Tonga's","negation":"not Tonga","regulars":["base","plural","possessive","negation"]}
+  },
+  "Tongan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Tongan","plural":"Tongans","comparative":"more Tongan","negative_comparative":"less Tongan","superlative":"the most Tongan","negation":"not Tongan","possessive":"Tongan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Tower of Pisa": {
+    "types": ["noun"],
+    "inflections": {"base":"Tower of Pisa","plural":"Tower of Pisas","possessive":"Tower of Pisa's","negation":"not Tower of Pisa","regulars":["base","plural","possessive","negation"]}
+  },
+  "Tuesday": {
+    "types": ["noun"],
+    "inflections": {"base":"Tuesday","plural":"Tuesdays","possessive":"Tuesday's","negation":"not Tuesday","regulars":["base","plural","possessive","negation"]}
+  },
+  "Turkey": {
+    "types": ["noun"],
+    "inflections": {"base":"Turkey","plural":"Turkeys","possessive":"Turkey's","negation":"not Turkey","regulars":["base","plural","possessive","negation"]}
+  },
+  "Turkish": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Turkish","plural":"Turkishes","comparative":"more Turkish","negative_comparative":"less Turkish","superlative":"the most Turkish","negation":"not Turkish","possessive":"Turkish's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Twitter": {
+    "types": ["noun"],
+    "inflections": {"base":"Twitter","plural":"Twitters","possessive":"Twitter's","negation":"not Twitter","regulars":["base","plural","possessive","negation"]}
+  },
+  "U F O": {
+    "types": ["noun"],
+    "inflections": {"base":"U F O","plural":"U F Os","possessive":"U F O's","negation":"not U F O","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ukraine": {
+    "types": ["noun"],
+    "inflections": {"base":"Ukraine","plural":"Ukraines","possessive":"Ukraine's","negation":"not Ukraine","regulars":["base","plural","possessive","negation"]}
+  },
+  "Ukrainian": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Ukrainian","plural":"Ukrainians","comparative":"more Ukrainian","negative_comparative":"less Ukrainian","superlative":"the most Ukrainian","negation":"not Ukrainian","possessive":"Ukrainian's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "United Nations": {
+    "types": ["noun"],
+    "inflections": {"base":"United Nations","plural":"United Nationses","possessive":"United Nations'","negation":"not United Nations","regulars":["base","plural","possessive","negation"]}
+  },
+  "United States": {
+    "types": ["noun"],
+    "inflections": {"base":"United States","plural":"United Stateses","possessive":"United States'","negation":"not United States","regulars":["base","plural","possessive","negation"]}
+  },
+  "Uranus": {
+    "types": ["noun"],
+    "inflections": {"base":"Uranus","plural":"Uranuses","possessive":"Uranus'","negation":"not Uranus","regulars":["base","plural","possessive","negation"]}
+  },
+  "Utah": {
+    "types": ["noun"],
+    "inflections": {"base":"Utah","plural":"Utahs","possessive":"Utah's","negation":"not Utah","regulars":["base","plural","possessive","negation"]}
+  },
+  "V-Day": {
+    "types": ["noun"],
+    "inflections": {"base":"V-Day","plural":"V-Days","possessive":"V-Day's","negation":"not V-Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Valentine's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Valentine's Day","plural":"Valentine's Days","possessive":"Valentine's Day's","negation":"not Valentine's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Venezuela": {
+    "types": ["noun"],
+    "inflections": {"base":"Venezuela","plural":"Venezuelas","possessive":"Venezuela's","negation":"not Venezuela","regulars":["base","plural","possessive","negation"]}
+  },
+  "Venezuelan": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Venezuelan","plural":"Venezuelans","comparative":"more Venezuelan","negative_comparative":"less Venezuelan","superlative":"the most Venezuelan","negation":"not Venezuelan","possessive":"Venezuelan's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Venus": {
+    "types": ["noun"],
+    "inflections": {"base":"Venus","plural":"Venuses","possessive":"Venus'","negation":"not Venus","regulars":["base","plural","possessive","negation"]}
+  },
+  "Vermont": {
+    "types": ["noun"],
+    "inflections": {"base":"Vermont","plural":"Vermonts","possessive":"Vermont's","negation":"not Vermont","regulars":["base","plural","possessive","negation"]}
+  },
+  "Veteran's Day": {
+    "types": ["noun"],
+    "inflections": {"base":"Veteran's Day","plural":"Veteran's Days","possessive":"Veteran's Day's","negation":"not Veteran's Day","regulars":["base","plural","possessive","negation"]}
+  },
+  "Vietnam": {
+    "types": ["noun"],
+    "inflections": {"base":"Vietnam","plural":"Vietnams","possessive":"Vietnam's","negation":"not Vietnam","regulars":["base","plural","possessive","negation"]}
+  },
+  "Vietnamese": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Vietnamese","plural":"Vietnameses","comparative":"more Vietnamese","negative_comparative":"less Vietnamese","superlative":"the most Vietnamese","negation":"not Vietnamese","possessive":"Vietnamese's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
+  },
+  "Viking": {
+    "types": ["noun","adjective"],
+    "inflections": {"base":"Viking","plural":"Vikings","possessive":"Viking's","negation":"not Viking","comparative":"more Viking","negative_comparative":"less Viking","superlative":"the most Viking","regulars":["base","plural","possessive","negation","comparative","negative_comparative","superlative"]}
+  },
+  "Virginia": {
+    "types": ["noun"],
+    "inflections": {"base":"Virginia","plural":"Virginias","possessive":"Virginia's","negation":"not Virginia","regulars":["base","plural","possessive","negation"]}
+  },
+  "Washington": {
+    "types": ["noun"],
+    "inflections": {"base":"Washington","plural":"Washingtons","possessive":"Washington's","negation":"not Washington","regulars":["base","plural","possessive","negation"]}
+  },
+  "Washington D.C.": {
+    "types": ["noun"],
+    "inflections": {"base":"Washington D.C.","plural":"Washington D.C.s","possessive":"Washington D.C.'s","negation":"not Washington D.C.","regulars":["base","plural","possessive","negation"]}
+  },
+  "Wednesday": {
+    "types": ["noun"],
+    "inflections": {"base":"Wednesday","plural":"Wednesdays","possessive":"Wednesday's","negation":"not Wednesday","regulars":["base","plural","possessive","negation"]}
+  },
+  "West Virginia": {
+    "types": ["noun"],
+    "inflections": {"base":"West Virginia","plural":"West Virginias","possessive":"West Virginia's","negation":"not West Virginia","regulars":["base","plural","possessive","negation"]}
+  },
+  "White House": {
+    "types": ["noun"],
+    "inflections": {"base":"White House","plural":"White Houses","possessive":"White House's","negation":"not White House","regulars":["base","plural","possessive","negation"]}
+  },
+  "Wisconsin": {
+    "types": ["noun"],
+    "inflections": {"base":"Wisconsin","plural":"Wisconsins","possessive":"Wisconsin's","negation":"not Wisconsin","regulars":["base","plural","possessive","negation"]}
+  },
+  "Worchestershire sauce": {
+    "types": ["noun"],
+    "inflections": {"base":"Worchestershire sauce","plural":"Worchestershire sauces","possessive":"Worchestershire sauce's","negation":"not Worchestershire sauce","regulars":["base","plural","possessive","negation"]}
+  },
+  "World War 1": {
+    "types": ["noun"],
+    "inflections": {"base":"World War 1","plural":"World War 1s","possessive":"World War 1's","negation":"not World War 1","regulars":["base","plural","possessive","negation"]}
+  },
+  "World War 2": {
+    "types": ["noun"],
+    "inflections": {"base":"World War 2","plural":"World War 2s","possessive":"World War 2's","negation":"not World War 2","regulars":["base","plural","possessive","negation"]}
+  },
+  "Wyoming": {
+    "types": ["noun"],
+    "inflections": {"base":"Wyoming","plural":"Wyomings","possessive":"Wyoming's","negation":"not Wyoming","regulars":["base","plural","possessive","negation"]}
+  },
+  "Yom Kippur": {
+    "types": ["noun"],
+    "inflections": {"base":"Yom Kippur","plural":"Yom Kippurs","possessive":"Yom Kippur's","negation":"not Yom Kippur","regulars":["base","plural","possessive","negation"]}
+  },
+  "YouTube": {
+    "types": ["noun"],
+    "inflections": {"base":"YouTube","plural":"YouTubes","possessive":"YouTube's","negation":"not YouTube","regulars":["base","plural","possessive","negation"]}
+  },
+  "Zimbabwe": {
+    "types": ["noun"],
+    "inflections": {"base":"Zimbabwe","plural":"Zimbabwes","possessive":"Zimbabwe's","negation":"not Zimbabwe","regulars":["base","plural","possessive","negation"]}
+  },
+  "Zimbabwean": {
+    "types": ["adjective","noun"],
+    "inflections": {"base":"Zimbabwean","plural":"Zimbabweans","comparative":"more Zimbabwean","negative_comparative":"less Zimbabwean","superlative":"the most Zimbabwean","negation":"not Zimbabwean","possessive":"Zimbabwean's","regulars":["base","plural","comparative","negative_comparative","superlative","negation","possessive"]}
   }
 }
