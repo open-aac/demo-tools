@@ -251,7 +251,45 @@ var in7ns = {};
   };
 
   in7ns.load = function(locale) {
-
+    return new Promise(function(resolve, reject) {
+      fetch("./words-" + locale + ".json").then(function(res) { 
+        var words = null;
+        res.json().then(function(json) {
+          var words = json;
+          fetch("./rules-" + locale + ".json").then(function(res) {
+            res.json().then(function(json) {
+              resolve({
+                rules: json.rules,
+                words: words,
+                tests: json.tests
+              });
+            }, function(err) {
+              reject({
+                error: err,
+                message: "error parsing rules for " + locale,
+                words: words
+              });
+            });
+          }, function(err) {
+            reject({
+              error: err,
+              message: "error retrieving rules for " + locale,
+              words: words
+            });
+          });
+        }, function(err) {
+          reject({
+            error: err,
+            message: "error parsing rules for " + locale,
+          });
+        });
+      }, function(err) {
+        reject({
+          error: err,
+          message: "error retrieving words for " + locale
+        });
+      });
+    });
   };
   in7ns.lookup = function(prior_words, lookup_text, locale, do_debug) {
     return lookup(prior_words, lookup_text, do_debug);
@@ -272,6 +310,7 @@ var in7ns = {};
           word.inflections[opt] = hash[key][opt];
         }  
       }
+      word.inflections.base = word.inflections.base || key;
       new_hash[key] = word;
     }
     return new_hash;

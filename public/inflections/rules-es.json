@@ -1,6 +1,7 @@
 {
   "_locale": "en",
   "_version": "0.1",
+  "_license": "CC By, OpenAAC",
   "_type": "rules",
   "rules": [
     {"id":"yo_estoy","type":"verb",

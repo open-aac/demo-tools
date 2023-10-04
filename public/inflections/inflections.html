@@ -19,43 +19,77 @@
   </head>
   <body>
     <div style='margin: 0 auto; max-width: 700px;'>
-      <h1>Inflections Checker</h1>
-      <p>The inflections library looks for known words and 
-      suggests proper inflections for them based on what
-      came before (prior). You can enter a word (i.e. "think"), 
-      a prior ("tell me if he"), or both and the inflections
-      library will suggest a possible inflection if it matches
-      any of the defined rules. Note that in ambigous cases,
-      where multiple inflections could be correct, a judgment
-      call has to be made and either one "more common"
-      inflection will be proposed, or none will be.</p>
+      <h1>Language Support Models for AAC</h1>
       <p>
-        <a href="https://docs.google.com/document/d/1JJI82jk9hPy-PHMgx5rXNhEhy8Z38-MtSF0Uirt8gFY/edit?usp=sharing">See the documentation</a> for more details.
-        Or check out <a href="words-en.json">words-en.json</a> and <a href="rules-en.json">rules-en.json</a> for example implementations.
+        There are multiple areas of AAC (Augmentative and 
+        Alternative Communication) where programmatic language
+        processing can provide value. Here we address two of
+        those areas: word identification and basic inflection.
+        By providing standardized datasets we hope to make it
+        easier for AAC systems to support language-aware 
+        solutions for multiple locales. These standards are
+        defined in 
+        <a href="https://docs.google.com/document/d/1JJI82jk9hPy-PHMgx5rXNhEhy8Z38-MtSF0Uirt8gFY/edit?usp=sharing">the words & inflections documentation</a>.
       </p>
-      <div style='width: 48%; float: left;'>
-        word: <input type='text' id='word'/>
-        <div style='margin-top: 5px;'>
-          <button type='button' id='check'>Check Inflection Rules</button>
-          <button type='button' id='random'>Surprise Me</button>
+      <p>
+        By keeping a dataset of common words in a language,
+        AAC systems can automatically colorize buttons based
+        on parts of speech, offer alternative word forms (verb 
+        tenses, pluralization, etc.), and more effectively
+        handle advanced features like automatic or popup inflections.
+        (see an example here - 
+        <a href="words-en.json">words-en.json</a>)
+      </p>
+      <p>
+        By tracking for common inflection rules, AAC systems 
+        can automatically offer more grammatically correct
+        sentences for users. (see an example here - 
+        <a href="rules-en.json">rules-en.json</a>)
+      </p>
+      <p style='padding-top: 30px;'>Below is a simple inflections lookup tool you can
+        use to try out the words and rules datasets for yourself.
+        You can enter a word (i.e. "think"), 
+        a prior ("tell me if he"), or both and the inflections
+        library will suggest a possible inflection if it matches
+        any of the defined rules. Note that in ambigous cases,
+        where multiple inflections could be correct, a judgment
+        call has to be made and either one "more common"
+        inflection will be proposed, or none will be.
+      </p>
+      <div style='border: 1px solid #888; border-radius: 10px; padding: 10px 20px;'>
+
+        <div style='width: 48%; float: left;'>
+          word: <input type='text' id='word' placeholder='word to look up'/>
+          <div style='margin-top: 5px;'>
+            <button type='button' id='check'>Check Inflection Rules</button>
+            <button type='button' id='random'>Surprise Me!</button>
+          </div>
+          <div id='word_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
         </div>
-        <div id='word_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
-      </div>
-      <div style='width: 48%; margin-left: 4%; float: left;'>
-        prior: <input type='text' id='prior' style='width: 40%;'/>
-        <span id='word_span' style='font-style: italic; display: inline-block;'></span>
-        <div style='visibility: hidden; margin-top: 5px;'>
-          <button type='button'>Placeholder</button>
+        <div style='width: 48%; margin-left: 4%; float: left;'>
+          prior: <input type='text' id='prior' style='width: 70%;' placeholder='what comes before the word'/>
+          <span id='word_span' style='font-style: italic; display: inline-block;'></span>
+          <div style='visibility: hidden; margin-top: 5px;'>
+            <button type='button'>Placeholder</button>
+          </div>
+          <div id='rule_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
         </div>
-        <div id='rule_result' style='white-space: pre-wrap; margin-top: 15px;'></div>
+        <div style='clear: both;'></div>
+      </div>        
+      <div style='margin-top: 40px; clear: both;' id='debug'>
+        <a href='#'>show currently-used datasets</a>
       </div>
-      <div style='margin-top: 200px; clear: both;' id='debug'>
-        <a href='#'>show configuration</a>
-      </div>
-      <div style='margin-top: 100px; display: none; clear: both;' id='debugging'>
-        <h3>Inflections Configuration</h3>
+      <div style='margin-top: 40px; display: none; clear: both;' id='debugging'>
+        <h3>Words/Inflections Data Sets</h3>
+        <div style='margin-bottom: 20px;'>
+          Load From Source:
+          <button rel='en' class='set_locale' style='height: 35px;'>EN (English)</button>
+          <button rel='es' class='set_locale' style='height: 35px;'>ES (Espanol - minimal)</button>  
+        </div>
         Word List:
-         (import csv - <a href="words-es.csv">example</a>) <input id='words_csv' type='file' accept='text/csv'>
+         <span style='padding-left: 30px;'>
+            import from csv - <a href="words-es.csv">example</a> <input id='words_csv' type='file' accept='text/csv'>
+         </span>
         <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         Inflection Rules:
         <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
@@ -64,8 +98,13 @@
         Test Log:
         <div id='results' style='width: 100%; height: 200px; margin-bottom: 10px; padding: 3px 5px; border: 1px solid #888; overflow: auto;'>
         </div>
-        <button id='update_rules'>Update Rules and Words</button>
+        <button id='update_rules'>Update Words & Rules, Then Re-Run Tests</button>
       </div>
+      <footer style='margin-top: 50px;'>
+        Language Support Models are
+        <a href="https://github.com/open-aac/demo-tools/tree/master/public/inflections">open source</a>, powered by
+        <a href="https://www.openaac.org">OpenAAC</a>
+      </footer>
     </div>
     <script src='./rules.js'></script>
     <script>
@@ -99,12 +138,22 @@
           fr.onloadend = function() {
             var str =  this.result;
             var hash = in7ns.parse_words(str);
-            debugger
             process_words(hash);
             populate();
+            run_checks();
+            e.target.value = null;
           };
           fr.readAsText(file);
         }
+      });
+      document.querySelectorAll('.set_locale').forEach(function(elem) {
+        elem.addEventListener('click', function(e) {
+          e.preventDefault();
+          var locale = e.target.getAttribute('rel');
+          if(locale) {
+            load_locale(locale);
+          }
+        });
       });
       document.querySelector('#random').addEventListener('click', function(e) {
         var samples = checks.map(function(t) {
@@ -175,7 +224,7 @@
       };
       var run_checks = function() {
         document.querySelector('#results').innerText = "";
-        log("TESTS STARTED " + (new Date()).toString());
+        log("TESTS STARTED for " + locale + " " + (new Date()).toString());
         checks.forEach(function(check, idx) {
           var err = function(msg) {
             log("TEST " + idx + ": " + msg, true);
@@ -248,6 +297,26 @@
       if(location.search && location.search.match(/locale=\w+/)) {
         locale = location.search.match(/locale=(\w+)/)[1];
       }
+      var load_locale = function(locale) {
+        rules = [], words = [], checks = [];
+        in7ns.load(locale).then(function(res) {
+          process_words(res.words);
+          process_rules(res.rules);
+          checks = res.tests;
+          populate();
+          run_checks();
+        }, function(err) {
+          if(err.message) {
+            alert(err.message);
+          }
+          if(res.words) {
+            process_words(res.words);
+          }
+          res.rules = [];
+          res.tests = [];
+          populate();
+        });
+      };
       var populate = function() {
         var rules_text = "[\n";
         rules.forEach(function(rule) {
@@ -299,37 +368,7 @@
         tests_text = tests_text.replace(/,\n$/, '') + "\n]";
         document.querySelector('#tests').value = tests_text;
       };
-      rules = [], words = [], checks = [];
-      fetch("./words-" + locale + ".json").then(function(res) { 
-        res.json().then(function(json) {
-          process_words(json);
-          fetch("./rules-" + locale + ".json").then(function(res) {
-            res.json().then(function(json) {
-              checks = json.tests;
-              process_rules(json.rules);
-              populate();
-              run_checks();
-            }, function(err) {
-              console.error(err);
-              alert("error parsing rules for " + locale);
-              populate();
-            })
-          }, function(err) {
-            console.error(err);
-            alert("error retrieving rules for " + locale);
-            populate();
-          })
-        }, function(err) {
-          console.error(err);
-          alert("error parsing words for " + locale)
-          populate();
-        });
-        words = res; 
-      }, function(err) {
-        console.error(err);
-        alert("error retrieving words for " + locale);
-        populate();
-      });
+      load_locale(locale);
       document.querySelector('#debug').addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector('#debug').style.display = 'none';
