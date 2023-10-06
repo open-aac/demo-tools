@@ -97,6 +97,7 @@
             import from csv - <a href="words-es.csv">example</a> <input id='words_csv' type='file' accept='text/csv'>
          </span>
         <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        <div style='text-align: right; margin-top: -10px;'><a href='#' id='download_csv'>download as csv</a></div>
         Inflection Rules:
         <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         Test Cases:
@@ -298,6 +299,52 @@
         process_words(words_json);
         checks = JSON.parse(document.querySelector('#tests').value);
         run_checks();
+      });
+      document.querySelector('#download_csv').addEventListener('click', function(e) {
+        e.preventDefault();
+        var downloadBlob = function(content, filename, contentType) {
+          // Create a blob
+          var blob = new Blob([content], { type: contentType });
+          var url = URL.createObjectURL(blob);
+
+          // Create a link to download it
+          var pom = document.createElement('a');
+          pom.href = url;
+          pom.setAttribute('download', filename);
+          pom.click();
+        };
+        var all_keys = ['word', 'type1', 'type2', 'type3', 'antonym1', 'antonym2'];
+        words.forEach(function(w) {
+          for(var key in w.inflections) {
+            if(all_keys.indexOf(key) == -1 && key != 'antonyms' && key != 'types' && key != 'regulars' && key != 'inflections') {
+              all_keys.push(key);
+            }
+          }
+        });
+        var rows = [];
+        rows.push(all_keys.join(','));
+        words.forEach(function(w) {
+          var cells = [];
+          all_keys.forEach(function(key) {
+            if(w[key] && key != 'types' && key != 'antonyms') {
+              cells.push((w[key] || '').toString());
+            } else if(w.inflections[key]) {
+              cells.push((w.inflections[key] || '').toString());
+            }
+          });
+          if(w.types) {
+            cells[1] = w.types[0];
+            cells[2] = w.types[1];
+            cells[3] = w.types[2];
+          }
+          if(w.antonyms) {
+            cells[4] = w.antonyms[0];
+            cells[5] = w.antonyms[1];
+          }
+          rows.push(cells.map(function(e) { return `"${(e || '').replace(/"/g, '""')}"`; }).join(','));
+        });
+        var csv = rows.join('\r\n');
+        downloadBlob(csv, 'words-' + locale + '.csv', 'text/csv;charset=utf-8;');
       });
       var locale = 'en';
       if(location.search && location.search.match(/locale=\w+/)) {
