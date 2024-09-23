@@ -69,12 +69,14 @@
     {"id":"has_she_looked","type":"verb",
       "lookback": [
         {"words":["has","have","had","hasn't","haven't","hadn't"]},
-        {"words":["you","I","he","she","it","that","this","they"]},{"optional":true,"type":"adverb"}
+        {"words":["you","I","he","she","it","that","this","they"]},
+        {"optional":true,"type":"adverb"}
       ],"inflection":"past_participle","location":"sw"},
     {"id":"is_she_looking","type":"verb",
       "lookback": [
         {"words":["is","am","was","were","be","to be","are","isn't","aren't","wasn't","weren't","aren't"]},
-        {"type":"pronoun","optional":true},{"type":"adverb","optional":true},
+        {"type":"pronoun","optional":true},
+        {"type":"adverb","optional":true},
         {"words":["not"],"optional":true}
       ],"inflection":"present_participle","location":"s"},
     {"id":"you_look","type":"verb",
@@ -116,12 +118,14 @@
       ],"inflection":"infinitive","location":"e"},
     {"id":"she_wants_to_look","type":"verb",
       "lookback": [
-        {"type":"pronoun"},{"optional":true,"type":"adverb"},
+        {"type":"pronoun"},
+        {"optional":true,"type":"adverb"},
         {"type":"verb","words":["wanted","want","wants"]}
       ],"inflection":"infinitive","location":"e"},
     {"id":"she_likes_looking","type":"verb",
       "lookback": [
-        {"type":"pronoun"},{"optional":true,"type":"adverb"},
+        {"type":"pronoun"},
+        {"optional":true,"type":"adverb"},
         {"type":"verb","words":["like","likes","liked"]}
       ],"inflection":"present_participle","location":"s"},
     {"id":"she_can_want_to_look","type":"verb",
@@ -176,18 +180,21 @@
       ],"inflection":"present_participle","location":"s"},
     {"id":"hope_for_eating","type":"verb",
       "lookback": [
-        {"type":"verb"},{"words":["for","from"]}
+        {"type":"verb"},
+        {"words":["for","from"]}
       ],"inflection":"present_participle","location":"s"},
     {"id":"have_you_looked","type":"verb",
       "lookback": [
         {"words":["have","has","had","haven't","hasn't","hadn't"]},
-        {"type":"pronoun"},{"type":"adverb","optional":true},
+        {"type":"pronoun"},
+        {"type":"adverb","optional":true},
         {"words":["not"],"optional":true}
       ],"inflection":"past_participle","location":"sw"},
     {"id":"have_been_looking","type":"verb",
       "lookback": [
         {"words":["have","has","had","haven't","hasn't","hadn't"]},
-        {"words":["not"],"optional":true},{"words":["been"]}
+        {"words":["not"],"optional":true},
+        {"words":["been"]}
       ],"inflection":"present_participle","location":"s"},
     {"id":"can_be_looking","type":"verb",
       "lookback": [
@@ -222,12 +229,14 @@
     {"id":"has_the_dog_eaten","type":"verb",
       "lookback": [
         {"words":["have","has","had","haven't","hasn't","hadn't"]},
-        {"type":"determiner"},{"type":"noun"}
+        {"type":"determiner"},
+        {"type":"noun"}
       ],"inflection":"past_participle","location":"sw"},
     {"id":"has_my_dog_eaten","type":"verb",
       "lookback": [
         {"words":["have","has","had","haven't","hasn't","hadn't"]},
-        {"type":"pronoun"},{"type":"noun"}
+        {"type":"pronoun"},
+        {"type":"noun"}
       ],"inflection":"past_participle","location":"sw"},
     {"id":"dog_looks","type":"verb",
       "lookback": [
@@ -325,8 +334,7 @@
         {"words":["at"],"condense":true},
         {"words":["the"],"condense":true},
         {"words":["present"],"condense":true}
-      ],"overrides":{"time":"now"}
-    }
+      ],"overrides":{"time":"now"}}
   ],
   "inflection_locations": {
     "adjective": [
