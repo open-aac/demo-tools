@@ -97,9 +97,13 @@
             import from csv - <a href="words-es.csv">example</a> <input id='words_csv' type='file' accept='text/csv'>
          </span>
         <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
-        <div style='text-align: right; margin-top: -10px;'><a href='#' id='download_csv'>download as csv</a></div>
+        <div style='text-align: right; margin-top: -10px; margin-bottom: 30px;'><a href='#' id='download_words_csv'>download as csv</a></div>
         Inflection Rules:
+        <span style='padding-left: 30px;'>
+          import from csv - <a href="rules-es.csv">example</a> <input id='rules_csv' type='file' accept='text/csv'>
+        </span>
         <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        <div style='text-align: right; margin-top: -10px; margin-bottom: 30px;'><a href='#' id='download_rules_csv'>download as csv</a></div>
         Test Cases:
         <textarea id='tests' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         Test Log:
@@ -153,6 +157,21 @@
           fr.readAsText(file);
         }
       });
+      document.querySelector('#rules_csv').addEventListener('change', function(e) {
+        if(e.target.files && e.target.files[0]) {
+          var file = e.target.files[0];
+          var fr = new FileReader();
+          fr.onloadend = function() {
+            var str =  this.result;
+            var list = in7ns.parse_rules(str);
+            process_rules(list);
+            populate();
+            run_checks();
+            e.target.value = null;
+          };
+          fr.readAsText(file);
+        }
+      });
       document.querySelectorAll('.set_locale').forEach(function(elem) {
         elem.addEventListener('click', function(e) {
           e.preventDefault();
@@ -185,7 +204,7 @@
         var output2 = document.querySelector('#rule_result');
         output.innerText = "Checking...";
         output2.innerText = "";
-        var res = in7ns.lookup(txt, word_string);
+        var res = in7ns.lookup(word_string, txt, locale);
         var str = "";
         res.words.forEach(function(word) {
           str = str + "Word: " + word.word + " - " + word.types.join(', ');
@@ -236,7 +255,7 @@
           var err = function(msg) {
             log("TEST " + idx + ": " + msg, true);
           };
-          var res = in7ns.lookup(check[0], check[1], idx == 16);
+          var res = in7ns.lookup(check[1], check[0], locale, idx == 16);
           result_string = "";
           if(res.words.length > 0) {
             result_string = check[0] + " " + (res.words[0].replacement || res.words[0].word)
@@ -275,22 +294,9 @@
       };
       var process_rules = function(list) {
         rules = list;
-        rules.forEach(function(rule) {
-          (rule.lookback || []).forEach(function(lookback) {
-            if(lookback.non_match) { lookback.nms = lookback.non_match; lookback.non_match = new RegExp(lookback.non_match); };
-            if(lookback.match) { lookback.ms = lookback.match; lookback.match = new RegExp(lookback.match); };
-          })
-        });
       };
       var process_words = function(hash) {
-        var new_words = [];
-        for(var key in hash) {
-          if(!key.match(/^_/)) {
-            hash[key].word = key;
-            new_words.push(hash[key]);
-          }
-        }
-        words = new_words;
+        words = hash;
       };
       document.querySelector('#update_rules').addEventListener('click', function(e) {
         var rules_json = JSON.parse(document.querySelector('#rules').value);
@@ -300,19 +306,19 @@
         checks = JSON.parse(document.querySelector('#tests').value);
         run_checks();
       });
-      document.querySelector('#download_csv').addEventListener('click', function(e) {
-        e.preventDefault();
-        var downloadBlob = function(content, filename, contentType) {
-          // Create a blob
-          var blob = new Blob([content], { type: contentType });
-          var url = URL.createObjectURL(blob);
+      var downloadBlob = function(content, filename, contentType) {
+        // Create a blob
+        var blob = new Blob([content], { type: contentType });
+        var url = URL.createObjectURL(blob);
 
-          // Create a link to download it
-          var pom = document.createElement('a');
-          pom.href = url;
-          pom.setAttribute('download', filename);
-          pom.click();
-        };
+        // Create a link to download it
+        var pom = document.createElement('a');
+        pom.href = url;
+        pom.setAttribute('download', filename);
+        pom.click();
+      };
+      document.querySelector('#download_words_csv').addEventListener('click', function(e) {
+        e.preventDefault();
         var all_keys = ['word', 'type1', 'type2', 'type3', 'antonym1', 'antonym2'];
         words.forEach(function(w) {
           for(var key in w.inflections) {
@@ -346,13 +352,75 @@
         var csv = rows.join('\r\n');
         downloadBlob(csv, 'words-' + locale + '.csv', 'text/csv;charset=utf-8;');
       });
+      document.querySelector('#download_rules_csv').addEventListener('click', function(e) {
+        e.preventDefault();
+        var all_keys = ['word', 'type1', 'type2', 'type3', 'antonym1', 'antonym2'];
+        words.forEach(function(w) {
+          for(var key in w.inflections) {
+            if(all_keys.indexOf(key) == -1 && key != 'antonyms' && key != 'types' && key != 'regulars' && key != 'inflections') {
+              all_keys.push(key);
+            }
+          }
+        });
+        var rows = [];
+        var keys = {
+          id: 0, type: 1, inflection: 2, location: 3, subtype: 4, lookbacks_words: 5, lookbacks_type: 6, lookbacks_match: 9, lookbacks_non_match: 10, lookbacks_optional: 7, lookbacks_condense: 8, overrides_pre: 5, overrides_post: 6, subtype_val1: 5, subtype_val2: 6
+        };
+        var header = [];
+        for(var key in keys) {
+          header[keys[key]] = key;
+        }
+        rows.push(header.join(','));
+        rules.forEach(function(rule) {
+          // id, lookback, inflection, location, overrides
+
+          var rule_rows = [];
+          rule_rows[0] = [];
+          rule_rows[0][keys.id] = rule.id;
+          rule_rows[0][keys.type] = rule.type;
+          rule_rows[0][keys.inflection] = rule.inflection;
+          rule_rows[0][keys.location] = rule.location;
+          (rule.lookback || []).forEach(function(lookback, idx) {
+            var r = [];
+            if(idx == 0) {
+              r[keys.location] = '1';
+            }
+            r[keys.subtype] = 'lookback';
+            r[keys.lookbacks_words] = (lookback.words || []).join('|');
+            r[keys.lookbacks_type] = lookback.type;
+            r[keys.lookbacks_match] = (lookback.match || '').toString().replace(/^\//, '').replace(/\/$/, '');
+            r[keys.lookbacks_non_match] = (lookback.non_match || '').toString().replace(/^\//, '').replace(/\/$/, '');
+            r[keys.lookbacks_optional] = lookback.optional ? '1' : '0';
+            r[keys.lookbacks_condense] = lookback.condense ? '1' : '0';
+            rule_rows.push(r);
+          });
+          var cnt = 0;
+          for(var val in (rule.overrides || {})) {
+            var r = [];
+            if(cnt == 0) {
+              r[keys.location] = '2';
+            }
+            cnt++;
+            r[keys.subtype] = 'override';
+            r[keys.overrides_pre] = val;
+            r[keys.overrides_post] = rule.overrides[val];
+            rule_rows.push(r);
+          }
+          rule_rows.forEach(function(cells) {
+            rows.push(cells.map(function(e) { return `"${(e || '').replace(/"/g, '""')}"`; }).join(','));
+          });
+        });
+        var csv = rows.join('\r\n');
+        downloadBlob(csv, 'rules-' + locale + '.csv', 'text/csv;charset=utf-8;');
+      });
+
       var locale = 'en';
       if(location.search && location.search.match(/locale=\w+/)) {
         locale = location.search.match(/locale=(\w+)/)[1];
       }
       var load_locale = function(locale) {
         rules = [], words = [], checks = [];
-        in7ns.load(locale).then(function(res) {
+        in7ns.load(locale, {}).then(function(res) {
           process_words(res.words);
           process_rules(res.rules);
           checks = res.tests;
@@ -386,17 +454,17 @@
               delete b['ms'];
             }
           })
-          rules_text = rules_text + "    \"lookback\": " + JSON.stringify(lb).replace(/^\[/, "[\n      ").replace(/\]$/, "\n    ]");
+          rules_text = rules_text + "    \"lookback\": " + JSON.stringify(lb).replace(/^\[/, "[\n      ").replace(/\]$/, "\n    ]").replace(/\},\{/g, "},\n      {");
           if(rule.overrides) {
-            rules_text = rules_text + ",\"overrides\":" + JSON.stringify(rule.overrides) + "\n";
+            rules_text = rules_text + ",\"overrides\":" + JSON.stringify(rule.overrides) + "";
           } else if(rule.inflection) {
             rules_text = rules_text + ",\"inflection\":" + JSON.stringify(rule.inflection);
             if(rule.location) {
               rules_text = rules_text + ",\"location\":" + JSON.stringify(rule.location);
             }
-            rules_text = rules_text + "\n";
+            rules_text = rules_text + "";
           }
-          rules_text = rules_text + "  },\n";
+          rules_text = rules_text + "},\n";
         });
         rules_text = rules_text.replace(/,\n$/, '') + "\n]";
         document.querySelector('#rules').value = rules_text;
