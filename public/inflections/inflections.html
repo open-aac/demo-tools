@@ -91,21 +91,29 @@
           Load From Source:
           <button rel='en' class='set_locale' style='height: 35px;'>EN (English)</button>
           <button rel='es' class='set_locale' style='height: 35px;'>ES (Espanol - minimal)</button>  
+          <a href="https://docs.google.com/document/d/1JJI82jk9hPy-PHMgx5rXNhEhy8Z38-MtSF0Uirt8gFY/edit#heading=h.y2682texp49l">Tips for custom or new data sets</a>
         </div>
         Word List:
          <span style='padding-left: 30px;'>
-            import from csv - <a href="words-es.csv">example</a> <input id='words_csv' type='file' accept='text/csv'>
+            import from csv - <a href="words-en.csv">example</a> <input id='words_csv' type='file' accept='text/csv'>
          </span>
         <textarea id='words' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         <div style='text-align: right; margin-top: -10px; margin-bottom: 30px;'><a href='#' id='download_words_csv'>download as csv</a></div>
+
         Inflection Rules:
-        <span style='padding-left: 30px;'>
-          import from csv - <a href="rules-es.csv">example</a> <input id='rules_csv' type='file' accept='text/csv'>
-        </span>
+          <span style='padding-left: 30px;'>
+            import from csv - <a href="rules-en.csv">example</a> <input id='rules_csv' type='file' accept='text/csv'>
+          </span>
         <textarea id='rules' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
         <div style='text-align: right; margin-top: -10px; margin-bottom: 30px;'><a href='#' id='download_rules_csv'>download as csv</a></div>
+
         Test Cases:
+          <span style='padding-left: 30px;'>
+            import from csv - <a href="tests-en.csv">example</a> <input id='tests_csv' type='file' accept='text/csv'>
+          </span>
         <textarea id='tests' style='width: 100%; height: 200px; margin-bottom: 10px; white-space: nowrap;'></textarea>
+        <div style='text-align: right; margin-top: -10px; margin-bottom: 30px;'><a href='#' id='download_tests_csv'>download as csv</a></div>
+
         Test Log:
         <div id='results' style='width: 100%; height: 200px; margin-bottom: 10px; padding: 3px 5px; border: 1px solid #888; overflow: auto;'>
         </div>
@@ -165,6 +173,21 @@
             var str =  this.result;
             var list = in7ns.parse_rules(str);
             process_rules(list);
+            populate();
+            run_checks();
+            e.target.value = null;
+          };
+          fr.readAsText(file);
+        }
+      });
+      document.querySelector('#tests_csv').addEventListener('change', function(e) {
+        if(e.target.files && e.target.files[0]) {
+          var file = e.target.files[0];
+          var fr = new FileReader();
+          fr.onloadend = function() {
+            var str =  this.result;
+            var list = in7ns.parse_tests(str);
+            process_tests(list);
             populate();
             run_checks();
             e.target.value = null;
@@ -298,12 +321,16 @@
       var process_words = function(hash) {
         words = hash;
       };
+      var process_tests = function(list) {
+        checks = list;
+      };
       document.querySelector('#update_rules').addEventListener('click', function(e) {
         var rules_json = JSON.parse(document.querySelector('#rules').value);
         process_rules(rules_json);
         var words_json = JSON.parse(document.querySelector('#words').value);
         process_words(words_json);
-        checks = JSON.parse(document.querySelector('#tests').value);
+        checks_json = JSON.parse(document.querySelector('#tests').value);
+        process_tests(checks_json);
         run_checks();
       });
       var downloadBlob = function(content, filename, contentType) {
@@ -364,7 +391,7 @@
         });
         var rows = [];
         var keys = {
-          id: 0, type: 1, inflection: 2, location: 3, subtype: 4, lookbacks_words: 5, lookbacks_type: 6, lookbacks_match: 9, lookbacks_non_match: 10, lookbacks_optional: 7, lookbacks_condense: 8, overrides_pre: 5, overrides_post: 6, subtype_val1: 5, subtype_val2: 6
+          id: 0, type: 1, inflection: 2, location: 3, subtype: 4, lookbacks_words: 5, lookbacks_type: 6, lookbacks_match: 9, lookbacks_non_match: 10, lookbacks_optional: 7, lookbacks_condense: 8, overrides_pre: 5, overrides_post: 6, lookbacks_words_or_overrides_pre: 5, lookbacks_type_or_overrides_post: 6
         };
         var header = [];
         for(var key in keys) {
@@ -414,16 +441,43 @@
         downloadBlob(csv, 'rules-' + locale + '.csv', 'text/csv;charset=utf-8;');
       });
 
+      document.querySelector('#download_tests_csv').addEventListener('click', function(e) {
+        e.preventDefault();
+        var all_keys = ['rule_id', 'inflection', 'pre_words', 'test_word', 'updated_words'];
+        var rows = [];
+        var keys = {
+          rule_id: 0, inflection: 1, pre_words: 2, test_word: 3, updated_words: 4
+        };
+        var header = [];
+        for(var key in keys) {
+          header[keys[key]] = key;
+        }
+        rows.push(header.join(','));
+        checks.forEach(function(check) {
+          // id, lookback, inflection, location, overrides
+          var cells = [];
+          cells[keys.rule_id] = (check[3] || {}).rule_id;
+          cells[keys.inflection] = (check[3] || {}).inflection;
+          cells[keys.pre_words] = check[0];
+          cells[keys.test_word] = check[1];
+          cells[keys.updated_words] = check[2];
+          rows.push(cells.map(function(e) { return `"${(e || '').replace(/"/g, '""')}"`; }).join(','));
+        });
+        var csv = rows.join('\r\n');
+        downloadBlob(csv, 'tests-' + locale + '.csv', 'text/csv;charset=utf-8;');
+      });
+
       var locale = 'en';
       if(location.search && location.search.match(/locale=\w+/)) {
         locale = location.search.match(/locale=(\w+)/)[1];
       }
-      var load_locale = function(locale) {
+      var load_locale = function(loc) {
         rules = [], words = [], checks = [];
-        in7ns.load(locale, {}).then(function(res) {
+        in7ns.load(loc, {}).then(function(res) {
+          locale = loc;
           process_words(res.words);
           process_rules(res.rules);
-          checks = res.tests;
+          process_tests(res.tests);
           populate();
           run_checks();
         }, function(err) {

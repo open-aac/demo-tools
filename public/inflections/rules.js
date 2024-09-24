@@ -286,7 +286,14 @@ var in7ns = {};
       for(var jdx = 0; jdx < arr[idx].length; jdx++) {
         var val = arr[idx][jdx];
         if(jdx == 0) {
-          id = arr[idx][jdx];
+          if(arr[0][0] != 'id') {
+            id = idx;
+            if(val && val != 'NA' && val != 'N/A') {
+              row[head[jdx]] = arr[idx][jdx];
+            }
+          } else {
+            id = arr[idx][jdx];
+          }
         } else {
           if(val && val != 'NA' && val != 'N/A') {
             row[head[jdx]] = arr[idx][jdx];
@@ -406,14 +413,17 @@ var in7ns = {};
       for(var opt in hash[key]) {
         if(opt == 'subrows') {
           hash[key][opt].forEach(function(sub) {
+            sub.lookbacks_words_or_overrides_pre = sub.lookbacks_words_or_overrides_pre || sub.subtype_val1;
+            sub.lookbacks_type_or_overrides_post = sub.lookbacks_type_or_overrides_post || sub.subtype_val2;
             if(sub.subtype == 'lookback') {
               rule.lookback = rule.lookback || [];
               var lookback = {};
-              if(sub.subtype_val2) {
-                lookback.type = sub.subtype_val2;
+ 
+              if(sub.lookbacks_type_or_overrides_post) {
+                lookback.type = sub.lookbacks_type_or_overrides_post;
               }
-              if(sub.subtype_val1) {
-                lookback.words = sub.subtype_val1.split(/\|/);
+              if(sub.lookbacks_words_or_overrides_pre) {
+                lookback.words = sub.lookbacks_words_or_overrides_pre.split(/\|/);
               }
               if(sub.lookbacks_optional == '1') {
                 lookback.optional = true;
@@ -430,7 +440,7 @@ var in7ns = {};
               rule.lookback.push(lookback);
             } else if(sub.subtype == 'override') {
               rule.overrides = rule.overrides || {}
-              rule.overrides[sub.subtype_val1] = sub.subtype_val2;
+              rule.overrides[sub.lookbacks_words_or_overrides_pre] = sub.lookbacks_type_or_overrides_post;
             }
           });
         } else {
@@ -440,5 +450,27 @@ var in7ns = {};
       rules.push(rule);
     }
     return rules;  
+  }
+  in7ns.parse_tests = function(str) {
+    var hash = csvToHash(str);
+    var tests = [];
+    for(var key in hash) {
+      var test = [];
+      // ["I think this","can","I think this can",{"inflection":"simple_present","rule_id":"she_looks"}],
+      // var all_keys = ['rule_id', 'inflection', 'pre_words', 'test_word', 'updated_words'];
+      test[0] = hash[key].pre_words;
+      test[1] = hash[key].test_word;
+      test[2] = hash[key].updated_words;
+      if(hash[key].inflection) {
+        test[3] = test[3] || {};
+        test[3].inflection = hash[key].inflection;
+      }
+      if(hash[key].rule_id) {
+        test[3] = test[3] || {};
+        test[3].rule_id = hash[key].rule_id;
+      }
+      tests.push(test);
+    }
+    return tests;
   }
 })();
